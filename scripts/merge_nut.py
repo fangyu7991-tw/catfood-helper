@@ -1,0 +1,50 @@
+# 把 data/ingredients/*.json 的口味成分併到網站：寫入 public/index.html 的 NUTGEN 區塊
+import json,re,sys,glob
+site=json.load(open(sys.argv[1]))   # node 匯出的 PR/NUT 清單
+HTML='public/index.html'
+recs=[r for f in sorted(glob.glob('data/ingredients/*.json')) for r in json.load(open(f,encoding='utf-8'))]
+PR=site['PR']; have=set(site['NUT'])
+def find(r):
+    if r.get('site_id'): return r['site_id']
+    b=r['brand'].split()[0].lower()
+    cands=[p for p in PR if p['f']=='dry' and p['b'].split()[0].lower().startswith(b[:4])]
+    if r.get('site_code'):
+        c=re.escape(r['site_code'])
+        hit=[p for p in cands if re.search(r'(?<![A-Za-z0-9+])'+c+r'(?![A-Za-z0-9+])',p['n'])]
+        return hit[0]['id'] if hit else None
+    if r.get('match'):
+        hit=[p for p in cands if all(w in p['n'] for w in r['match'].split())]
+        return hit[0]['id'] if hit else None
+def me(ga):
+    ash=ga.get('ash',7); nfe=max(0,100-ga['p']-ga['f']-ga.get('fi',0)-ga.get('m',10)-ash)
+    return round(10*(3.5*ga['p']+8.5*ga['f']+3.5*nfe))
+by={}
+miss=[]
+for r in recs:
+    if r.get('status')=='unverified' or not r.get('ga'): continue
+    sid=find(r)
+    if not sid or sid in have: miss.append((r['brand'],r['line'],sid)); continue
+    by.setdefault(sid,[]).append(r)
+out=[]
+for sid,rs in by.items():
+    def one(r):
+        st={'kitten':'growth'}.get(r.get('stage'),r.get('stage') or 'all')
+        nut={'t':'t' if ('皇家' in r['brand'] or 'Hill' in r['brand']) else 'g','stage':st,'ga':r['ga'],'src':r['sources'][0]['url'] if r['sources'] else ''}
+        if r.get('ingredients'): nut['ing']=r['ingredients']
+        if r.get('ingredients') and '皇家' in r['brand']: nut['full']=1
+        k=r.get('kcal_kg'); s={'kcal':k,'ks':'o'} if k else {'kcal':me(r['ga']),'ks':'c'}
+        pr={'禽肉':'雞','魚':'魚'}.get(r.get('protein_source'),'綜合')
+        s.update(pr=pr)
+        if r.get('light'): s['light']=1
+        return {'nut':nut,'set':s,'flavor':r.get('flavor')}
+    fl=[one(r) for r in rs]
+    keep=any(r.get('status')=='unverified' and find(r)==sid for r in recs)
+    out.append({'id':sid,'fl':fl,'keep':keep})
+blk='// NUTGEN:BEGIN 由 scripts/merge_nut.py 產生，請勿手改\nconst NUTGEN='+json.dumps(out,ensure_ascii=False,separators=(',',':'))+';\n// NUTGEN:END'
+h=open(HTML,encoding='utf-8').read()
+if '// NUTGEN:BEGIN' in h: h=re.sub(r'// NUTGEN:BEGIN[\s\S]*?// NUTGEN:END',lambda m:blk,h)
+else:
+    a='PR.forEach(p=>{if(NUT[p.id])'
+    i=h.index(a); h=h[:i]+blk+'\n'+h[i:]
+open(HTML,'w',encoding='utf-8').write(h)
+print('items',len(out),'flavors',sum(len(x['fl']) for x in out)); print('skipped',miss)
