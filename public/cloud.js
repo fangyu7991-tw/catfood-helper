@@ -10,6 +10,28 @@ const acct = $('acct'), modal = $('loginM'), err = $('loginErr');
 
 const Cloud = window.Cloud = { user: null, queue() {} };
 
+// ---- 改善建議（不需登入；寫入 feedback 集合，只能新增、不能讀取）----
+let sendFeedback = null;
+{
+  const m = $('fbM'), msg = $('fbMsg'), ct = $('fbContact'), fe = $('fbErr'), send = $('fbSend');
+  const close = () => { m.hidden = true; };
+  $('fbBtn').onclick = () => { fe.textContent = ''; m.hidden = false; msg.focus(); };
+  m.addEventListener('click', e => { if (e.target === m || e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !m.hidden) close(); });
+  send.onclick = async () => {
+    const text = msg.value.trim();
+    if (!text) { fe.textContent = '請先寫下你的建議'; msg.focus(); return; }
+    if (!sendFeedback) { fe.textContent = '目前無法送出，請稍後再試'; return; }
+    send.disabled = true; fe.textContent = '送出中…';
+    try {
+      await sendFeedback({ msg: text, contact: ct.value.trim() });
+      msg.value = ''; ct.value = ''; close();
+      window.toast ? window.toast('已收到，謝謝你的建議！') : alert('已收到，謝謝你的建議！');
+    } catch (e) { console.error(e); fe.textContent = '送出失敗，請稍後再試'; }
+    send.disabled = false;
+  };
+}
+
 if (!firebaseConfig.apiKey) {
   console.info('[cloud] firebase-config.js 尚未設定，以訪客模式運作（資料只存在這台裝置）');
 } else {
@@ -25,6 +47,10 @@ async function start() {
   const app = initializeApp(firebaseConfig);
   const auth = A.getAuth(app), db = F.getFirestore(app);
   auth.languageCode = 'zh-TW';
+  sendFeedback = d => F.addDoc(F.collection(db, 'feedback'), {
+    msg: d.msg.slice(0, 2000), contact: d.contact.slice(0, 200), uid: Cloud.user ? Cloud.user.uid : null,
+    page: location.hash || '/', ua: navigator.userAgent.slice(0, 300), createdAt: F.serverTimestamp(),
+  });
 
   acct.hidden = false;
   if (appleEnabled) modal.querySelector('[data-sso="apple"]').hidden = false;

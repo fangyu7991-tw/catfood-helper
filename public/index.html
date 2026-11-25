@@ -147,6 +147,9 @@ input[type=text],input[type=date],select{font:inherit;font-size:16px;border:1.5p
 .stamp[data-s=x]{background:var(--ink);color:var(--bg)}
 .stamp[data-s=x] .av{border-color:var(--bg);background:var(--ink);color:var(--bg)}
 .badge{font-size:12px;border:1.5px solid var(--ink);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.badge.unv{border-style:dashed;color:var(--mute);cursor:help}
+.fb{display:inline-flex;align-items:center;gap:6px;margin-top:12px}
+#fbM textarea{width:100%;min-height:140px;font:inherit;padding:10px;border:1.5px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink);resize:vertical}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);border-radius:99px;padding:8px 8px 8px 20px;display:flex;gap:12px;align-items:center;z-index:9}
 .toast button{background:var(--bg);color:var(--ink);border:0;border-radius:99px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer;min-height:36px}
 .view[hidden]{display:none}
@@ -269,7 +272,18 @@ footer{border-top:2px solid var(--ink);font-size:13px;color:var(--mute)}
 </div></section>
 </main>
 
-<footer class="band"><div class="wrap">乾糧與濕食品項、價格取自 momo（2026/11/24 參考價，實際以 momo 頁面為準）；熱量為品牌公布值、第三方檢驗值，或依官網成分以 NRC 2006 公式推算，未公開者暫估。熱量：幼貓以 NRC 2006 連續成長公式估算；成貓以 RER × 係數估算（Merck 獸醫手冊、AAHA 2021）；之後依體重與 BCS 調整（WSAVA），處方飲食請依獸醫指示。</div></footer>
+<footer class="band"><div class="wrap">乾糧與濕食品項、價格取自 momo（2026/11/24 參考價，實際以 momo 頁面為準）；熱量為品牌公布值、第三方檢驗值，或依官網成分以 NRC 2006 公式推算，未公開者暫估。熱量：幼貓以 NRC 2006 連續成長公式估算；成貓以 RER × 係數估算（Merck 獸醫手冊、AAHA 2021）；之後依體重與 BCS 調整（WSAVA），處方飲食請依獸醫指示。
+ <p style="margin:12px 0 0">本站資料由公開資訊整理，僅供選購參考，不構成獸醫建議。品項、價格、成分與熱量可能因廠商改配方、改包裝或電商活動而變動，也可能有整理錯誤；購買與餵食前請以商品頁、包裝標示與獸醫意見為準。貓咪有疾病、懷孕哺乳或飲食改變後出現不適，請諮詢獸醫。本站與所列品牌、電商平台無合作關係，對使用本站資訊所生之損失不負賠償責任。</p>
+ <button type="button" class="btn ghost sm fb" id="fbBtn"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>提出網站改善建議</button>
+</div></footer>
+<div class="modal" id="fbM" hidden><div class="mbox" role="dialog" aria-modal="true" aria-labelledby="fbT" style="max-width:460px">
+  <h2 id="fbT" style="margin:0 0 8px">提出網站改善建議</h2>
+  <p class="tags" style="margin:0 0 16px">資料有錯、想新增的品項、用起來卡卡的地方，都歡迎告訴我。</p>
+  <label class="fl">你的建議<textarea id="fbMsg" maxlength="2000" placeholder="例如：○○ 主食罐的價格已經調漲；希望能比較兩款飼料"></textarea></label>
+  <label class="fl" style="margin-top:12px">聯絡方式（選填，想收到回覆再填）<input type="text" id="fbContact" maxlength="200" placeholder="Email 或其他聯絡方式"></label>
+  <p class="tags" id="fbErr" style="margin:12px 0 0;min-height:1em"></p>
+  <div class="row sb" style="margin-top:8px"><button type="button" class="btn ghost sm" data-close="fbM">取消</button><button type="button" class="btn" id="fbSend">送出</button></div>
+</div></div>
 <div id="toastBox"></div>
 <input type="file" id="pfile" accept="image/*" hidden>
 <input type="file" id="bfile" accept="image/*" hidden>
@@ -460,7 +474,7 @@ const LV={4:'警示',2:'注意',3:'優點',1:'資訊'};
 const fmt=(v,d=0)=>v==null?'未標示':(+v).toFixed(d);
 function nutHTML(p){
  const R=flags(p,S.cats);
- if(!R)return `<div class="nut none"><span class="tags">資料不完整：尚未收錄成分標示，不參與營養排名。</span></div>`;
+ if(!R)return `<div class="nut none"><span class="tags">尚未收錄完整成分標示，請以商品頁或包裝為準；此款不參與營養排名。</span></div>`;
  const {a,F,T}=R,ord=[4,2,3,1],sorted=F.slice().sort((x,y)=>ord.indexOf(x.lv)-ord.indexOf(y.lv));
  const bad=sorted.filter(x=>x.lv===4||x.lv===2),good=sorted.filter(x=>x.lv===3),info=sorted.filter(x=>x.lv===1);
  const show=[...bad.slice(0,3),...good.slice(0,3)],more=[...bad.slice(3),...good.slice(3),...info];
@@ -673,7 +687,7 @@ function renderKit(){
 }
 
 function card(p,mode){const out=S.cats.some(c=>mark(p,c)==='x'),sv=S.saved.includes(p.id);return `<article class="food${mode==='saved'&&out?' out':''}">
- <div class="hd2">${icon(p)}<div><div class="tags">${esc(p.b)}</div><h3>${esc(p.n)}</h3><div class="row" style="gap:6px;margin-top:6px"><span class="badge">${p.pr}</span><span class="badge">${p.st==='all'?'全齡':p.st==='kitten'?'幼貓':'成貓'}</span>${p.light?'<span class="badge">體態控制</span>':''}${p.src==='momo'?'<span class="badge">momo</span>':''}</div></div></div>
+ <div class="hd2">${icon(p)}<div><div class="tags">${esc(p.b)}</div><h3>${esc(p.n)}</h3><div class="row" style="gap:6px;margin-top:6px"><span class="badge">${p.pr}</span><span class="badge">${p.st==='all'?'全齡':p.st==='kitten'?'幼貓':'成貓'}</span>${p.light?'<span class="badge">體態控制</span>':''}${p.src==='momo'?'<span class="badge">momo</span>':''}${(!p.nut||p.est)?'<span class="badge unv" title="momo、品牌官網與其他通路都還查不到完整標示，成分與熱量請以商品頁或包裝為準">成分以商品頁為準</span>':''}</div></div></div>
  <dl class="spec">${p.f==='dry'?sizesOf(p).map(([kg,pr])=>`<dt>${kg} kg 裝</dt><dd>${nt(pr)}・${nt(pr/kg)}/kg</dd>`).join(''):vsOf(p).map(([g,pk,pr])=>`<dt>${g} g × ${pk} 罐</dt><dd>${nt(pr)}・${nt(pr/pk)}/罐</dd>`).join('')}<dt>熱量</dt><dd>${p.f==='dry'?(p.est?'待補（暫估 '+p.kcal.toLocaleString('en-US')+'）':p.kcal.toLocaleString('en-US')+' kcal/kg'):(p.est?'待補（暫估 '+p.k100+' kcal/100g）':p.k100+' kcal/100g')}</dd>${p.ks?`<dt>熱量來源</dt><dd>${{o:'品牌公布',m:'momo 商品規格',c:'官網成分推算',r:'同系列代表值',l:'第三方檢驗'}[p.ks]}</dd>`:''}<dd style="display:none"></dd><dt>每 100 kcal</dt><dd>NT$ ${((p.f==='dry'?Math.min(...sizesOf(p).map(([kg,pr])=>pr/(kg*p.kcal))):Math.min(...vsOf(p).map(([g,pk,pr])=>pr/(pk*g*p.k100/100))))*100).toFixed(1)} 起</dd></dl>
  ${nutHTML(p)}
  ${mode==='saved'?`<div class="stamps">${S.cats.map(c=>{const s=mark(p,c);return `<button type="button" class="stamp" data-mark="${p.id}" data-c="${c.id}" data-s="${s}" aria-label="${esc(c.name)}：${s==='x'?'不吃':s==='h'?'愛吃':'未標記'}">${avHTML(c)}${s==='x'?'✕ 不吃':s==='h'?'♥ 愛吃':'—'}</button>`}).join('')}</div><div class="act"><span class="tags">${out?'有貓不吃，共食推薦會排除':''}</span><button type="button" class="btn ghost" data-save="${p.id}">移除</button></div>`
@@ -750,6 +764,7 @@ const route=()=>{const v=['plan','kit','saved','foods'].includes(location.hash.s
 const cat=id=>S.cats.find(c=>c.id===id);
 let undo=null;
 const toast=(msg,u)=>{const t=document.getElementById('toastBox');t.innerHTML=`<div class="toast" role="status" style="${u?'':'padding-right:20px'}">${msg}${u?'<button type="button" id="undo">復原</button>':''}</div>`;clearTimeout(toast.t);toast.t=setTimeout(()=>t.innerHTML='',6000)};
+window.toast=toast;
 
 document.getElementById('bud').addEventListener('input',e=>{S.budget=+e.target.value;renderPlan();save()});
 {const bi=document.getElementById('budIn');bi.addEventListener('input',()=>{const d=bi.value.replace(/[^0-9]/g,'');bi.value=d?(+d).toLocaleString('en-US'):''});bi.addEventListener('change',()=>{const v=+bi.value.replace(/[^0-9]/g,'');if(v>=500){S.budget=v;renderPlan();save()}else bi.value=S.budget.toLocaleString('en-US')});bi.addEventListener('keydown',e=>{if(e.key==='Enter')bi.blur()})}

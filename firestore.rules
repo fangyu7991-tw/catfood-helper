@@ -8,5 +8,14 @@ service cloud.firestore {
         allow read, write: if request.auth != null && request.auth.uid == uid;
       }
     }
+    // 改善建議：任何人可新增（不需登入），但不能讀取、修改或刪除；開發者到 Firebase 主控台查看
+    match /feedback/{id} {
+      allow create: if request.resource.data.keys().hasOnly(['msg', 'contact', 'uid', 'page', 'ua', 'createdAt'])
+        && request.resource.data.msg is string
+        && request.resource.data.msg.size() > 0 && request.resource.data.msg.size() <= 2000
+        && request.resource.data.contact is string && request.resource.data.contact.size() <= 200
+        && (request.resource.data.uid == null || request.resource.data.uid == request.auth.uid)
+        && request.resource.data.createdAt == request.time;
+    }
   }
 }
