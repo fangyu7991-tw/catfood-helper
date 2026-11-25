@@ -112,7 +112,7 @@ async function start() {
     const S = window.App.get();
     const main = JSON.parse(JSON.stringify({ ...S, cats: S.cats.map(({ photo, pics, aiBusy, ...c }) => c) }));
     try {
-      setStatus('儲存中…');
+      setStatus('儲存中');
       const jobs = [F.setDoc(userRef(), { state: main, v: 1, updatedAt: F.serverTimestamp() })];
       for (const c of S.cats) {
         const pics = { photo: c.photo || null, top: (c.pics || {}).top || null, side: (c.pics || {}).side || null };
@@ -123,10 +123,10 @@ async function start() {
       for (const id of knownCats) if (!now.has(id)) { jobs.push(F.deleteDoc(catRef(id))); delete sentPics[id]; }
       knownCats = now;
       await Promise.all(jobs);
-      setStatus('已存到帳號');
-    } catch (e) { console.error(e); setStatus('存檔失敗，稍後會再試'); Cloud.queue(); }
+      setStatus('已儲存');
+    } catch (e) { console.error(e); setStatus('儲存失敗'); Cloud.queue(); }
   }
-  Cloud.queue = () => { if (!Cloud.user) return; setStatus('有變更，準備儲存…'); clearTimeout(timer); timer = setTimeout(flush, 1200); };
+  Cloud.queue = () => { if (!Cloud.user) return; setStatus('待儲存'); clearTimeout(timer); timer = setTimeout(flush, 1200); };
   window.addEventListener('pagehide', () => { flush(); });
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
 
@@ -136,7 +136,7 @@ async function start() {
       Cloud.user = null; sentPics = {}; knownCats = new Set(); status = '';
       window.App.guest(); paint(); return;
     }
-    Cloud.user = u; setStatus('讀取中…'); paint();
+    Cloud.user = u; setStatus('讀取中'); paint();
     try {
       const snap = await F.getDoc(userRef());
       if (snap.exists()) {
@@ -149,11 +149,11 @@ async function start() {
         window.App.set(S); setStatus('已同步');
       } else {
         // 第一次登入：把這台裝置上目前的資料存進帳號
-        setStatus('第一次登入，正在建立你的 Home kit…');
+        setStatus('建立中');
         timer = 1; await flush();
-        setStatus('已把這台裝置的資料存到帳號');
+        setStatus('已儲存');
       }
-    } catch (e) { console.error(e); setStatus('讀取失敗，請重新整理頁面'); }
+    } catch (e) { console.error(e); setStatus('讀取失敗'); }
     paint();
   });
 }
