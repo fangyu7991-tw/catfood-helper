@@ -1,0 +1,5866 @@
+[
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "泌尿道保健成貓專用飼料 UC33",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 1,
+"min_ntd_per_kg": 280,
+"rx": false,
+"ids": [
+"14175117",
+"14175085",
+"14175242"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "理想體態成貓專用飼料F32",
+"listings": 2,
+"sizes": [
+10.0,
+15.0
+],
+"best_rank": 2,
+"min_ntd_per_kg": 227,
+"rx": false,
+"ids": [
+"14175260",
+"14175121"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "室內成貓專用飼料 IN27",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 3,
+"min_ntd_per_kg": 320,
+"rx": false,
+"ids": [
+"14175100",
+"14175119",
+"14175248"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "有效化毛成貓專用 IH34",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 4,
+"min_ntd_per_kg": 280,
+"rx": false,
+"ids": [
+"14175152",
+"14175083",
+"14175241"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "低致敏黑水虻 貓咪低致敏系列 單",
+"listings": 1,
+"sizes": [
+5.44
+],
+"best_rank": 5,
+"min_ntd_per_kg": 592,
+"rx": false,
+"ids": [
+"11703778"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "鮭魚 腸胃保健系列 全貓配方",
+"listings": 2,
+"sizes": [
+1.36,
+2.72
+],
+"best_rank": 6,
+"min_ntd_per_kg": 579,
+"rx": false,
+"ids": [
+"14341462",
+"10690108"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "幼貓專用飼料 K36",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 10,
+"min_ntd_per_kg": 250,
+"rx": false,
+"ids": [
+"14175115",
+"14175093",
+"14175245"
+]
+},
+{
+"f": "dry",
+"brand": "Nutram 紐頓",
+"line": "T22 T24無穀全能系列貓飼料",
+"listings": 4,
+"sizes": [
+1.13,
+2.0,
+4.0,
+5.4
+],
+"best_rank": 11,
+"min_ntd_per_kg": 370,
+"rx": false,
+"ids": [
+"7704454",
+"8288273",
+"7704448",
+"13273664"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "零穀系列貓飼料 5種魚 室內貓 ",
+"listings": 1,
+"sizes": [
+6.35
+],
+"best_rank": 12,
+"min_ntd_per_kg": 203,
+"rx": false,
+"ids": [
+"10549396"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "貓食二入組 海洋 燻雞口味任選",
+"listings": 1,
+"sizes": [
+16.0
+],
+"best_rank": 13,
+"min_ntd_per_kg": 66,
+"rx": false,
+"ids": [
+"13746818"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "經典系列貓飼料 成幼貓 雞肉 米",
+"listings": 1,
+"sizes": [
+13.6
+],
+"best_rank": 14,
+"min_ntd_per_kg": 170,
+"rx": false,
+"ids": [
+"6993762"
+]
+},
+{
+"f": "dry",
+"brand": "TAPAZO 特百滋",
+"line": "凍乾雙饗宴 低敏無穀貓糧",
+"listings": 2,
+"sizes": [
+2.27,
+6.8
+],
+"best_rank": 16,
+"min_ntd_per_kg": 309,
+"rx": false,
+"ids": [
+"12637324",
+"12487404"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "理想體態成貓專用飼料 F32",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 17,
+"min_ntd_per_kg": 344,
+"rx": false,
+"ids": [
+"14175109",
+"14175253"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "零穀系列貓飼料 0%零穀 5種魚",
+"listings": 2,
+"sizes": [
+1.13,
+2.49
+],
+"best_rank": 24,
+"min_ntd_per_kg": 290,
+"rx": false,
+"ids": [
+"6993765",
+"6993726"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "室內熟齡貓專用飼料 IN 7",
+"listings": 2,
+"sizes": [
+1.5,
+3.5
+],
+"best_rank": 26,
+"min_ntd_per_kg": 413,
+"rx": false,
+"ids": [
+"14175102",
+"14175249"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "老貓15 歲專用乾糧A30 15",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 27,
+"min_ntd_per_kg": 459,
+"rx": false,
+"ids": [
+"14926640"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "絕育老貓專用飼料 S30 11",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 28,
+"min_ntd_per_kg": 459,
+"rx": false,
+"ids": [
+"14926641"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "老貓11 歲專用乾糧A30 11",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 29,
+"min_ntd_per_kg": 459,
+"rx": false,
+"ids": [
+"14857686",
+"15008116"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "雞肉蔬果 貓咪皮毛保健系列 護眼",
+"listings": 1,
+"sizes": [
+1.36
+],
+"best_rank": 31,
+"min_ntd_per_kg": 728,
+"rx": false,
+"ids": [
+"6657971"
+]
+},
+{
+"f": "dry",
+"brand": "Elato 杜莎",
+"line": "天然無榖貓糧全系列",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 32,
+"min_ntd_per_kg": 652,
+"rx": false,
+"ids": [
+"13384832"
+]
+},
+{
+"f": "dry",
+"brand": "NU4PET 陪心寵糧",
+"line": "全齡貓無穀低碳貓糧－鮮雞野莓",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 34,
+"min_ntd_per_kg": 475,
+"rx": false,
+"ids": [
+"11941920"
+]
+},
+{
+"f": "dry",
+"brand": "ParkCat 無敵貓糧",
+"line": "霸王野雞",
+"listings": 2,
+"sizes": [
+2.0,
+6.0
+],
+"best_rank": 35,
+"min_ntd_per_kg": 270,
+"rx": false,
+"ids": [
+"10710346",
+"10710347"
+]
+},
+{
+"f": "dry",
+"brand": "Elato 杜莎",
+"line": "天然草本無榖貓糧系列 人參添加 ",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 36,
+"min_ntd_per_kg": 619,
+"rx": false,
+"ids": [
+"13119206"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "挑嘴成貓絕佳口感飼料 E35",
+"listings": 1,
+"sizes": [
+4.0
+],
+"best_rank": 38,
+"min_ntd_per_kg": 425,
+"rx": false,
+"ids": [
+"14175103"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "泌尿道毛球控制 成貓 雞肉與米",
+"listings": 2,
+"sizes": [
+1.58,
+7.03
+],
+"best_rank": 39,
+"min_ntd_per_kg": 401,
+"rx": false,
+"ids": [
+"8275857",
+"8278950"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "零穀系列貓飼料 室內貓 5種魚 ",
+"listings": 1,
+"sizes": [
+11.34
+],
+"best_rank": 40,
+"min_ntd_per_kg": 176,
+"rx": false,
+"ids": [
+"14435895"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "經典系列貓飼料 成幼貓 室內貓兩",
+"listings": 1,
+"sizes": [
+7.0
+],
+"best_rank": 41,
+"min_ntd_per_kg": 203,
+"rx": false,
+"ids": [
+"6993713"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "ND天然頂級無穀貓糧系列 貓飼料",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 42,
+"min_ntd_per_kg": 797,
+"rx": false,
+"ids": [
+"11137676"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "腸胃敏感成貓專用飼料 S33",
+"listings": 4,
+"sizes": [
+2.0,
+4.0,
+10.0,
+15.0
+],
+"best_rank": 43,
+"min_ntd_per_kg": 227,
+"rx": false,
+"ids": [
+"14175259",
+"14175125",
+"14175113",
+"14175127"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "自然食 愛貓無穀配方",
+"listings": 1,
+"sizes": [
+6.5
+],
+"best_rank": 44,
+"min_ntd_per_kg": 221,
+"rx": false,
+"ids": [
+"12676475"
+]
+},
+{
+"f": "dry",
+"brand": "HALO 嘿囉",
+"line": "無榖貓糧",
+"listings": 1,
+"sizes": [
+4.53
+],
+"best_rank": 46,
+"min_ntd_per_kg": 450,
+"rx": false,
+"ids": [
+"12278722"
+]
+},
+{
+"f": "dry",
+"brand": "TRILOGY 奇境",
+"line": "無穀凍乾成貓糧",
+"listings": 2,
+"sizes": [
+1.8,
+5.0
+],
+"best_rank": 47,
+"min_ntd_per_kg": 1180,
+"rx": false,
+"ids": [
+"15343929",
+"15343926"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "英國短毛成貓專用飼料 BS34",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 48,
+"min_ntd_per_kg": 290,
+"rx": false,
+"ids": [
+"14175080",
+"14175182",
+"14175239"
+]
+},
+{
+"f": "dry",
+"brand": "HALO 嘿囉",
+"line": "無榖成貓糧",
+"listings": 1,
+"sizes": [
+6.8
+],
+"best_rank": 49,
+"min_ntd_per_kg": 400,
+"rx": false,
+"ids": [
+"14284699"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健鮮雞 六種魚 室內貓 愛貓",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 50,
+"min_ntd_per_kg": 352,
+"rx": false,
+"ids": [
+"14204771"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "FCN 皇家體重控制成貓L40",
+"listings": 3,
+"sizes": [
+1.5,
+3.0,
+8.0
+],
+"best_rank": 51,
+"min_ntd_per_kg": 350,
+"rx": false,
+"ids": [
+"14175091",
+"14175144",
+"14175244"
+]
+},
+{
+"f": "dry",
+"brand": "Nutram 紐頓",
+"line": "I12 I17 I19無穀專業理",
+"listings": 2,
+"sizes": [
+2.0,
+5.4
+],
+"best_rank": 57,
+"min_ntd_per_kg": 315,
+"rx": false,
+"ids": [
+"7704453",
+"8288270"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然無穀貓系列 GCCC3 OC",
+"listings": 2,
+"sizes": [
+5.0,
+10.0
+],
+"best_rank": 60,
+"min_ntd_per_kg": 506,
+"rx": false,
+"ids": [
+"13274886",
+"13274885"
+]
+},
+{
+"f": "dry",
+"brand": "Unicharm Pet 銀湯匙",
+"line": "貓乾糧 1 包 凍乾糧 飼料 成",
+"listings": 1,
+"sizes": [
+3.6
+],
+"best_rank": 67,
+"min_ntd_per_kg": 380,
+"rx": false,
+"ids": [
+"14866425"
+]
+},
+{
+"f": "dry",
+"brand": "NU4PET 陪心寵糧",
+"line": "無穀低碳貓糧 鮮雞野莓口味",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 71,
+"min_ntd_per_kg": 216,
+"rx": false,
+"ids": [
+"11920155"
+]
+},
+{
+"f": "dry",
+"brand": "Monge 瑪恩吉",
+"line": "天然全能泌尿保健貓糧 包",
+"listings": 1,
+"sizes": [
+10.0
+],
+"best_rank": 72,
+"min_ntd_per_kg": 189,
+"rx": false,
+"ids": [
+"15325502"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "經典系列貓飼料 成幼貓 室內貓 ",
+"listings": 2,
+"sizes": [
+1.5,
+3.0
+],
+"best_rank": 73,
+"min_ntd_per_kg": 234,
+"rx": false,
+"ids": [
+"6993761",
+"6993710"
+]
+},
+{
+"f": "dry",
+"brand": "Nutrience 紐崔斯",
+"line": "黑鑽頂極無穀貓 凍乾系列",
+"listings": 2,
+"sizes": [
+1.8,
+4.5
+],
+"best_rank": 75,
+"min_ntd_per_kg": 466,
+"rx": false,
+"ids": [
+"13117637",
+"15638425"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "自然食專業配方貓糧",
+"listings": 2,
+"sizes": [
+1.5,
+3.0
+],
+"best_rank": 77,
+"min_ntd_per_kg": 196,
+"rx": false,
+"ids": [
+"13646436",
+"12766289"
+]
+},
+{
+"f": "dry",
+"brand": "ParkCat 無敵貓糧",
+"line": "鮮雞蜂王乳",
+"listings": 3,
+"sizes": [
+1.0,
+2.0,
+6.0
+],
+"best_rank": 79,
+"min_ntd_per_kg": 300,
+"rx": false,
+"ids": [
+"10679849",
+"10468701",
+"10413583"
+]
+},
+{
+"f": "dry",
+"brand": "Nutram 紐頓",
+"line": "S1 S5無穀均衡健康系列貓飼料",
+"listings": 2,
+"sizes": [
+2.0,
+5.4
+],
+"best_rank": 80,
+"min_ntd_per_kg": 315,
+"rx": false,
+"ids": [
+"9564071",
+"8288269"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "完美體重 成貓 雞肉",
+"listings": 2,
+"sizes": [
+1.36,
+6.8
+],
+"best_rank": 81,
+"min_ntd_per_kg": 388,
+"rx": false,
+"ids": [
+"8278949",
+"8278948"
+]
+},
+{
+"f": "dry",
+"brand": "Instinct 原點",
+"line": "皇極鮮雞成貓配方 WDJ 純肉飼",
+"listings": 1,
+"sizes": [
+4.54
+],
+"best_rank": 83,
+"min_ntd_per_kg": 762,
+"rx": false,
+"ids": [
+"7060526"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "專業配方貓糧",
+"listings": 1,
+"sizes": [
+15.0
+],
+"best_rank": 84,
+"min_ntd_per_kg": 180,
+"rx": false,
+"ids": [
+"14053952"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "敏感胃腸與皮膚 成貓 雞肉",
+"listings": 2,
+"sizes": [
+1.58,
+3.16
+],
+"best_rank": 85,
+"min_ntd_per_kg": 620,
+"rx": false,
+"ids": [
+"8278958",
+"9490646"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "無穀愛貓配方",
+"listings": 3,
+"sizes": [
+3.0,
+6.5,
+13.0
+],
+"best_rank": 86,
+"min_ntd_per_kg": 226,
+"rx": false,
+"ids": [
+"14053737",
+"10578220",
+"14053670"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "挑嘴成貓營養滿分配方 E42",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 87,
+"min_ntd_per_kg": 425,
+"rx": false,
+"ids": [
+"14175107",
+"14175252"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "經典系列貓飼料 高齡貓 雞肉 米",
+"listings": 3,
+"sizes": [
+1.5,
+3.0,
+7.0
+],
+"best_rank": 88,
+"min_ntd_per_kg": 203,
+"rx": false,
+"ids": [
+"6993718",
+"6993717",
+"6993716"
+]
+},
+{
+"f": "dry",
+"brand": "Classic Pets 加好寶",
+"line": "貓乾糧",
+"listings": 3,
+"sizes": [
+1.5,
+7.0
+],
+"best_rank": 89,
+"min_ntd_per_kg": 86,
+"rx": false,
+"ids": [
+"5023267",
+"9759843",
+"10201703"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "親親貓飼料系列 成貓腸胃敏感配方",
+"listings": 2,
+"sizes": [
+2.27,
+5.99
+],
+"best_rank": 97,
+"min_ntd_per_kg": 252,
+"rx": false,
+"ids": [
+"9146584",
+"9146583"
+]
+},
+{
+"f": "dry",
+"brand": "Unicharm Pet 銀湯匙",
+"line": "貓乾糧 包",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 98,
+"min_ntd_per_kg": 416,
+"rx": false,
+"ids": [
+"14814149"
+]
+},
+{
+"f": "dry",
+"brand": "第一饗宴",
+"line": "無穀低敏全貓 雞肉藍莓 海魚藍莓",
+"listings": 1,
+"sizes": [
+4.54
+],
+"best_rank": 100,
+"min_ntd_per_kg": 352,
+"rx": false,
+"ids": [
+"7108062"
+]
+},
+{
+"f": "dry",
+"brand": "Unicharm Pet 銀湯匙",
+"line": "貓乾糧 2.5 包",
+"listings": 1,
+"sizes": [
+3.0
+],
+"best_rank": 101,
+"min_ntd_per_kg": 366,
+"rx": false,
+"ids": [
+"15659118"
+]
+},
+{
+"f": "dry",
+"brand": "IQ CAT",
+"line": "聰明貓乾糧",
+"listings": 5,
+"sizes": [
+1.5,
+5.0,
+10.0
+],
+"best_rank": 103,
+"min_ntd_per_kg": 67,
+"rx": false,
+"ids": [
+"9759842",
+"10201633",
+"9907889",
+"11629304",
+"9759841"
+]
+},
+{
+"f": "dry",
+"brand": "Whiskas 偉嘉",
+"line": "貓乾糧 大包裝 寵物 貓飼料 貓",
+"listings": 2,
+"sizes": [
+7.0,
+14.0
+],
+"best_rank": 106,
+"min_ntd_per_kg": 111,
+"rx": false,
+"ids": [
+"11914016",
+"11962800"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "離乳貓專用飼料 BC34",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 108,
+"min_ntd_per_kg": 378,
+"rx": false,
+"ids": [
+"14175097",
+"14175246"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "頂級無穀貓飼料全系列 GCCCC",
+"listings": 2,
+"sizes": [
+1.5,
+5.0
+],
+"best_rank": 111,
+"min_ntd_per_kg": 628,
+"rx": false,
+"ids": [
+"10000267",
+"10000268"
+]
+},
+{
+"f": "dry",
+"brand": "Real Power 瑞威",
+"line": "天然平衡 貓糧2號 森林燉雞 腸",
+"listings": 1,
+"sizes": [
+4.0
+],
+"best_rank": 112,
+"min_ntd_per_kg": 330,
+"rx": false,
+"ids": [
+"7116171"
+]
+},
+{
+"f": "dry",
+"brand": "Donna 多納",
+"line": "室內貓體重管理 結紮泌尿保健",
+"listings": 2,
+"sizes": [
+18.0,
+90.0
+],
+"best_rank": 113,
+"min_ntd_per_kg": 56,
+"rx": false,
+"ids": [
+"9393972",
+"14519527"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓 雞肉",
+"listings": 3,
+"sizes": [
+1.81,
+4.0,
+10.0
+],
+"best_rank": 114,
+"min_ntd_per_kg": 330,
+"rx": false,
+"ids": [
+"8278945",
+"8278946",
+"15336538"
+]
+},
+{
+"f": "dry",
+"brand": "Ceres 席瑞思",
+"line": "貓食 鮪魚蟹肉 鮭魚明蝦任選",
+"listings": 1,
+"sizes": [
+5.0
+],
+"best_rank": 116,
+"min_ntd_per_kg": 76,
+"rx": false,
+"ids": [
+"14261772"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "自然食 專業配方貓糧 6.5",
+"listings": 1,
+"sizes": [
+7.5
+],
+"best_rank": 117,
+"min_ntd_per_kg": 187,
+"rx": false,
+"ids": [
+"12676474"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "挑嘴成貓濃郁香味配方 E33",
+"listings": 1,
+"sizes": [
+4.0
+],
+"best_rank": 118,
+"min_ntd_per_kg": 425,
+"rx": false,
+"ids": [
+"14175105"
+]
+},
+{
+"f": "dry",
+"brand": "Instinct 原點",
+"line": "雞肉無穀全貓配方 WDJ 貓飼料",
+"listings": 1,
+"sizes": [
+4.99
+],
+"best_rank": 119,
+"min_ntd_per_kg": 521,
+"rx": false,
+"ids": [
+"7060529"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "極致挑嘴成貓 F35",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 127,
+"min_ntd_per_kg": 450,
+"rx": false,
+"ids": [
+"15722653",
+"15722659"
+]
+},
+{
+"f": "dry",
+"brand": "HALO 嘿囉",
+"line": "無穀系列貓糧",
+"listings": 2,
+"sizes": [
+1.36,
+2.72
+],
+"best_rank": 128,
+"min_ntd_per_kg": 515,
+"rx": false,
+"ids": [
+"12289994",
+"12289996"
+]
+},
+{
+"f": "dry",
+"brand": "第一饗宴",
+"line": "優穀健康系列 非籠養雞 海魚 燕",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 130,
+"min_ntd_per_kg": 416,
+"rx": false,
+"ids": [
+"7116134"
+]
+},
+{
+"f": "dry",
+"brand": "Whiskas 偉嘉",
+"line": "貓乾糧 寵物 貓飼料 貓食",
+"listings": 2,
+"sizes": [
+1.1,
+3.3
+],
+"best_rank": 132,
+"min_ntd_per_kg": 181,
+"rx": false,
+"ids": [
+"11962801",
+"11914015"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "愛貓無穀配方貓糧",
+"listings": 2,
+"sizes": [
+1.5,
+4.5
+],
+"best_rank": 134,
+"min_ntd_per_kg": 249,
+"rx": false,
+"ids": [
+"12766288",
+"13224542"
+]
+},
+{
+"f": "dry",
+"brand": "Wealtz 維爾滋",
+"line": "天然無穀貓糧 包",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 135,
+"min_ntd_per_kg": 333,
+"rx": false,
+"ids": [
+"11151314"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "貓食 海洋 燻雞 多種口味任選",
+"listings": 1,
+"sizes": [
+8.0
+],
+"best_rank": 136,
+"min_ntd_per_kg": 78,
+"rx": false,
+"ids": [
+"13738483"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "絕育熟齡貓專用飼料 S36 7",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 137,
+"min_ntd_per_kg": 499,
+"rx": false,
+"ids": [
+"14175257"
+]
+},
+{
+"f": "dry",
+"brand": "Wealtz 維爾滋",
+"line": "天然無穀貓糧",
+"listings": 2,
+"sizes": [
+6.0
+],
+"best_rank": 138,
+"min_ntd_per_kg": 288,
+"rx": false,
+"ids": [
+"13411863",
+"13411864"
+]
+},
+{
+"f": "dry",
+"brand": "HeroMama",
+"line": "益生菌晶球夾心糧",
+"listings": 3,
+"sizes": [
+1.5,
+3.0,
+4.5
+],
+"best_rank": 140,
+"min_ntd_per_kg": 580,
+"rx": false,
+"ids": [
+"11629558",
+"15413427",
+"10906847"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "口腔保健 成貓 雞肉",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 142,
+"min_ntd_per_kg": 605,
+"rx": false,
+"ids": [
+"8275854"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "親親系列 成貓泌尿保健配方",
+"listings": 2,
+"sizes": [
+2.27,
+5.99
+],
+"best_rank": 146,
+"min_ntd_per_kg": 252,
+"rx": false,
+"ids": [
+"10101650",
+"10089686"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "室內成貓 雞肉",
+"listings": 2,
+"sizes": [
+1.58,
+7.03
+],
+"best_rank": 147,
+"min_ntd_per_kg": 360,
+"rx": false,
+"ids": [
+"8278953",
+"8278954"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "舒敏成貓 雞肉 鮭魚",
+"listings": 3,
+"sizes": [
+1.59,
+3.18,
+6.36
+],
+"best_rank": 149,
+"min_ntd_per_kg": 409,
+"rx": false,
+"ids": [
+"14314599",
+"14678482",
+"14055267"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓 鮭魚與糙米",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 160,
+"min_ntd_per_kg": 532,
+"rx": false,
+"ids": [
+"14011506"
+]
+},
+{
+"f": "dry",
+"brand": "TRILOGY 奇境",
+"line": "無穀成貓 純乾糧",
+"listings": 2,
+"sizes": [
+1.8,
+5.0
+],
+"best_rank": 161,
+"min_ntd_per_kg": 780,
+"rx": false,
+"ids": [
+"15343925",
+"15343927"
+]
+},
+{
+"f": "dry",
+"brand": "福壽",
+"line": "FUSO Pets福壽貓食 鮪魚",
+"listings": 2,
+"sizes": [
+9.07
+],
+"best_rank": 163,
+"min_ntd_per_kg": 79,
+"rx": false,
+"ids": [
+"11779067",
+"11779072"
+]
+},
+{
+"f": "dry",
+"brand": "毛孩時代",
+"line": "85%鮮雞肉無穀全貓糧",
+"listings": 2,
+"sizes": [
+1.5,
+4.5
+],
+"best_rank": 164,
+"min_ntd_per_kg": 434,
+"rx": false,
+"ids": [
+"12759629",
+"12759624"
+]
+},
+{
+"f": "dry",
+"brand": "ParkCat 無敵貓糧",
+"line": "大洋鮮極魚",
+"listings": 3,
+"sizes": [
+1.0,
+2.0,
+6.0
+],
+"best_rank": 167,
+"min_ntd_per_kg": 320,
+"rx": false,
+"ids": [
+"13902216",
+"13885000",
+"13827022"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "QC ND藜麥無穀機能貓糧 成貓",
+"listings": 2,
+"sizes": [
+1.5,
+5.0
+],
+"best_rank": 168,
+"min_ntd_per_kg": 714,
+"rx": false,
+"ids": [
+"11137059",
+"11136898"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "VC VetLife獸醫寵愛天然",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 169,
+"min_ntd_per_kg": 703,
+"rx": true,
+"ids": [
+"11137061"
+]
+},
+{
+"f": "dry",
+"brand": "第一饗宴",
+"line": "無穀低敏 雞肉藍莓全貓",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 170,
+"min_ntd_per_kg": 451,
+"rx": false,
+"ids": [
+"7108053"
+]
+},
+{
+"f": "dry",
+"brand": "第一饗宴",
+"line": "無穀低敏全貓 任選 雞肉藍莓 海",
+"listings": 1,
+"sizes": [
+9.08
+],
+"best_rank": 172,
+"min_ntd_per_kg": 396,
+"rx": false,
+"ids": [
+"14774465"
+]
+},
+{
+"f": "dry",
+"brand": "Real Power 瑞威",
+"line": "天然平衡 貓糧3號 海洋魚貝 亮",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 173,
+"min_ntd_per_kg": 341,
+"rx": false,
+"ids": [
+"7116172",
+"7306106"
+]
+},
+{
+"f": "dry",
+"brand": "Donna 多納",
+"line": "室內貓 結紮貓 貓飼料",
+"listings": 1,
+"sizes": [
+9.0
+],
+"best_rank": 175,
+"min_ntd_per_kg": 61,
+"rx": false,
+"ids": [
+"7966916"
+]
+},
+{
+"f": "dry",
+"brand": "MonPetit 貓倍麗",
+"line": "成貓乾糧 *",
+"listings": 2,
+"sizes": [
+1.8,
+2.72
+],
+"best_rank": 177,
+"min_ntd_per_kg": 394,
+"rx": false,
+"ids": [
+"10564325",
+"7682742"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "亮毛護膚成貓專用飼料 HS33",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 179,
+"min_ntd_per_kg": 502,
+"rx": false,
+"ids": [
+"14175189"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 鮮雞 六種魚 室內貓愛貓",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 180,
+"min_ntd_per_kg": 458,
+"rx": false,
+"ids": [
+"15310881"
+]
+},
+{
+"f": "dry",
+"brand": "Nutrience 紐崔斯",
+"line": "無穀養生系列全齡貓寵糧",
+"listings": 2,
+"sizes": [
+2.5,
+5.0
+],
+"best_rank": 187,
+"min_ntd_per_kg": 400,
+"rx": false,
+"ids": [
+"8696330",
+"8696329"
+]
+},
+{
+"f": "dry",
+"brand": "CHARM 野性魅力",
+"line": "經典無穀貓飼料",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 191,
+"min_ntd_per_kg": 327,
+"rx": false,
+"ids": [
+"14997875"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "自然食 雞肉&米配方",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 192,
+"min_ntd_per_kg": 226,
+"rx": false,
+"ids": [
+"12780426"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "免疫寵糧 成貓 鮮雞 挑嘴鮮鮭",
+"listings": 2,
+"sizes": [
+3.18,
+7.26
+],
+"best_rank": 193,
+"min_ntd_per_kg": 234,
+"rx": false,
+"ids": [
+"14055158",
+"14047001"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "無穀系列貓糧",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 195,
+"min_ntd_per_kg": 813,
+"rx": false,
+"ids": [
+"9497074"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "敏感胃腸與皮膚 成貓 雞肉 鮭魚",
+"listings": 1,
+"sizes": [
+7.03
+],
+"best_rank": 196,
+"min_ntd_per_kg": 401,
+"rx": false,
+"ids": [
+"13985712"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 無穀鮮雞愛貓 鮮雞室內貓",
+"listings": 2,
+"sizes": [
+1.0,
+1.8
+],
+"best_rank": 197,
+"min_ntd_per_kg": 878,
+"rx": false,
+"ids": [
+"14332858",
+"14319185"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "泌尿道毛球控制 成貓 雞肉",
+"listings": 1,
+"sizes": [
+3.16
+],
+"best_rank": 199,
+"min_ntd_per_kg": 620,
+"rx": false,
+"ids": [
+"9490651"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "低GI配方貓飼料 第一盛宴 田園",
+"listings": 2,
+"sizes": [
+1.8
+],
+"best_rank": 202,
+"min_ntd_per_kg": 555,
+"rx": false,
+"ids": [
+"13849101",
+"15058552"
+]
+},
+{
+"f": "dry",
+"brand": "寶多福",
+"line": "成貓泌尿道保健 袋",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 203,
+"min_ntd_per_kg": 130,
+"rx": false,
+"ids": [
+"8784696"
+]
+},
+{
+"f": "dry",
+"brand": "ParkCat 無敵貓糧",
+"line": "舒心嫩雞鮭",
+"listings": 3,
+"sizes": [
+1.0,
+2.0,
+6.0
+],
+"best_rank": 205,
+"min_ntd_per_kg": 367,
+"rx": false,
+"ids": [
+"15583528",
+"15583525",
+"15583526"
+]
+},
+{
+"f": "dry",
+"brand": "Real Power 瑞威",
+"line": "好食小顆粒 貓糧2號 森林燉雞 ",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 206,
+"min_ntd_per_kg": 370,
+"rx": false,
+"ids": [
+"13809222"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "豹貓成貓專用飼料BG40",
+"listings": 2,
+"sizes": [
+2.0,
+10.0
+],
+"best_rank": 207,
+"min_ntd_per_kg": 304,
+"rx": false,
+"ids": [
+"14175240",
+"14175140"
+]
+},
+{
+"f": "dry",
+"brand": "MonPetit 貓倍麗",
+"line": "貓倍麗成貓乾糧",
+"listings": 2,
+"sizes": [
+0.6
+],
+"best_rank": 208,
+"min_ntd_per_kg": 447,
+"rx": false,
+"ids": [
+"15630138",
+"15647229"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "CatCare貓食 海洋 鮪魚蟹",
+"listings": 2,
+"sizes": [
+3.5,
+7.0
+],
+"best_rank": 210,
+"min_ntd_per_kg": 86,
+"rx": false,
+"ids": [
+"13930686",
+"13930685"
+]
+},
+{
+"f": "dry",
+"brand": "怪獸部落",
+"line": "貓族德國頂級魚油鮮肉主食糧",
+"listings": 3,
+"sizes": [
+0.25,
+0.8,
+1.8
+],
+"best_rank": 217,
+"min_ntd_per_kg": 1222,
+"rx": false,
+"ids": [
+"15492589",
+"15492590",
+"15492588"
+]
+},
+{
+"f": "dry",
+"brand": "Balance 博朗氏",
+"line": "美毛魚油 挑嘴貓 幼母貓飼料",
+"listings": 1,
+"sizes": [
+7.0
+],
+"best_rank": 224,
+"min_ntd_per_kg": 83,
+"rx": false,
+"ids": [
+"6829745"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健無穀貓飼料",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 225,
+"min_ntd_per_kg": 352,
+"rx": false,
+"ids": [
+"8270404"
+]
+},
+{
+"f": "dry",
+"brand": "Mobby 莫比",
+"line": "愛貓無穀配方",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 228,
+"min_ntd_per_kg": 250,
+"rx": false,
+"ids": [
+"12780427"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "ND天然低穀貓糧系列 LC 挑嘴",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 230,
+"min_ntd_per_kg": 687,
+"rx": false,
+"ids": [
+"11136904"
+]
+},
+{
+"f": "dry",
+"brand": "Ceres 席瑞思",
+"line": "貓食 鮪魚蟹肉 鮭魚明蝦 鱈魚干",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 231,
+"min_ntd_per_kg": 98,
+"rx": false,
+"ids": [
+"13933750"
+]
+},
+{
+"f": "dry",
+"brand": "MyDearCat 親密貓",
+"line": "貓糧",
+"listings": 1,
+"sizes": [
+8.0
+],
+"best_rank": 232,
+"min_ntd_per_kg": 71,
+"rx": false,
+"ids": [
+"4335789"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "加拿大貓貓天然糧 全系列",
+"listings": 1,
+"sizes": [
+3.63
+],
+"best_rank": 233,
+"min_ntd_per_kg": 563,
+"rx": false,
+"ids": [
+"6657974"
+]
+},
+{
+"f": "dry",
+"brand": "LCB 藍帶廚坊",
+"line": "WELL健康挑嘴貓 海洋魚配方",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 234,
+"min_ntd_per_kg": 104,
+"rx": false,
+"ids": [
+"7728979"
+]
+},
+{
+"f": "dry",
+"brand": "letasty 鮮樂嚐",
+"line": "無穀全齡貓雞&鮭魚 泌尿化毛配方",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 237,
+"min_ntd_per_kg": 460,
+"rx": false,
+"ids": [
+"10848458"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然低穀貓系列 LC1 LC2 ",
+"listings": 3,
+"sizes": [
+1.5,
+5.0,
+10.0
+],
+"best_rank": 238,
+"min_ntd_per_kg": 440,
+"rx": false,
+"ids": [
+"13287442",
+"13287440",
+"13287441"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓泌尿道毛球控制 雞肉特調食譜",
+"listings": 1,
+"sizes": [
+7.03
+],
+"best_rank": 239,
+"min_ntd_per_kg": 328,
+"rx": false,
+"ids": [
+"8139761"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "分次配 敏感胃腸與皮膚 成貓 雞",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 249,
+"min_ntd_per_kg": 550,
+"rx": false,
+"ids": [
+"15649293"
+]
+},
+{
+"f": "dry",
+"brand": "Unicharm Pet 銀湯匙",
+"line": "貓乾糧 2.5",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 250,
+"min_ntd_per_kg": 353,
+"rx": false,
+"ids": [
+"15758962"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "加拿大貓咪天然糧 全系列",
+"listings": 1,
+"sizes": [
+7.26
+],
+"best_rank": 251,
+"min_ntd_per_kg": 474,
+"rx": false,
+"ids": [
+"6657957"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然熱帶水果貓糧系列 FTC 貓",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 252,
+"min_ntd_per_kg": 549,
+"rx": false,
+"ids": [
+"12816559"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "毛球控制 成貓 雞肉",
+"listings": 2,
+"sizes": [
+1.58,
+3.17
+],
+"best_rank": 254,
+"min_ntd_per_kg": 477,
+"rx": false,
+"ids": [
+"8278941",
+"8278940"
+]
+},
+{
+"f": "dry",
+"brand": "TRILOGY 奇境",
+"line": "無穀全貓糧 鮮肉乾糧 原肉凍乾",
+"listings": 2,
+"sizes": [
+0.9,
+1.8
+],
+"best_rank": 255,
+"min_ntd_per_kg": 1111,
+"rx": false,
+"ids": [
+"10314510",
+"10314509"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "健康紀元貓食 挑嘴貓專用配方 鮭",
+"listings": 1,
+"sizes": [
+1.0
+],
+"best_rank": 256,
+"min_ntd_per_kg": 200,
+"rx": false,
+"ids": [
+"13930682"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 鮮雞愛貓無穀配方",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 260,
+"min_ntd_per_kg": 878,
+"rx": false,
+"ids": [
+"4780775"
+]
+},
+{
+"f": "dry",
+"brand": "Instinct 原點",
+"line": "鮭魚無穀全貓配方",
+"listings": 1,
+"sizes": [
+4.54
+],
+"best_rank": 261,
+"min_ntd_per_kg": 1011,
+"rx": false,
+"ids": [
+"7060531"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "英國短毛幼貓專用飼料 BSK38",
+"listings": 2,
+"sizes": [
+2.0,
+10.0
+],
+"best_rank": 263,
+"min_ntd_per_kg": 304,
+"rx": false,
+"ids": [
+"14175238",
+"14175142"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "舒敏系列 幼貓 鮮雞成長",
+"listings": 1,
+"sizes": [
+1.45
+],
+"best_rank": 264,
+"min_ntd_per_kg": 551,
+"rx": false,
+"ids": [
+"14314598"
+]
+},
+{
+"f": "dry",
+"brand": "Real Power 瑞威",
+"line": "貓糧7號 河畔雞鴨 泌尿腎臟配方",
+"listings": 1,
+"sizes": [
+2.0
+],
+"best_rank": 265,
+"min_ntd_per_kg": 590,
+"rx": false,
+"ids": [
+"14430729"
+]
+},
+{
+"f": "dry",
+"brand": "Me-O 咪歐",
+"line": "乾貓糧",
+"listings": 1,
+"sizes": [
+3.0
+],
+"best_rank": 266,
+"min_ntd_per_kg": 113,
+"rx": false,
+"ids": [
+"5784489"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "PC ND天然南瓜無穀貓糧 成貓",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 268,
+"min_ntd_per_kg": 813,
+"rx": false,
+"ids": [
+"11137057"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "無穀貓飼料 農場盛宴貓 頂級高蛋",
+"listings": 1,
+"sizes": [
+4.5
+],
+"best_rank": 269,
+"min_ntd_per_kg": 487,
+"rx": false,
+"ids": [
+"14641834"
+]
+},
+{
+"f": "dry",
+"brand": "HeroMama",
+"line": "益生菌晶球夾心糧 貓飼料",
+"listings": 1,
+"sizes": [
+4.5
+],
+"best_rank": 270,
+"min_ntd_per_kg": 466,
+"rx": false,
+"ids": [
+"14712893"
+]
+},
+{
+"f": "dry",
+"brand": "Real Power 瑞威",
+"line": "天然平衡 貓糧5號 湖畔水鱉 免",
+"listings": 2,
+"sizes": [
+2.0,
+4.0
+],
+"best_rank": 279,
+"min_ntd_per_kg": 436,
+"rx": false,
+"ids": [
+"11014411",
+"10261897"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "幼貓 雞肉",
+"listings": 2,
+"sizes": [
+1.58,
+3.17
+],
+"best_rank": 280,
+"min_ntd_per_kg": 454,
+"rx": false,
+"ids": [
+"11885826",
+"8278943"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "完美消化 高齡貓 雞肉",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 282,
+"min_ntd_per_kg": 673,
+"rx": false,
+"ids": [
+"9577497"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "OC ND天然海洋貓糧 貓飼料",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 283,
+"min_ntd_per_kg": 813,
+"rx": false,
+"ids": [
+"11136891"
+]
+},
+{
+"f": "dry",
+"brand": "Catpool 貓侍",
+"line": "天然無穀貓糧 雞肉 羊肉 靈芝 ",
+"listings": 1,
+"sizes": [
+7.0
+],
+"best_rank": 284,
+"min_ntd_per_kg": 278,
+"rx": false,
+"ids": [
+"12627140"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "免疫寵糧 熟齡貓7 歲 3合1進",
+"listings": 1,
+"sizes": [
+1.36
+],
+"best_rank": 286,
+"min_ntd_per_kg": 407,
+"rx": false,
+"ids": [
+"14055160"
+]
+},
+{
+"f": "dry",
+"brand": "Earthborn 原野優越",
+"line": "無穀貓糧 農場貓 野生魚",
+"listings": 1,
+"sizes": [
+5.67
+],
+"best_rank": 298,
+"min_ntd_per_kg": 300,
+"rx": false,
+"ids": [
+"15440260"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 貓飼料",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 299,
+"min_ntd_per_kg": 389,
+"rx": false,
+"ids": [
+"15687469"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "親親系列 全齡貓 高肉量火鴨雞配",
+"listings": 1,
+"sizes": [
+5.99
+],
+"best_rank": 310,
+"min_ntd_per_kg": 277,
+"rx": false,
+"ids": [
+"10089681"
+]
+},
+{
+"f": "dry",
+"brand": "SmartHeart",
+"line": "慧心貓糧 1.1",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 313,
+"min_ntd_per_kg": 140,
+"rx": false,
+"ids": [
+"7587588"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "室內高齡貓 雞肉",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 314,
+"min_ntd_per_kg": 549,
+"rx": false,
+"ids": [
+"8275858"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "高齡貓 雞肉",
+"listings": 3,
+"sizes": [
+1.81,
+3.17,
+10.0
+],
+"best_rank": 316,
+"min_ntd_per_kg": 330,
+"rx": false,
+"ids": [
+"8278957",
+"11487359",
+"8275859"
+]
+},
+{
+"f": "dry",
+"brand": "PROUDPET 嬌寵醫生",
+"line": "極精萃 胖貓專科 體態管理配方",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 321,
+"min_ntd_per_kg": 675,
+"rx": false,
+"ids": [
+"15054040"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "超高齡貓 雞肉",
+"listings": 3,
+"sizes": [
+1.58,
+3.17,
+7.03
+],
+"best_rank": 322,
+"min_ntd_per_kg": 334,
+"rx": false,
+"ids": [
+"8278961",
+"8278959",
+"8278960"
+]
+},
+{
+"f": "dry",
+"brand": "Blue Bay 倍力",
+"line": "SENSE 全護低敏貓糧",
+"listings": 3,
+"sizes": [
+1.5,
+6.0,
+13.6
+],
+"best_rank": 325,
+"min_ntd_per_kg": 123,
+"rx": false,
+"ids": [
+"12119387",
+"12119388",
+"12119389"
+]
+},
+{
+"f": "dry",
+"brand": "UNCLE PAUL 保羅叔叔",
+"line": "高級貓糧系列 海鮮燕麥 雞肉糙米",
+"listings": 1,
+"sizes": [
+18.0
+],
+"best_rank": 326,
+"min_ntd_per_kg": 66,
+"rx": false,
+"ids": [
+"12487383"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "無穀貓飼料 農場盛宴 草原盛宴 ",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 327,
+"min_ntd_per_kg": 733,
+"rx": false,
+"ids": [
+"13952428"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "四種肉 貓咪高肉量系列 低碳水無",
+"listings": 1,
+"sizes": [
+3.63
+],
+"best_rank": 329,
+"min_ntd_per_kg": 563,
+"rx": false,
+"ids": [
+"11189219"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "親親系列 全齡貓 高肉量四種肉配",
+"listings": 2,
+"sizes": [
+2.27,
+5.99
+],
+"best_rank": 338,
+"min_ntd_per_kg": 277,
+"rx": false,
+"ids": [
+"10089682",
+"10089683"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "親親系列 幼貓 益菌成長配方",
+"listings": 1,
+"sizes": [
+1.13
+],
+"best_rank": 340,
+"min_ntd_per_kg": 391,
+"rx": false,
+"ids": [
+"11058079"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "加拿大貓咪天然糧 皮毛保健 高肉",
+"listings": 2,
+"sizes": [
+1.36
+],
+"best_rank": 343,
+"min_ntd_per_kg": 756,
+"rx": false,
+"ids": [
+"13116543",
+"13116539"
+]
+},
+{
+"f": "dry",
+"brand": "Allando 奧藍多",
+"line": "天然無穀全齡貓糧",
+"listings": 4,
+"sizes": [
+2.27,
+6.8
+],
+"best_rank": 347,
+"min_ntd_per_kg": 301,
+"rx": false,
+"ids": [
+"10870559",
+"10870572",
+"10870551",
+"10870565"
+]
+},
+{
+"f": "dry",
+"brand": "Munchee 貪貪",
+"line": "蜂之糧低敏無穀凍乾鮮肉糧",
+"listings": 1,
+"sizes": [
+5.0
+],
+"best_rank": 348,
+"min_ntd_per_kg": 346,
+"rx": false,
+"ids": [
+"11985250"
+]
+},
+{
+"f": "dry",
+"brand": "Nutram 紐頓",
+"line": "T24無穀挑嘴全齡貓飼料",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 349,
+"min_ntd_per_kg": 532,
+"rx": false,
+"ids": [
+"13568320"
+]
+},
+{
+"f": "dry",
+"brand": "ParkCat 無敵貓糧",
+"line": "動力火雞鹿",
+"listings": 2,
+"sizes": [
+2.0,
+6.0
+],
+"best_rank": 350,
+"min_ntd_per_kg": 320,
+"rx": false,
+"ids": [
+"13902218",
+"13902217"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "幼貓 敏感胃腸與皮膚 鮭魚與糙米",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 351,
+"min_ntd_per_kg": 646,
+"rx": false,
+"ids": [
+"14011507"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 無穀愛貓守護8 野牧鮮雞",
+"listings": 2,
+"sizes": [
+1.8,
+4.5
+],
+"best_rank": 352,
+"min_ntd_per_kg": 691,
+"rx": false,
+"ids": [
+"14407622",
+"14705236"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "處方貓飼料系列 VC1 VC4 ",
+"listings": 1,
+"sizes": [
+5.0
+],
+"best_rank": 356,
+"min_ntd_per_kg": 642,
+"rx": true,
+"ids": [
+"13287704"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "無穀鮮雞愛貓 六種鮮魚貓 室內貓",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 358,
+"min_ntd_per_kg": 509,
+"rx": false,
+"ids": [
+"14323236"
+]
+},
+{
+"f": "dry",
+"brand": "TRILOGY 奇境",
+"line": "凍乾無穀全齡貓糧",
+"listings": 1,
+"sizes": [
+0.9
+],
+"best_rank": 359,
+"min_ntd_per_kg": 1000,
+"rx": false,
+"ids": [
+"14478371"
+]
+},
+{
+"f": "dry",
+"brand": "ROYAL 法國皇家",
+"line": "波斯成貓專用飼料 P30",
+"listings": 3,
+"sizes": [
+2.0,
+4.0,
+10.0
+],
+"best_rank": 373,
+"min_ntd_per_kg": 296,
+"rx": false,
+"ids": [
+"14175236",
+"14175078",
+"14175146"
+]
+},
+{
+"f": "dry",
+"brand": "BLACKWOOD 柏萊富",
+"line": "天然寵糧特調全齡貓飼料",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 374,
+"min_ntd_per_kg": 366,
+"rx": false,
+"ids": [
+"14552122"
+]
+},
+{
+"f": "dry",
+"brand": "福壽",
+"line": "FUSO Pets福壽貓食*－雞",
+"listings": 1,
+"sizes": [
+18.14
+],
+"best_rank": 381,
+"min_ntd_per_kg": 106,
+"rx": false,
+"ids": [
+"13810692"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "免疫寵糧 成貓 挑嘴鮮鮭活力",
+"listings": 1,
+"sizes": [
+1.59
+],
+"best_rank": 382,
+"min_ntd_per_kg": 408,
+"rx": false,
+"ids": [
+"14055159"
+]
+},
+{
+"f": "dry",
+"brand": "Nutram 紐頓",
+"line": "T22 T24無穀全能系列貓糧",
+"listings": 1,
+"sizes": [
+2.26
+],
+"best_rank": 383,
+"min_ntd_per_kg": 570,
+"rx": false,
+"ids": [
+"14056031"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "敏感胃腸與皮膚 成貓 鮭魚",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 385,
+"min_ntd_per_kg": 689,
+"rx": false,
+"ids": [
+"15506272"
+]
+},
+{
+"f": "dry",
+"brand": "Instinct 原點",
+"line": "雞肉無穀幼貓配方",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 386,
+"min_ntd_per_kg": 1184,
+"rx": false,
+"ids": [
+"7060532"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "N&D挑嘴全齡貓 低卡結紮貓 天",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 397,
+"min_ntd_per_kg": 687,
+"rx": false,
+"ids": [
+"9497068"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "黎麥機能貓系列 QC1 QC2 ",
+"listings": 2,
+"sizes": [
+1.5,
+5.0
+],
+"best_rank": 401,
+"min_ntd_per_kg": 714,
+"rx": false,
+"ids": [
+"13287445",
+"13287446"
+]
+},
+{
+"f": "dry",
+"brand": "BowU 飽優",
+"line": "全方位營養貓食 海鮮盛宴 鮪魚雞",
+"listings": 1,
+"sizes": [
+7.0
+],
+"best_rank": 405,
+"min_ntd_per_kg": 105,
+"rx": false,
+"ids": [
+"14931024"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 鮮雞室內貓 無穀配方",
+"listings": 2,
+"sizes": [
+1.8,
+5.4
+],
+"best_rank": 407,
+"min_ntd_per_kg": 407,
+"rx": false,
+"ids": [
+"4819315",
+"4978129"
+]
+},
+{
+"f": "dry",
+"brand": "第一饗宴",
+"line": "海魚 非籠養雞 燕麥成幼貓",
+"listings": 1,
+"sizes": [
+2.3
+],
+"best_rank": 409,
+"min_ntd_per_kg": 522,
+"rx": false,
+"ids": [
+"7108057"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "加拿大貓貓天然糧 皮毛保健 高肉",
+"listings": 1,
+"sizes": [
+7.26
+],
+"best_rank": 410,
+"min_ntd_per_kg": 474,
+"rx": false,
+"ids": [
+"8467215"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "完美消化 成貓 雞肉 鮭魚",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 411,
+"min_ntd_per_kg": 673,
+"rx": false,
+"ids": [
+"9577498"
+]
+},
+{
+"f": "dry",
+"brand": "Livin Wild 野宴",
+"line": "全齡貓草飼無穀配方 放養雞&火雞",
+"listings": 1,
+"sizes": [
+6.8
+],
+"best_rank": 417,
+"min_ntd_per_kg": 250,
+"rx": false,
+"ids": [
+"13101261"
+]
+},
+{
+"f": "dry",
+"brand": "Auroria 極光",
+"line": "無穀全齡貓糧",
+"listings": 2,
+"sizes": [
+0.45,
+1.81
+],
+"best_rank": 419,
+"min_ntd_per_kg": 353,
+"rx": false,
+"ids": [
+"14153745",
+"14153743"
+]
+},
+{
+"f": "dry",
+"brand": "TAPAZO 特百滋",
+"line": "凍乾雙饗宴 成貓低敏雞肉配方",
+"listings": 1,
+"sizes": [
+0.91
+],
+"best_rank": 429,
+"min_ntd_per_kg": 482,
+"rx": false,
+"ids": [
+"12474893"
+]
+},
+{
+"f": "dry",
+"brand": "毛孩時代",
+"line": "80%鮮魚肉無穀全貓糧",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 430,
+"min_ntd_per_kg": 481,
+"rx": false,
+"ids": [
+"12759623"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 六種鮮魚 無穀貓糧",
+"listings": 1,
+"sizes": [
+1.0
+],
+"best_rank": 431,
+"min_ntd_per_kg": 860,
+"rx": false,
+"ids": [
+"14049267"
+]
+},
+{
+"f": "dry",
+"brand": "Schesir 鮮時 薛先生 貓糧",
+"line": "低碳水無穀成貓乾糧",
+"listings": 1,
+"sizes": [
+0.255
+],
+"best_rank": 432,
+"min_ntd_per_kg": 584,
+"rx": false,
+"ids": [
+"14098751"
+]
+},
+{
+"f": "dry",
+"brand": "LCB 藍帶廚坊",
+"line": "WELL健康挑嘴貓 海鮮雞肉配方",
+"listings": 1,
+"sizes": [
+6.0
+],
+"best_rank": 435,
+"min_ntd_per_kg": 104,
+"rx": false,
+"ids": [
+"7728983"
+]
+},
+{
+"f": "dry",
+"brand": "EVARK 渴望",
+"line": "EVARK 渴望 無穀貓糧",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 445,
+"min_ntd_per_kg": 330,
+"rx": false,
+"ids": [
+"10443822"
+]
+},
+{
+"f": "dry",
+"brand": "Ownat 歐娜特",
+"line": "貓咪鮮肉糧 皮毛.腸胃.室內雞o",
+"listings": 1,
+"sizes": [
+3.0
+],
+"best_rank": 447,
+"min_ntd_per_kg": 450,
+"rx": false,
+"ids": [
+"11941946"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然熱帶水果貓系列 FTC1 F",
+"listings": 1,
+"sizes": [
+10.0
+],
+"best_rank": 448,
+"min_ntd_per_kg": 370,
+"rx": false,
+"ids": [
+"13268407"
+]
+},
+{
+"f": "dry",
+"brand": "福壽",
+"line": "FUSO Pets 福壽 貓食 ",
+"listings": 1,
+"sizes": [
+9.07
+],
+"best_rank": 449,
+"min_ntd_per_kg": 79,
+"rx": false,
+"ids": [
+"13952623"
+]
+},
+{
+"f": "dry",
+"brand": "Signature7 心寵",
+"line": "無穀全齡貓糧水解保健食譜",
+"listings": 1,
+"sizes": [
+1.6
+],
+"best_rank": 450,
+"min_ntd_per_kg": 475,
+"rx": false,
+"ids": [
+"15714226"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓 成貓低卡 成貓7歲以上 毛",
+"listings": 1,
+"sizes": [
+7.03
+],
+"best_rank": 460,
+"min_ntd_per_kg": 327,
+"rx": false,
+"ids": [
+"13828760"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "處方食品 貓用k d 腎臟病護理",
+"listings": 1,
+"sizes": [
+3.85
+],
+"best_rank": 462,
+"min_ntd_per_kg": 545,
+"rx": true,
+"ids": [
+"14433129"
+]
+},
+{
+"f": "dry",
+"brand": "Chicken Soup 心靈雞湯",
+"line": "黑標無穀系列 低敏護膚全齡貓配方",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 463,
+"min_ntd_per_kg": 311,
+"rx": false,
+"ids": [
+"15734142"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "高齡活力 高齡貓 雞肉",
+"listings": 1,
+"sizes": [
+1.36
+],
+"best_rank": 464,
+"min_ntd_per_kg": 665,
+"rx": false,
+"ids": [
+"8278952"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "毛球控制 高齡貓 雞肉",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 465,
+"min_ntd_per_kg": 605,
+"rx": false,
+"ids": [
+"8278962"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "ND天然熱帶水果貓糧系列 FTC",
+"listings": 1,
+"sizes": [
+10.0
+],
+"best_rank": 472,
+"min_ntd_per_kg": 361,
+"rx": false,
+"ids": [
+"12816563"
+]
+},
+{
+"f": "dry",
+"brand": "ZIWI 巔峰",
+"line": "微蒸鮮肉貓糧 任選",
+"listings": 1,
+"sizes": [
+0.8
+],
+"best_rank": 473,
+"min_ntd_per_kg": 1785,
+"rx": false,
+"ids": [
+"13042752"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓 泌尿道毛球控制 雞肉特調食",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 474,
+"min_ntd_per_kg": 538,
+"rx": false,
+"ids": [
+"13804055"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "ND全齡貓天然海洋系列 低穀鱈魚",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 475,
+"min_ntd_per_kg": 687,
+"rx": false,
+"ids": [
+"6837160"
+]
+},
+{
+"f": "dry",
+"brand": "Balance 博朗氏",
+"line": "美毛魚油挑嘴貓飼料*",
+"listings": 1,
+"sizes": [
+14.0
+],
+"best_rank": 477,
+"min_ntd_per_kg": 82,
+"rx": false,
+"ids": [
+"9999745"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "健康紀元貓食 泌尿道健康照護配方",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 487,
+"min_ntd_per_kg": 213,
+"rx": false,
+"ids": [
+"13930680"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "健康紀元貓食 膳纖化毛照護配方",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 488,
+"min_ntd_per_kg": 213,
+"rx": false,
+"ids": [
+"13930681"
+]
+},
+{
+"f": "dry",
+"brand": "Pro Plan 冠能",
+"line": "舒敏系列 成貓 室內化毛",
+"listings": 1,
+"sizes": [
+2.49
+],
+"best_rank": 489,
+"min_ntd_per_kg": 485,
+"rx": false,
+"ids": [
+"14499519"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "幼貓敏感腸胃與皮膚鮭魚與燒糙米特",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 490,
+"min_ntd_per_kg": 514,
+"rx": false,
+"ids": [
+"14751340"
+]
+},
+{
+"f": "dry",
+"brand": "葛莉思",
+"line": "健康紀元貓食 挑嘴貓專用配方* ",
+"listings": 1,
+"sizes": [
+4.0
+],
+"best_rank": 491,
+"min_ntd_per_kg": 200,
+"rx": false,
+"ids": [
+"15008115"
+]
+},
+{
+"f": "dry",
+"brand": "HALO 嘿囉",
+"line": "無穀貓糧",
+"listings": 1,
+"sizes": [
+4.53
+],
+"best_rank": 493,
+"min_ntd_per_kg": 441,
+"rx": false,
+"ids": [
+"7710050"
+]
+},
+{
+"f": "dry",
+"brand": "Kitcat",
+"line": "挑嘴貓獨享 多種口味",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 494,
+"min_ntd_per_kg": 277,
+"rx": false,
+"ids": [
+"9814381"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "頂級食材貓飼料",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 502,
+"min_ntd_per_kg": 717,
+"rx": false,
+"ids": [
+"11258874"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "FTC天然熱帶水果系列 貓糧",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 505,
+"min_ntd_per_kg": 560,
+"rx": false,
+"ids": [
+"13582352"
+]
+},
+{
+"f": "dry",
+"brand": "毛孩時代",
+"line": "7 鮮魚肉低磷關節貓糧",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 506,
+"min_ntd_per_kg": 504,
+"rx": false,
+"ids": [
+"13913523"
+]
+},
+{
+"f": "dry",
+"brand": "Monge 瑪恩吉",
+"line": "天然全能貓系列",
+"listings": 1,
+"sizes": [
+10.0
+],
+"best_rank": 507,
+"min_ntd_per_kg": 250,
+"rx": false,
+"ids": [
+"13945756"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 室內貓 鮮雞愛貓 無穀貓",
+"listings": 1,
+"sizes": [
+1.0
+],
+"best_rank": 508,
+"min_ntd_per_kg": 810,
+"rx": false,
+"ids": [
+"14049210"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "低GI配方貓飼料 田園收穫貓 豐",
+"listings": 1,
+"sizes": [
+4.5
+],
+"best_rank": 510,
+"min_ntd_per_kg": 442,
+"rx": false,
+"ids": [
+"14641835"
+]
+},
+{
+"f": "dry",
+"brand": "Monge 瑪恩吉",
+"line": "天然全能配方",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 522,
+"min_ntd_per_kg": 506,
+"rx": false,
+"ids": [
+"10106128"
+]
+},
+{
+"f": "dry",
+"brand": "spring 曙光",
+"line": "天然無穀全齡貓飼料",
+"listings": 1,
+"sizes": [
+1.81
+],
+"best_rank": 523,
+"min_ntd_per_kg": 672,
+"rx": false,
+"ids": [
+"10167310"
+]
+},
+{
+"f": "dry",
+"brand": "LCB 藍帶廚坊",
+"line": "挑嘴海鮮大餐貓飼料 貓糧 挑嘴貓",
+"listings": 1,
+"sizes": [
+13.6
+],
+"best_rank": 525,
+"min_ntd_per_kg": 87,
+"rx": false,
+"ids": [
+"10527888"
+]
+},
+{
+"f": "dry",
+"brand": "WELLNESS 寵物健康",
+"line": "CORE無穀貓糧系列 幼貓 成貓",
+"listings": 1,
+"sizes": [
+2.27
+],
+"best_rank": 526,
+"min_ntd_per_kg": 543,
+"rx": false,
+"ids": [
+"10650062"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "無穀雞肉 貓咪低脂關節保健系列 ",
+"listings": 1,
+"sizes": [
+3.63
+],
+"best_rank": 527,
+"min_ntd_per_kg": 563,
+"rx": false,
+"ids": [
+"10690111"
+]
+},
+{
+"f": "dry",
+"brand": "spring 曙光",
+"line": "無榖滋養貓食譜 雞肉 火雞肉 鴨",
+"listings": 2,
+"sizes": [
+0.3,
+1.36
+],
+"best_rank": 530,
+"min_ntd_per_kg": 494,
+"rx": false,
+"ids": [
+"11889890",
+"11889895"
+]
+},
+{
+"f": "dry",
+"brand": "TOMA-PRO 優格",
+"line": "吃貨拼盤多拼糧 全齡貓飼料",
+"listings": 1,
+"sizes": [
+0.68
+],
+"best_rank": 531,
+"min_ntd_per_kg": 529,
+"rx": false,
+"ids": [
+"12928429"
+]
+},
+{
+"f": "dry",
+"brand": "Nutrience 紐崔斯",
+"line": "黑鑽頂極無穀貓 凍乾系列 多種魚",
+"listings": 1,
+"sizes": [
+4.5
+],
+"best_rank": 532,
+"min_ntd_per_kg": 567,
+"rx": false,
+"ids": [
+"13220742"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然熱帶水果貓系列 FTC0 F",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 533,
+"min_ntd_per_kg": 560,
+"rx": false,
+"ids": [
+"13268405"
+]
+},
+{
+"f": "dry",
+"brand": "TAPAZO 特百滋",
+"line": "凍乾填心糧 成幼貓低敏配方 x",
+"listings": 1,
+"sizes": [
+2.73
+],
+"best_rank": 534,
+"min_ntd_per_kg": 366,
+"rx": false,
+"ids": [
+"13661358"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓 完美體重 雞肉特調食譜",
+"listings": 1,
+"sizes": [
+6.8
+],
+"best_rank": 535,
+"min_ntd_per_kg": 338,
+"rx": false,
+"ids": [
+"13804052"
+]
+},
+{
+"f": "dry",
+"brand": "ACANA",
+"line": "無穀貓飼料 農場盛宴貓",
+"listings": 1,
+"sizes": [
+4.5
+],
+"best_rank": 537,
+"min_ntd_per_kg": 582,
+"rx": false,
+"ids": [
+"15374678"
+]
+},
+{
+"f": "dry",
+"brand": "Now!",
+"line": "鮮肉 鮮魚配方 貓咪無穀天然糧",
+"listings": 2,
+"sizes": [
+3.63,
+7.26
+],
+"best_rank": 539,
+"min_ntd_per_kg": 562,
+"rx": false,
+"ids": [
+"9253362",
+"10366627"
+]
+},
+{
+"f": "dry",
+"brand": "letasty 鮮樂嚐",
+"line": "無穀全齡貓雞&鮭魚泌尿化毛配方",
+"listings": 1,
+"sizes": [
+6.8
+],
+"best_rank": 550,
+"min_ntd_per_kg": 292,
+"rx": false,
+"ids": [
+"12125259"
+]
+},
+{
+"f": "dry",
+"brand": "Farmina 法米納",
+"line": "天然螺旋藻無穀貓糧系列 SC1 ",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 551,
+"min_ntd_per_kg": 853,
+"rx": false,
+"ids": [
+"12697101"
+]
+},
+{
+"f": "dry",
+"brand": "NEW LOVE 紐樂芙",
+"line": "無穀貓糧 鮮肉凍乾 鮮肉糧 純肉",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 552,
+"min_ntd_per_kg": 407,
+"rx": false,
+"ids": [
+"13738762"
+]
+},
+{
+"f": "dry",
+"brand": "Meow Servant 喵皇奴",
+"line": "PURRSUIT！貓咪凍乾飼料",
+"listings": 1,
+"sizes": [
+0.3
+],
+"best_rank": 553,
+"min_ntd_per_kg": 663,
+"rx": false,
+"ids": [
+"13983148"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "貓用 c d 全效 紓解緊迫貓飼",
+"listings": 1,
+"sizes": [
+1.5
+],
+"best_rank": 554,
+"min_ntd_per_kg": 755,
+"rx": true,
+"ids": [
+"14433118"
+]
+},
+{
+"f": "dry",
+"brand": "ZIWI 巔峰",
+"line": "96%微蒸鮮肉貓糧",
+"listings": 1,
+"sizes": [
+2.2
+],
+"best_rank": 555,
+"min_ntd_per_kg": 1431,
+"rx": false,
+"ids": [
+"14543070"
+]
+},
+{
+"f": "dry",
+"brand": "PROUDPET 嬌寵醫生",
+"line": "極精萃 胖貓專科 體態管理配方 ",
+"listings": 1,
+"sizes": [
+1.8
+],
+"best_rank": 556,
+"min_ntd_per_kg": 675,
+"rx": false,
+"ids": [
+"15642038"
+]
+},
+{
+"f": "dry",
+"brand": "Orijen",
+"line": "歐睿健 鮮雞愛貓無穀配方 牧野鮮",
+"listings": 1,
+"sizes": [
+5.4
+],
+"best_rank": 557,
+"min_ntd_per_kg": 352,
+"rx": false,
+"ids": [
+"4819316"
+]
+},
+{
+"f": "dry",
+"brand": "DAN 丹",
+"line": "全齡貓飼料口腔 泌尿道保健",
+"listings": 1,
+"sizes": [
+18.14
+],
+"best_rank": 559,
+"min_ntd_per_kg": 84,
+"rx": false,
+"ids": [
+"9986864"
+]
+},
+{
+"f": "dry",
+"brand": "Me-O 咪歐",
+"line": "乾貓糧 1.1",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 578,
+"min_ntd_per_kg": 138,
+"rx": false,
+"ids": [
+"4972703"
+]
+},
+{
+"f": "dry",
+"brand": "Go!",
+"line": "低致敏鴨肉 貓咪低致敏系列 單一",
+"listings": 1,
+"sizes": [
+3.63
+],
+"best_rank": 579,
+"min_ntd_per_kg": 588,
+"rx": false,
+"ids": [
+"8131515"
+]
+},
+{
+"f": "dry",
+"brand": "NurturePRO 天然密碼",
+"line": "低敏貓糧",
+"listings": 1,
+"sizes": [
+5.7
+],
+"best_rank": 594,
+"min_ntd_per_kg": 331,
+"rx": false,
+"ids": [
+"10292196"
+]
+},
+{
+"f": "dry",
+"brand": "Hills 希爾思",
+"line": "成貓泌尿道毛球控制雞肉特調食譜 ",
+"listings": 1,
+"sizes": [
+1.58
+],
+"best_rank": 599,
+"min_ntd_per_kg": 501,
+"rx": false,
+"ids": [
+"10917501"
+]
+},
+{
+"f": "wet",
+"brand": "Whiskas 偉嘉",
+"line": "妙鮮包 寵物 貓罐頭 貓餐包",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 2,
+"min_ntd_per_kg": 312,
+"rx": false,
+"ids": [
+"12201854"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "精緻食光貓餐包系列",
+"listings": 1,
+"sizes": [
+0.51
+],
+"best_rank": 3,
+"min_ntd_per_kg": 780,
+"rx": false,
+"ids": [
+"11211100"
+]
+},
+{
+"f": "wet",
+"brand": "Sheba",
+"line": "金罐 寵物 貓罐頭 貓食",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 4,
+"min_ntd_per_kg": 421,
+"rx": false,
+"ids": [
+"11913810"
+]
+},
+{
+"f": "wet",
+"brand": "Sheba",
+"line": "鮮饌包主食 綜合口味",
+"listings": 3,
+"sizes": [
+1.26,
+2.52,
+5.04
+],
+"best_rank": 5,
+"min_ntd_per_kg": 337,
+"rx": false,
+"ids": [
+"13994823",
+"14493517",
+"14334052"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 主食罐",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 8,
+"min_ntd_per_kg": 490,
+"rx": false,
+"ids": [
+"14233533"
+]
+},
+{
+"f": "wet",
+"brand": "Seeds 聖萊西",
+"line": "MamaMia 純白肉貓餐罐 *",
+"listings": 2,
+"sizes": [
+2.04,
+4.08
+],
+"best_rank": 9,
+"min_ntd_per_kg": 223,
+"rx": false,
+"ids": [
+"10822679",
+"10777032"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 10,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14195247"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "AIRLIFT 貓咪專用濕糧主食",
+"listings": 6,
+"sizes": [
+1.02
+],
+"best_rank": 11,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"15662218",
+"15728402",
+"15728396",
+"15728394",
+"15728407",
+"15728406"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "全照護主食罐 箱",
+"listings": 2,
+"sizes": [
+1.92,
+1.98
+],
+"best_rank": 12,
+"min_ntd_per_kg": 424,
+"rx": false,
+"ids": [
+"9641096",
+"13781771"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包",
+"listings": 1,
+"sizes": [
+4.08
+],
+"best_rank": 13,
+"min_ntd_per_kg": 489,
+"rx": false,
+"ids": [
+"15131170"
+]
+},
+{
+"f": "wet",
+"brand": "Seeds 聖萊西",
+"line": "HAVE FISH 有魚貓餐罐*",
+"listings": 1,
+"sizes": [
+8.16
+],
+"best_rank": 14,
+"min_ntd_per_kg": 86,
+"rx": false,
+"ids": [
+"10777033"
+]
+},
+{
+"f": "wet",
+"brand": "Sheba",
+"line": "鮮饌包主食 寵物 貓罐頭 貓食",
+"listings": 1,
+"sizes": [
+3.36
+],
+"best_rank": 15,
+"min_ntd_per_kg": 327,
+"rx": false,
+"ids": [
+"12012287"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "歪嘴貓主食罐",
+"listings": 4,
+"sizes": [
+0.48,
+1.92,
+2.4,
+5.76
+],
+"best_rank": 20,
+"min_ntd_per_kg": 380,
+"rx": false,
+"ids": [
+"14443312",
+"10157133",
+"11172634",
+"13238524"
+]
+},
+{
+"f": "wet",
+"brand": "Hills 希爾思",
+"line": "幼 成貓主食罐 泌尿道毛球 完美",
+"listings": 2,
+"sizes": [
+1.968
+],
+"best_rank": 21,
+"min_ntd_per_kg": 777,
+"rx": false,
+"ids": [
+"10319423",
+"15678220"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "離乳貓與母貓專用濕糧 BC34W",
+"listings": 1,
+"sizes": [
+2.34
+],
+"best_rank": 22,
+"min_ntd_per_kg": 324,
+"rx": false,
+"ids": [
+"14175028"
+]
+},
+{
+"f": "wet",
+"brand": "catssay 貓有話說",
+"line": "營養懶人包 乳鐵蛋白主食餐包*",
+"listings": 2,
+"sizes": [
+0.96,
+2.4
+],
+"best_rank": 24,
+"min_ntd_per_kg": 703,
+"rx": false,
+"ids": [
+"14233600",
+"15169151"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "南極磷蝦大肉包美毛包",
+"listings": 4,
+"sizes": [
+0.27,
+1.53,
+2.7,
+4.5
+],
+"best_rank": 25,
+"min_ntd_per_kg": 857,
+"rx": false,
+"ids": [
+"13658258",
+"12711132",
+"15631131",
+"15631198"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "全照護主食罐",
+"listings": 1,
+"sizes": [
+3.84
+],
+"best_rank": 26,
+"min_ntd_per_kg": 472,
+"rx": false,
+"ids": [
+"12222132"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_腸胃保健成",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 27,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286877"
+]
+},
+{
+"f": "wet",
+"brand": "Hills 希爾思",
+"line": "成貓 幼貓 高齡貓 主食罐頭",
+"listings": 1,
+"sizes": [
+1.896
+],
+"best_rank": 29,
+"min_ntd_per_kg": 753,
+"rx": false,
+"ids": [
+"15678219"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "幼貓專用濕糧 K36W 盒",
+"listings": 2,
+"sizes": [
+1.02,
+2.04
+],
+"best_rank": 30,
+"min_ntd_per_kg": 617,
+"rx": false,
+"ids": [
+"14393997",
+"14180550"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "貓用FANTASTIC 98％鮮",
+"listings": 1,
+"sizes": [
+1.98
+],
+"best_rank": 31,
+"min_ntd_per_kg": 854,
+"rx": false,
+"ids": [
+"7890953"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "交響樂貓用低溫慢燉無穀主食罐 全",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 32,
+"min_ntd_per_kg": 598,
+"rx": false,
+"ids": [
+"8624775"
+]
+},
+{
+"f": "wet",
+"brand": "NU4PET 陪心寵糧",
+"line": "Super新小白貓主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 33,
+"min_ntd_per_kg": 448,
+"rx": false,
+"ids": [
+"11924215"
+]
+},
+{
+"f": "wet",
+"brand": "TAPAZO 特百滋",
+"line": "主廚鮮肉派",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 33,
+"min_ntd_per_kg": 376,
+"rx": false,
+"ids": [
+"12692146"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "挑嘴貓鮮魚無膠主食罐",
+"listings": 2,
+"sizes": [
+1.92,
+1.98
+],
+"best_rank": 35,
+"min_ntd_per_kg": 388,
+"rx": false,
+"ids": [
+"7618252",
+"7618251"
+]
+},
+{
+"f": "wet",
+"brand": "T.N.A. 悠遊",
+"line": "厚肉肉Hoorooroo營養主食",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 39,
+"min_ntd_per_kg": 578,
+"rx": false,
+"ids": [
+"8817315"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "AIRLIFT貓咪專用主食罐",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 40,
+"min_ntd_per_kg": 489,
+"rx": false,
+"ids": [
+"15751602"
+]
+},
+{
+"f": "wet",
+"brand": "MonPetit 貓倍麗",
+"line": "美國經典主食罐",
+"listings": 2,
+"sizes": [
+0.085,
+2.04
+],
+"best_rank": 43,
+"min_ntd_per_kg": 392,
+"rx": false,
+"ids": [
+"13395507",
+"13590636"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_室內成貓I",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 45,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286833"
+]
+},
+{
+"f": "wet",
+"brand": "Seeds 聖萊西",
+"line": "Main Course每客思全營",
+"listings": 1,
+"sizes": [
+2.76
+],
+"best_rank": 46,
+"min_ntd_per_kg": 311,
+"rx": false,
+"ids": [
+"10894694"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_泌尿道保健",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 47,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286870"
+]
+},
+{
+"f": "wet",
+"brand": "獸研所",
+"line": "貓咪保養主食罐 四款任選_腎臟 ",
+"listings": 2,
+"sizes": [
+0.48,
+1.92
+],
+"best_rank": 54,
+"min_ntd_per_kg": 833,
+"rx": false,
+"ids": [
+"14090546",
+"13984316"
+]
+},
+{
+"f": "wet",
+"brand": "WELLNESS 寵物健康",
+"line": "SS名廚特選主食罐",
+"listings": 2,
+"sizes": [
+0.948,
+1.8
+],
+"best_rank": 56,
+"min_ntd_per_kg": 672,
+"rx": false,
+"ids": [
+"10165668",
+"10160164"
+]
+},
+{
+"f": "wet",
+"brand": "Pro Plan 冠能",
+"line": "功能性主食貓餐包 *",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 65,
+"min_ntd_per_kg": 510,
+"rx": false,
+"ids": [
+"11188199"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_理想體態貓",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 68,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286875"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "貓用滴雞 魚精滋補主食餐包",
+"listings": 1,
+"sizes": [
+0.8
+],
+"best_rank": 68,
+"min_ntd_per_kg": 1086,
+"rx": false,
+"ids": [
+"14695537"
+]
+},
+{
+"f": "wet",
+"brand": "Aixia 愛喜雅",
+"line": "妙喵主食軟包系列*",
+"listings": 2,
+"sizes": [
+1.68,
+2.52
+],
+"best_rank": 69,
+"min_ntd_per_kg": 456,
+"rx": false,
+"ids": [
+"14622970",
+"14600188"
+]
+},
+{
+"f": "wet",
+"brand": "LILY’S KITCHEN",
+"line": "莉莉廚房英國原裝進口成貓 幼貓 ",
+"listings": 1,
+"sizes": [
+1.52
+],
+"best_rank": 71,
+"min_ntd_per_kg": 855,
+"rx": false,
+"ids": [
+"13757613"
+]
+},
+{
+"f": "wet",
+"brand": "K9 Natural",
+"line": "貓咪凍乾鮮肉餐 任選 雞肉羊肉 ",
+"listings": 1,
+"sizes": [
+0.64
+],
+"best_rank": 71,
+"min_ntd_per_kg": 4061,
+"rx": false,
+"ids": [
+"14914501"
+]
+},
+{
+"f": "wet",
+"brand": "HeroMama",
+"line": "貓用迷你無膠主食罐",
+"listings": 1,
+"sizes": [
+1.32
+],
+"best_rank": 72,
+"min_ntd_per_kg": 552,
+"rx": false,
+"ids": [
+"14155851"
+]
+},
+{
+"f": "wet",
+"brand": "Neko 吶一口",
+"line": "德國無穀主食餐包入 共12種口味",
+"listings": 1,
+"sizes": [
+0.51
+],
+"best_rank": 72,
+"min_ntd_per_kg": 776,
+"rx": false,
+"ids": [
+"15149117"
+]
+},
+{
+"f": "wet",
+"brand": "Aixia 愛喜雅",
+"line": "妙喵主食餐包系列",
+"listings": 2,
+"sizes": [
+1.68,
+3.36
+],
+"best_rank": 76,
+"min_ntd_per_kg": 357,
+"rx": false,
+"ids": [
+"13763040",
+"8790033"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "貓用FANTASTIC 98%鮮",
+"listings": 2,
+"sizes": [
+1.92,
+1.98
+],
+"best_rank": 77,
+"min_ntd_per_kg": 419,
+"rx": false,
+"ids": [
+"6449532",
+"6705667"
+]
+},
+{
+"f": "wet",
+"brand": "NurturePRO 天然密碼",
+"line": "永恆無穀鮮肉罐 組",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 81,
+"min_ntd_per_kg": 447,
+"rx": false,
+"ids": [
+"5454729"
+]
+},
+{
+"f": "wet",
+"brand": "Hyperr 超躍",
+"line": "貓咪 德國機能主食罐 口味任選",
+"listings": 2,
+"sizes": [
+0.15,
+4.5
+],
+"best_rank": 82,
+"min_ntd_per_kg": 416,
+"rx": false,
+"ids": [
+"15287368",
+"15287351"
+]
+},
+{
+"f": "wet",
+"brand": "毛怪樂園",
+"line": "金單純低敏貓主食餐包",
+"listings": 2,
+"sizes": [
+0.3,
+1.5
+],
+"best_rank": 83,
+"min_ntd_per_kg": 1067,
+"rx": false,
+"ids": [
+"15643688",
+"15231184"
+]
+},
+{
+"f": "wet",
+"brand": "Aixia 愛喜雅",
+"line": "妙喵主食軟包 *",
+"listings": 1,
+"sizes": [
+1.68
+],
+"best_rank": 87,
+"min_ntd_per_kg": 416,
+"rx": false,
+"ids": [
+"7446223"
+]
+},
+{
+"f": "wet",
+"brand": "獸研所",
+"line": "貓咪腎臟保養主食罐",
+"listings": 1,
+"sizes": [
+0.48
+],
+"best_rank": 90,
+"min_ntd_per_kg": 1127,
+"rx": false,
+"ids": [
+"14090549"
+]
+},
+{
+"f": "wet",
+"brand": "CHARM 野性魅力",
+"line": "紐西蘭超能主食罐 貓咪系列",
+"listings": 1,
+"sizes": [
+0.185
+],
+"best_rank": 93,
+"min_ntd_per_kg": 1022,
+"rx": false,
+"ids": [
+"14274627"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "貓滴雞精 魚精 主食餐包 盒",
+"listings": 1,
+"sizes": [
+0.8
+],
+"best_rank": 94,
+"min_ntd_per_kg": 1294,
+"rx": false,
+"ids": [
+"14776914"
+]
+},
+{
+"f": "wet",
+"brand": "Hyperr 超躍",
+"line": "貓咪 德國機能主食罐 6口味各一",
+"listings": 1,
+"sizes": [],
+"best_rank": 95,
+"min_ntd_per_kg": null,
+"rx": false,
+"ids": [
+"15287352"
+]
+},
+{
+"f": "wet",
+"brand": "Schesir 鮮時",
+"line": "義大利Schesir鮮時 主食貓",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 96,
+"min_ntd_per_kg": 731,
+"rx": false,
+"ids": [
+"15303752"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "鮮肉主食貓罐組",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 97,
+"min_ntd_per_kg": 646,
+"rx": false,
+"ids": [
+"7753746"
+]
+},
+{
+"f": "wet",
+"brand": "Farmina 法米納",
+"line": "貓用天然處方主食罐 全齡貓 高營",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 99,
+"min_ntd_per_kg": 765,
+"rx": true,
+"ids": [
+"8624789"
+]
+},
+{
+"f": "wet",
+"brand": "Eries",
+"line": "伊瑞思益生元主食罐 餐包系列 六",
+"listings": 2,
+"sizes": [
+1.02,
+2.04
+],
+"best_rank": 103,
+"min_ntd_per_kg": 294,
+"rx": false,
+"ids": [
+"12111647",
+"12111646"
+]
+},
+{
+"f": "wet",
+"brand": "NUEVO新歡",
+"line": "魅惑主食貓餐包系列 *",
+"listings": 1,
+"sizes": [
+1.36
+],
+"best_rank": 103,
+"min_ntd_per_kg": 644,
+"rx": false,
+"ids": [
+"12547819"
+]
+},
+{
+"f": "wet",
+"brand": "ABSOLUTE HOLISTIC 超越巔峰",
+"line": "五星主食貓罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 106,
+"min_ntd_per_kg": 421,
+"rx": false,
+"ids": [
+"8742491"
+]
+},
+{
+"f": "wet",
+"brand": "怪獸部落",
+"line": "乾杯聯名 貓用月見牛舌主食餐包",
+"listings": 1,
+"sizes": [
+0.8
+],
+"best_rank": 106,
+"min_ntd_per_kg": 1300,
+"rx": false,
+"ids": [
+"15684064"
+]
+},
+{
+"f": "wet",
+"brand": "Exclusion依克森",
+"line": "Exclusion依克森 地中海",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 107,
+"min_ntd_per_kg": 694,
+"rx": false,
+"ids": [
+"15703690"
+]
+},
+{
+"f": "wet",
+"brand": "NU4PET 陪心寵糧",
+"line": "腎臟保健貓主食罐 優腎罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 108,
+"min_ntd_per_kg": 448,
+"rx": false,
+"ids": [
+"11961849"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "全方位無膠主食罐系列 箱",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 109,
+"min_ntd_per_kg": 520,
+"rx": false,
+"ids": [
+"12388494"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_老貓15 ",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 110,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"15009395"
+]
+},
+{
+"f": "wet",
+"brand": "Catpool 貓侍",
+"line": "貓罐頭 升級版低敏食材天然主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 112,
+"min_ntd_per_kg": 581,
+"rx": false,
+"ids": [
+"12615493"
+]
+},
+{
+"f": "wet",
+"brand": "怪獸部落",
+"line": "貓用機能主食肉肉包",
+"listings": 1,
+"sizes": [
+0.6
+],
+"best_rank": 116,
+"min_ntd_per_kg": 780,
+"rx": false,
+"ids": [
+"14841437"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_化毛成貓I",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 120,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286872"
+]
+},
+{
+"f": "wet",
+"brand": "Cats in the Kitchen 凱特美廚",
+"line": "貓咪無穀主食罐",
+"listings": 2,
+"sizes": [
+2.16,
+4.08
+],
+"best_rank": 127,
+"min_ntd_per_kg": 502,
+"rx": false,
+"ids": [
+"15506346",
+"15506345"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "乳酸菌主食貓餐包系列 8種功能口",
+"listings": 2,
+"sizes": [
+0.48,
+0.96
+],
+"best_rank": 129,
+"min_ntd_per_kg": 583,
+"rx": false,
+"ids": [
+"15249093",
+"14336552"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_理想體態成",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 134,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286873"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "南極磷蝦重磅大肉包美毛包",
+"listings": 1,
+"sizes": [
+5.18
+],
+"best_rank": 138,
+"min_ntd_per_kg": 562,
+"rx": false,
+"ids": [
+"13781770"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_亮毛成貓H",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 140,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286879"
+]
+},
+{
+"f": "wet",
+"brand": "Natural10 自然食",
+"line": "貓主食罐天然無穀 幕斯罐整箱優惠",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 142,
+"min_ntd_per_kg": 551,
+"rx": false,
+"ids": [
+"8526098"
+]
+},
+{
+"f": "wet",
+"brand": "Pro Plan 冠能",
+"line": "貓咪主食餐包",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 149,
+"min_ntd_per_kg": 538,
+"rx": false,
+"ids": [
+"14097173"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "幼母貓營養主食罐",
+"listings": 1,
+"sizes": [
+1.98
+],
+"best_rank": 160,
+"min_ntd_per_kg": 473,
+"rx": false,
+"ids": [
+"11315066"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "鮮味大絲_肉絲主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 161,
+"min_ntd_per_kg": 636,
+"rx": false,
+"ids": [
+"10929776"
+]
+},
+{
+"f": "wet",
+"brand": "MOKA 摩卡喵",
+"line": "主食慕斯杯 杯",
+"listings": 1,
+"sizes": [
+0.18
+],
+"best_rank": 166,
+"min_ntd_per_kg": 889,
+"rx": false,
+"ids": [
+"12809518"
+]
+},
+{
+"f": "wet",
+"brand": "CRIUS 克瑞斯",
+"line": "無穀貓用主食餐罐",
+"listings": 2,
+"sizes": [
+2.16,
+4.2
+],
+"best_rank": 168,
+"min_ntd_per_kg": 341,
+"rx": false,
+"ids": [
+"7090017",
+"7090018"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "滴雞精滋補主食餐包 盒",
+"listings": 1,
+"sizes": [
+0.8
+],
+"best_rank": 168,
+"min_ntd_per_kg": 1200,
+"rx": false,
+"ids": [
+"14889575"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_老貓11 ",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 169,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"15009394"
+]
+},
+{
+"f": "wet",
+"brand": "Unicharm Pet 銀湯匙",
+"line": "銀湯匙餐包",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 171,
+"min_ntd_per_kg": 473,
+"rx": false,
+"ids": [
+"12279874"
+]
+},
+{
+"f": "wet",
+"brand": "NU4PET 陪心寵糧",
+"line": "Super經典小白貓主食罐",
+"listings": 2,
+"sizes": [
+1.92,
+2.04
+],
+"best_rank": 180,
+"min_ntd_per_kg": 375,
+"rx": false,
+"ids": [
+"11924216",
+"11909781"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "精緻食光無穀主食罐系列",
+"listings": 2,
+"sizes": [
+1.2
+],
+"best_rank": 186,
+"min_ntd_per_kg": 505,
+"rx": false,
+"ids": [
+"7798982",
+"7798538"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_絕育成貓S",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 195,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286878"
+]
+},
+{
+"f": "wet",
+"brand": "Sheba",
+"line": "主食慕斯罐",
+"listings": 1,
+"sizes": [
+1.68
+],
+"best_rank": 196,
+"min_ntd_per_kg": 511,
+"rx": false,
+"ids": [
+"13629439"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "全營養主食貓罐",
+"listings": 1,
+"sizes": [
+3.84
+],
+"best_rank": 197,
+"min_ntd_per_kg": 485,
+"rx": false,
+"ids": [
+"8173987"
+]
+},
+{
+"f": "wet",
+"brand": "MonPetit 貓倍麗",
+"line": "貓罐頭三種口味 貓罐頭雙拼主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 200,
+"min_ntd_per_kg": 572,
+"rx": false,
+"ids": [
+"14462583"
+]
+},
+{
+"f": "wet",
+"brand": "NurturePRO 天然密碼",
+"line": "永恆貓主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 205,
+"min_ntd_per_kg": 520,
+"rx": false,
+"ids": [
+"11145423"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_感官饗宴_",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 206,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286907"
+]
+},
+{
+"f": "wet",
+"brand": "K9 Natural",
+"line": "鮮燉貓無穀主食罐 雞肉 羊鮭 羊",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 209,
+"min_ntd_per_kg": 1236,
+"rx": false,
+"ids": [
+"13321798"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "補水炸彈主食餐包",
+"listings": 3,
+"sizes": [
+0.9,
+1.08,
+2.16
+],
+"best_rank": 217,
+"min_ntd_per_kg": 838,
+"rx": false,
+"ids": [
+"14314696",
+"14443313",
+"14314697"
+]
+},
+{
+"f": "wet",
+"brand": "怪獸部落",
+"line": "貓族寶寶無膠主食罐",
+"listings": 3,
+"sizes": [
+1.32,
+1.968,
+1.98
+],
+"best_rank": 221,
+"min_ntd_per_kg": 439,
+"rx": false,
+"ids": [
+"11329298",
+"10055249",
+"13792242"
+]
+},
+{
+"f": "wet",
+"brand": "LaPetz 樂倍",
+"line": "黑酵母主食營養貓罐",
+"listings": 2,
+"sizes": [
+1.92,
+5.76
+],
+"best_rank": 225,
+"min_ntd_per_kg": 469,
+"rx": false,
+"ids": [
+"14223392",
+"14904643"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_室內熟齡貓",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 226,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286864"
+]
+},
+{
+"f": "wet",
+"brand": "O’cheers 歡樂城市",
+"line": "歡樂罐 貓用無膠主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 229,
+"min_ntd_per_kg": 552,
+"rx": false,
+"ids": [
+"11302021"
+]
+},
+{
+"f": "wet",
+"brand": "PAW PAW LAND 肉球世界",
+"line": "南極磷蝦大肉包",
+"listings": 1,
+"sizes": [
+0.765
+],
+"best_rank": 233,
+"min_ntd_per_kg": 1125,
+"rx": false,
+"ids": [
+"13678063"
+]
+},
+{
+"f": "wet",
+"brand": "WELLNESS 寵物健康",
+"line": "SS名廚特選主食罐 組",
+"listings": 2,
+"sizes": [
+1.8,
+1.896
+],
+"best_rank": 234,
+"min_ntd_per_kg": 664,
+"rx": false,
+"ids": [
+"15352359",
+"15352361"
+]
+},
+{
+"f": "wet",
+"brand": "Farmina 法米納",
+"line": "貓用天然處方主食罐 全齡貓",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 235,
+"min_ntd_per_kg": 765,
+"rx": true,
+"ids": [
+"8631311"
+]
+},
+{
+"f": "wet",
+"brand": "TRILOGY 奇境",
+"line": "無穀慕斯主食罐",
+"listings": 2,
+"sizes": [
+1.02,
+2.04
+],
+"best_rank": 252,
+"min_ntd_per_kg": 735,
+"rx": false,
+"ids": [
+"13009281",
+"13009282"
+]
+},
+{
+"f": "wet",
+"brand": "怪獸部落",
+"line": "貓咪德國頂級魚油鮮肉無膠主食罐",
+"listings": 1,
+"sizes": [
+1.968
+],
+"best_rank": 261,
+"min_ntd_per_kg": 661,
+"rx": false,
+"ids": [
+"14082030"
+]
+},
+{
+"f": "wet",
+"brand": "Farmina 法米納",
+"line": "天然藜麥無穀機能主食貓罐 裝",
+"listings": 1,
+"sizes": [
+0.48
+],
+"best_rank": 266,
+"min_ntd_per_kg": 688,
+"rx": false,
+"ids": [
+"15087976"
+]
+},
+{
+"f": "wet",
+"brand": "Sheba",
+"line": "鮮饌包主食 寵物 貓罐頭 貓餐包",
+"listings": 1,
+"sizes": [
+1.68
+],
+"best_rank": 280,
+"min_ntd_per_kg": 392,
+"rx": false,
+"ids": [
+"11907885"
+]
+},
+{
+"f": "wet",
+"brand": "WERUVA 唯美味",
+"line": "貓咪主食罐",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 281,
+"min_ntd_per_kg": 667,
+"rx": false,
+"ids": [
+"15476450"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "老貓低磷營養主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 282,
+"min_ntd_per_kg": 599,
+"rx": false,
+"ids": [
+"7618253"
+]
+},
+{
+"f": "wet",
+"brand": "Cherie 法麗",
+"line": "全營養貓主食罐 十種口味",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 284,
+"min_ntd_per_kg": 491,
+"rx": false,
+"ids": [
+"8080472"
+]
+},
+{
+"f": "wet",
+"brand": "vosto",
+"line": "舒肥罐 機能主食泥罐",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 288,
+"min_ntd_per_kg": 408,
+"rx": false,
+"ids": [
+"12804473"
+]
+},
+{
+"f": "wet",
+"brand": "XINTOUROU 心頭肉",
+"line": "全齡貓主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 295,
+"min_ntd_per_kg": 719,
+"rx": false,
+"ids": [
+"14682266"
+]
+},
+{
+"f": "wet",
+"brand": "MonPetit 貓倍麗",
+"line": "雙拼主食罐組",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 307,
+"min_ntd_per_kg": 343,
+"rx": false,
+"ids": [
+"14723300"
+]
+},
+{
+"f": "wet",
+"brand": "Mjamjam 迷幻喵",
+"line": "主食罐 多種口味7 13號 全齡",
+"listings": 1,
+"sizes": [
+1.2
+],
+"best_rank": 312,
+"min_ntd_per_kg": 550,
+"rx": false,
+"ids": [
+"11074346"
+]
+},
+{
+"f": "wet",
+"brand": "Natural Kitty 自然小貓",
+"line": "成長系列主食罐 全系列 箱購",
+"listings": 1,
+"sizes": [],
+"best_rank": 313,
+"min_ntd_per_kg": null,
+"rx": false,
+"ids": [
+"13552630"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "精緻食光無穀貓主食罐系列 全齡貓",
+"listings": 1,
+"sizes": [
+2.4
+],
+"best_rank": 315,
+"min_ntd_per_kg": 377,
+"rx": false,
+"ids": [
+"8302182"
+]
+},
+{
+"f": "wet",
+"brand": "汪喵星球",
+"line": "貓咪低磷低蛋白主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 318,
+"min_ntd_per_kg": 609,
+"rx": false,
+"ids": [
+"11372259"
+]
+},
+{
+"f": "wet",
+"brand": "Abao 阿寶",
+"line": "貓咪微肉絲主食罐 好命罐",
+"listings": 1,
+"sizes": [
+0.64
+],
+"best_rank": 319,
+"min_ntd_per_kg": 788,
+"rx": false,
+"ids": [
+"11509036"
+]
+},
+{
+"f": "wet",
+"brand": "NU4PET 陪心寵糧",
+"line": "搖搖奶昔貓主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 320,
+"min_ntd_per_kg": 464,
+"rx": false,
+"ids": [
+"11961848"
+]
+},
+{
+"f": "wet",
+"brand": "PROUDPET 嬌寵醫生",
+"line": "寵貓鮮 貓咪低磷護腎無膠主食罐 ",
+"listings": 1,
+"sizes": [
+0.32
+],
+"best_rank": 321,
+"min_ntd_per_kg": 872,
+"rx": false,
+"ids": [
+"14214366"
+]
+},
+{
+"f": "wet",
+"brand": "catssay 貓有話說",
+"line": "山海守護系列 綿密主食餐包*",
+"listings": 1,
+"sizes": [
+2.16
+],
+"best_rank": 322,
+"min_ntd_per_kg": 832,
+"rx": false,
+"ids": [
+"15635575"
+]
+},
+{
+"f": "wet",
+"brand": "MDARYN 喵樂",
+"line": "貓罐肉食控主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 324,
+"min_ntd_per_kg": 499,
+"rx": false,
+"ids": [
+"9585946"
+]
+},
+{
+"f": "wet",
+"brand": "HeroMama",
+"line": "海陸派對 溯源鮮肉主食罐",
+"listings": 1,
+"sizes": [
+1.98
+],
+"best_rank": 339,
+"min_ntd_per_kg": 359,
+"rx": false,
+"ids": [
+"10225582"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_感官饗宴 ",
+"listings": 2,
+"sizes": [
+1.02
+],
+"best_rank": 341,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286906",
+"14286884"
+]
+},
+{
+"f": "wet",
+"brand": "Go!",
+"line": "貓咪機能主食餐包 12件組 口味",
+"listings": 1,
+"sizes": [
+0.852
+],
+"best_rank": 350,
+"min_ntd_per_kg": 927,
+"rx": false,
+"ids": [
+"13613899"
+]
+},
+{
+"f": "wet",
+"brand": "Cats in the Kitchen 凱特美廚",
+"line": "貓咪無穀主食罐 貓罐 貓主食罐 ",
+"listings": 1,
+"sizes": [
+4.08
+],
+"best_rank": 351,
+"min_ntd_per_kg": 569,
+"rx": false,
+"ids": [
+"13854447"
+]
+},
+{
+"f": "wet",
+"brand": "ROYAL 法國皇家",
+"line": "貓咪專用濕糧餐包 盒_體重控制成",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 352,
+"min_ntd_per_kg": 519,
+"rx": false,
+"ids": [
+"14286880"
+]
+},
+{
+"f": "wet",
+"brand": "Meow Servant 喵皇奴",
+"line": "虻貓機能主食罐",
+"listings": 1,
+"sizes": [
+1.92
+],
+"best_rank": 379,
+"min_ntd_per_kg": 593,
+"rx": false,
+"ids": [
+"12751763"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "朕的情人貓用主食餐盒 罐",
+"listings": 1,
+"sizes": [
+0.51
+],
+"best_rank": 398,
+"min_ntd_per_kg": 780,
+"rx": false,
+"ids": [
+"8624783"
+]
+},
+{
+"f": "wet",
+"brand": "Natural10 自然食",
+"line": "貓主食罐嚼世饗宴 挑食族必備",
+"listings": 1,
+"sizes": [
+0.64
+],
+"best_rank": 406,
+"min_ntd_per_kg": 694,
+"rx": false,
+"ids": [
+"14235267"
+]
+},
+{
+"f": "wet",
+"brand": "Cats in the Kitchen 凱特美廚",
+"line": "貓咪易開餵主食肉醬餐包",
+"listings": 1,
+"sizes": [
+1.02
+],
+"best_rank": 408,
+"min_ntd_per_kg": 489,
+"rx": false,
+"ids": [
+"15529022"
+]
+},
+{
+"f": "wet",
+"brand": "Granatapet 葛蕾特",
+"line": "精緻食光貓用無穀主食餐包",
+"listings": 1,
+"sizes": [
+2.04
+],
+"best_rank": 409,
+"min_ntd_per_kg": 781,
+"rx": false,
+"ids": [
+"9354875"
+]
+},
+{
+"f": "wet",
+"brand": "Munchee 貪貪",
+"line": "貪貪肉絲機能主食罐",
+"listings": 1,
+"sizes": [],
+"best_rank": 450,
+"min_ntd_per_kg": null,
+"rx": false,
+"ids": [
+"10382574"
+]
+}
+]
