@@ -18,7 +18,7 @@
    COLOUR black and white only: white ground, ink #141414, warm grey panels; dark theme inverts
    TYPE Zen Maru Gothic (rounded, petz-route feel) + Noto Sans TC
    LAYOUT laptop: budget + household left, plan right; phone: title, plan summary, controls stacked */
-:root{color-scheme:light dark;--bg:light-dark(#fff,#121212);--ink:light-dark(#141414,#f1f1f1);--mute:light-dark(#5a5a5a,#a9a9a9);--panel:light-dark(#f4f4f1,#1d1d1d);--soft:light-dark(#dadad5,#3b3b3b);--acc:light-dark(#B43120,#DE6A55)}
+:root{color-scheme:light dark;--bg:light-dark(#fff,#121212);--ink:light-dark(#141414,#f1f1f1);--mute:light-dark(#5a5a5a,#a9a9a9);--panel:light-dark(#f4f4f1,#1d1d1d);--soft:light-dark(#dadad5,#3b3b3b);--acc:#B43120}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:80px}
@@ -34,11 +34,10 @@ nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
 .acct .st{font-size:12px;color:var(--mute);display:inline-block;width:4.5em;white-space:nowrap}.acct .nm{display:inline-block;max-width:9em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 .sso{display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
 .tab{white-space:nowrap;border:2px solid var(--ink);background:none;color:var(--ink);border-radius:99px;padding:8px 18px;font-size:15px;font-weight:700;cursor:pointer;min-height:44px;text-decoration:none;display:inline-flex;align-items:center}
-.tab[aria-current=page]{background:var(--ink);color:var(--bg)}
+.tab[aria-current=page]{background:var(--acc);border-color:var(--acc);color:#fff}
 .tab:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .rib{display:flex;align-items:center;gap:12px;margin:0 0 24px;font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-.02em;font-weight:900;text-wrap:balance}
-.rib svg{flex:none;width:34px;height:14px;color:var(--acc)}
-.acc{color:var(--acc)}
+.rib svg{flex:none;width:34px;height:14px}
 .sub{color:var(--mute);margin:-12px 0 24px;max-width:62ch}
 .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
 .panel{background:var(--panel);border-radius:24px;padding:24px}
@@ -120,6 +119,7 @@ input[type=text],input[type=date],select{font:inherit;font-size:16px;border:1.5p
 .mt{margin-top:24px}
 .btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:99px;padding:8px 20px;font:inherit;font-weight:700;cursor:pointer;min-height:44px}
 .btn.ghost{background:none;color:var(--ink)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn.sm{min-height:38px;padding:6px 16px;font-size:14px}
 .btn:disabled{opacity:.4;cursor:default}
 .foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:24px}
@@ -137,7 +137,7 @@ input[type=text],input[type=date],select{font:inherit;font-size:16px;border:1.5p
 .fls{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .fl{font-size:13px;display:flex;gap:8px;align-items:baseline;line-height:1.4}
 .fl b{flex:none;font-size:11px;border:1.5px solid var(--ink);border-radius:99px;padding:0 7px;line-height:18px}
-.fl.l4 b{background:var(--acc);border-color:var(--acc);color:#fff}.fl.l3 b{border-style:solid}.fl.l2 b{border-style:dashed}.fl.l1 b{border-color:var(--soft);color:var(--mute)}.fl.l1{color:var(--mute)}
+.fl.l4 b{background:var(--ink);color:var(--bg)}.fl.l3 b{border-style:solid}.fl.l2 b{border-style:dashed}.fl.l1 b{border-color:var(--soft);color:var(--mute)}.fl.l1{color:var(--mute)}
 .nut details summary{cursor:pointer;font-size:13px;font-weight:700;min-height:28px;display:flex;align-items:center}
 .nut details[open]{display:grid;gap:8px}
 .est{border-bottom:1.5px dotted currentColor;cursor:help}
@@ -146,7 +146,6 @@ input[type=text],input[type=date],select{font:inherit;font-size:16px;border:1.5p
 .stamp{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);border-radius:99px;padding:3px 10px 3px 3px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;cursor:pointer;min-height:38px}
 .stamp .av{width:30px;height:30px;font-size:14px}
 .stamp[data-s=x]{background:var(--ink);color:var(--bg)}
-.stamp[data-s=h]{border-color:var(--acc);color:var(--acc)}
 .stamp[data-s=x] .av{border-color:var(--bg);background:var(--ink);color:var(--bg)}
 .badge{font-size:12px;border:1.5px solid var(--ink);border-radius:99px;padding:1px 8px;white-space:nowrap}
 .badge.unv{border-style:dashed;color:var(--mute);cursor:help}
@@ -247,7 +246,7 @@ footer{border-top:2px solid var(--ink);font-size:13px;color:var(--mute)}
   <h2 class="rib">Home kit</h2>
   <p class="sub">每隻貓的基本資料、熱量和體態紀錄。推薦組合會依這裡的設定自動更新。</p>
   <div class="cats" id="cats"></div>
-  <div class="row mt"><button class="btn" id="addCat" type="button">＋ 新增一隻貓</button><button class="btn ghost" id="reset" type="button">還原範例資料</button></div>
+  <div class="row mt"><button class="btn pri" id="addCat" type="button">＋ 新增一隻貓</button><button class="btn ghost" id="reset" type="button">還原範例資料</button></div>
   <div id="bcsSec" class="bsec">
     <h2 class="rib">體態評分 BCS</h2>
     <p class="sub">拍一張俯視、一張側面，再回答三個摸摸看的問題，估出 1–9 分（5 分為理想）。照片判讀只能當參考，最準的還是獸醫用手觸診。</p>
@@ -284,7 +283,7 @@ footer{border-top:2px solid var(--ink);font-size:13px;color:var(--mute)}
   <label class="fl">你的建議<textarea id="fbMsg" maxlength="2000" placeholder="例如：○○ 主食罐的價格已經調漲；希望能比較兩款飼料"></textarea></label>
   <label class="fl" style="margin-top:12px">聯絡方式（選填，想收到回覆再填）<input type="text" id="fbContact" maxlength="200" placeholder="Email 或其他聯絡方式"></label>
   <p class="tags" id="fbErr" style="margin:12px 0 0;min-height:1em"></p>
-  <div class="row sb" style="margin-top:8px"><button type="button" class="btn ghost sm" data-close="fbM">取消</button><button type="button" class="btn" id="fbSend">送出</button></div>
+  <div class="row sb" style="margin-top:8px"><button type="button" class="btn ghost sm" data-close="fbM">取消</button><button type="button" class="btn pri" id="fbSend">送出</button></div>
 </div></div>
 <div id="toastBox"></div>
 <input type="file" id="pfile" accept="image/*" hidden>
@@ -304,7 +303,7 @@ footer{border-top:2px solid var(--ink);font-size:13px;color:var(--mute)}
   <div class="crop" id="cropV"><img id="cropI" alt=""></div>
   <label class="fl" style="width:100%">放大<input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></label>
   <div class="tags">拖曳照片移動位置，滑桿或滾輪放大</div>
-  <div class="row" style="justify-content:center"><button type="button" class="btn ghost" id="cropX">取消</button><button type="button" class="btn ghost" id="cropNew">換一張</button><button type="button" class="btn ghost" id="cropDel">移除</button><button type="button" class="btn" id="cropOK">使用</button></div>
+  <div class="row" style="justify-content:center"><button type="button" class="btn ghost" id="cropX">取消</button><button type="button" class="btn ghost" id="cropNew">換一張</button><button type="button" class="btn ghost" id="cropDel">移除</button><button type="button" class="btn pri" id="cropOK">使用</button></div>
 </div></div>
 
 <script>
@@ -637,7 +636,7 @@ function renderPlan(){
  if(S.only&&R.K>0&&(!R.dry.length||!R.wet.length))W.push('「我的品項」裡'+(!R.dry.length?'沒有可用的乾糧':'沒有可用的濕食')+'，推薦結果會受限。可以到飼料資料庫多儲存幾款。');
  if(R.K>0&&!R.dry.length&&!R.wet.length)W.push('所有品項都被排除了，請檢查「我的品項」裡的 ✕ 標記。');
  document.getElementById('warns').innerHTML=W.map(w=>`<div class="warn">${w}</div>`).join('');
- document.getElementById('stale').innerHTML=stalePlan()?`<div class="stale"><div><b>Home kit 或口味標記有更新</b><span>目前顯示的是更新前的推薦，可以繼續查看，或重新整理套用新資料。</span></div><button type="button" class="btn sm" id="refresh">重新整理推薦</button></div>`:'';
+ document.getElementById('stale').innerHTML=stalePlan()?`<div class="stale"><div><b>Home kit 或口味標記有更新</b><span>目前顯示的是更新前的推薦，可以繼續查看，或重新整理套用新資料。</span></div><button type="button" class="btn sm pri" id="refresh">重新整理推薦</button></div>`:'';
  const pls=R.plans;if(S.pi>=pls.length)S.pi=0;
  const rxLine=R.rxC.length?`<div class="rxn">不包含 ${R.rxC.map(x=>esc(x.c.name)).join('、')} 的飲食（處方飲食），請以獸醫建議為準。</div>`:'';
  document.getElementById('planTitle').innerHTML=ribbon+(pls.length?`我家貓咪怎麼吃`:'預算需要再調整')+ribbon;
@@ -651,7 +650,7 @@ function renderPlan(){
  slip.innerHTML=`<div class="sum"><div><div class="k">這次購買</div><div class="big">${nt(once)}</div></div><div><div class="k">平均每月</div><div class="big">${nt(mon)}</div></div><div class="full"><div class="k">下次補貨・${Math.floor(last)} 天後吃完</div><div class="dtr"><span class="big">${md(last)}</span><span class="dt">${fullD(last)}</span><a class="cal" href="${gcal(last,'貓糧補貨：'+its.filter(i=>Math.floor(i.days)===Math.floor(last)).map(i=>i.p.b+i.p.n).join('、'),'這次的組合：\n'+its.map(i=>`${i.p.b}｜${i.p.n} × ${i.n}，可吃 ${Math.floor(i.days)} 天（${fullD(i.days)} 補）`).join('\n')+'\n\n由貓糧精算師建立')}" target="_blank" rel="noopener">${calIco}加到 Google 日曆</a></div></div></div>`
  +rxLine
  +(R.K>0?`<div class="mix"><div class="row" style="justify-content:space-between;font-size:14px"><span>共食熱量來源</span><span>乾糧 ${100-wp}%・濕食 ${wp}%</span></div><div class="mixbar"><i style="width:${100-wp}%"></i><i style="width:${wp}%"></i></div></div>`:'')
- +its.map(i=>`<div class="it">${icon(i.p)}<div><h3>${esc(i.p.b)}｜${esc(i.p.n)}</h3><div class="meta">${esc(i.who.join('、'))}・每天約 ${i.daily}${i.fav.length?`・<b><span class="acc">♥</span> ${esc(i.fav.join('、'))}愛吃</b>`:''}${i.z?`・一包約 ${Math.round(i.z.days)} 天吃完`:''}${i.p.est?'（熱量待補，份量為估算）':''}${(()=>{const r=flags(i.p,PS().cats);const w=r?r.F.filter(x=>x.lv===4):[];return w.length?`<br><b>⚠ ${w.map(x=>esc(x.t)).join('；')}</b>`:''})()}${i.zw&&i.zw.canDays>OPENW?`<br><b>一罐約 ${i.zw.canDays.toFixed(1)} 天才吃完，開罐後請冷藏、2 天內吃完</b>`:''}${i.z&&i.z.days>OPEN?`<br><b>超過開封後建議的 6 週，${sizesOf(i.p).length>1?'已是最小包裝，':''}請分裝密封保存</b>`:''}</div></div><div class="num"><b>${i.n} ${i.z?'袋':'箱'}</b><div class="meta">${i.z?i.z.kg+' kg 裝':i.zw.pack+' 罐 × '+i.zw.g+' g'}</div><div class="meta">${nt(i.price)}</div><button type="button" class="chip" style="margin-top:8px" data-save="${i.p.id}">${S.saved.includes(i.p.id)?'已儲存':'＋ 儲存'}</button></div><div class="days"><div class="track"><i style="width:${Math.min(100,i.days/60*100)}%"></i></div><span class="num">可吃 ${Math.floor(i.days)} 天・${fullD(i.days)} 補</span></div></div>`).join('');
+ +its.map(i=>`<div class="it">${icon(i.p)}<div><h3>${esc(i.p.b)}｜${esc(i.p.n)}</h3><div class="meta">${esc(i.who.join('、'))}・每天約 ${i.daily}${i.fav.length?`・<b>♥ ${esc(i.fav.join('、'))}愛吃</b>`:''}${i.z?`・一包約 ${Math.round(i.z.days)} 天吃完`:''}${i.p.est?'（熱量待補，份量為估算）':''}${(()=>{const r=flags(i.p,PS().cats);const w=r?r.F.filter(x=>x.lv===4):[];return w.length?`<br><b>⚠ ${w.map(x=>esc(x.t)).join('；')}</b>`:''})()}${i.zw&&i.zw.canDays>OPENW?`<br><b>一罐約 ${i.zw.canDays.toFixed(1)} 天才吃完，開罐後請冷藏、2 天內吃完</b>`:''}${i.z&&i.z.days>OPEN?`<br><b>超過開封後建議的 6 週，${sizesOf(i.p).length>1?'已是最小包裝，':''}請分裝密封保存</b>`:''}</div></div><div class="num"><b>${i.n} ${i.z?'袋':'箱'}</b><div class="meta">${i.z?i.z.kg+' kg 裝':i.zw.pack+' 罐 × '+i.zw.g+' g'}</div><div class="meta">${nt(i.price)}</div><button type="button" class="chip" style="margin-top:8px" data-save="${i.p.id}">${S.saved.includes(i.p.id)?'已儲存':'＋ 儲存'}</button></div><div class="days"><div class="track"><i style="width:${Math.min(100,i.days/60*100)}%"></i></div><span class="num">可吃 ${Math.floor(i.days)} 天・${fullD(i.days)} 補</span></div></div>`).join('');
 }
 
 function renderKit(){
@@ -705,7 +704,7 @@ function renderFoods(){
  const qi=document.getElementById('q');if(document.activeElement!==qi)qi.value=S.q||'';
  document.getElementById('foodList').innerHTML=list.length?list.map(p=>card(p,'all')).join(''):'<p class="tags">找不到符合的品項，換個關鍵字試試。</p>';
  const sv=S.saved.map(P).filter(Boolean);
- document.getElementById('savedList').innerHTML=sv.length?sv.map(p=>card(p,'saved')).join(''):'<div class="panel" style="grid-column:1/-1"><p style="margin:0 0 12px;font-weight:700">還沒有儲存任何品項</p><a class="btn" href="#foods" style="display:inline-flex;align-items:center;text-decoration:none">去飼料資料庫挑選</a></div>';
+ document.getElementById('savedList').innerHTML=sv.length?sv.map(p=>card(p,'saved')).join(''):'<div class="panel" style="grid-column:1/-1"><p style="margin:0 0 12px;font-weight:700">還沒有儲存任何品項</p><a class="btn pri" href="#foods" style="display:inline-flex;align-items:center;text-decoration:none">去飼料資料庫挑選</a></div>';
 }
 
 const QS=[['摸肋骨的感覺',[['骨頭很明顯、幾乎沒肉',2],['摸得到，蓋著薄薄一層脂肪',5],['要稍微用力才摸得到',7],['摸不到',8.5]]],
