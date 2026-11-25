@@ -1,0 +1,484 @@
+[
+ {
+  "site_id": "m01",
+  "brand": "ROYAL 法國皇家",
+  "line": "泌尿道保健成貓 UC33",
+  "flavor": "單一配方",
+  "protein_source": "禽肉",
+  "stage": "adult",
+  "ga": {
+   "p": 33,
+   "f": 13,
+   "fi": 4.8,
+   "ash": 6.7,
+   "m": 5.5
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "玉米",
+   "小麥麩質",
+   "脫水禽肉蛋白",
+   "米",
+   "小麥",
+   "玉米麩質",
+   "動物脂肪",
+   "蔬菜纖維",
+   "水解家禽蛋白",
+   "小麥麵粉",
+   "礦物質",
+   "甜菜漿",
+   "酵母產品",
+   "大豆油",
+   "魚油",
+   "金盞花"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/urinary-care",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_id": "p14175100",
+  "brand": "ROYAL 法國皇家",
+  "line": "室內成貓 IN27",
+  "flavor": "單一配方",
+  "protein_source": "禽肉",
+  "stage": "adult",
+  "ga": {
+   "p": 27,
+   "f": 13,
+   "fi": 3.8,
+   "ash": 7.6,
+   "m": 5.5
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "小麥",
+   "米",
+   "植物分離蛋白",
+   "脫水家禽蛋白",
+   "玉米",
+   "動物脂肪",
+   "水解動物蛋白",
+   "小麥麵粉",
+   "蔬菜纖維",
+   "礦物質",
+   "甜菜漿",
+   "大豆油",
+   "酵母及酵母提取物",
+   "魚油",
+   "果寡糖",
+   "洋車前子及殼"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/indoor-27",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified",
+  "note": "水分未標，依皇家同系列 5.5% 計"
+ },
+ {
+  "site_id": "p11703778",
+  "brand": "Go!",
+  "line": "低致敏系列 黑水虻",
+  "flavor": "黑水虻",
+  "protein_source": "昆蟲",
+  "stage": "all",
+  "ga": {
+   "p": 30,
+   "f": 15,
+   "fi": 4.5,
+   "ash": 9,
+   "m": 10,
+   "ca": 1.0,
+   "ph": 1.0,
+   "mg": 0.09
+  },
+  "kcal_kg": 4140,
+  "ingredients": [
+   "乾燥黑水虻幼蟲",
+   "豌豆",
+   "扁豆",
+   "全蛋粉",
+   "樹薯",
+   "豌豆粉",
+   "鷹嘴豆",
+   "芥花油",
+   "亞麻籽",
+   "天然香料",
+   "碳酸鈣",
+   "椰子油",
+   "磷酸二氫鈣",
+   "鹽",
+   "乾燥菊苣根"
+  ],
+  "sources": [
+   {
+    "url": "https://www.chewy.com/go-solutions-sensitivities-limited/dp/2057438",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified",
+  "note": "北美版本；磷取自 Chewy 問答"
+ },
+ {
+  "site_id": "p14341462",
+  "brand": "Go!",
+  "line": "腸胃保健系列 鮭魚",
+  "flavor": "鮭魚（古早穀物）",
+  "protein_source": "魚",
+  "stage": "all",
+  "ga": {
+   "p": 24,
+   "f": 12,
+   "fi": 5,
+   "m": 10,
+   "ca": 1.2,
+   "ph": 1.0,
+   "tau": 0.1
+  },
+  "kcal_kg": 4083,
+  "ingredients": null,
+  "sources": [
+   {
+    "url": "https://www.petmax.ca/products/go-digestion-gut-health-salmon-recipe-with-ancient-grains-for-cats",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "partial",
+  "note": "北美版本；成分表未取得、灰分未標"
+ },
+ {
+  "site_id": "p7704454",
+  "brand": "Nutram 紐頓",
+  "line": "T22/T24 無穀全能",
+  "flavor": "T22 火雞＋雞肉",
+  "protein_source": "禽肉",
+  "stage": "all",
+  "ga": {
+   "p": 36,
+   "f": 19,
+   "fi": 5.5,
+   "m": 10,
+   "ca": 1.0,
+   "ph": 0.85
+  },
+  "kcal_kg": 3835,
+  "ingredients": [
+   "去骨火雞肉",
+   "雞肉粉",
+   "扁豆",
+   "全蛋",
+   "青豌豆",
+   "鷹嘴豆",
+   "雞脂",
+   "天然雞肉香料",
+   "去骨鴨肉",
+   "亞麻籽",
+   "南瓜",
+   "花椰菜",
+   "藜麥"
+  ],
+  "sources": [
+   {
+    "url": "https://naturalpetfoods.ca/products/nutram-total-grain-free-t22-adult-cat-turkey-chicken",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://vetopia.com.hk/zh/collections/flavour_chicken/products/nutram-total-grain-free-turkey-chicken-recipe-cats-t22",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified",
+  "note": "北美版本；灰分未標"
+ },
+ {
+  "site_id": "p7704454",
+  "brand": "Nutram 紐頓",
+  "line": "T22/T24 無穀全能",
+  "flavor": "T24 鱒魚＋鮭魚",
+  "protein_source": "魚",
+  "stage": "all",
+  "ga": {
+   "p": 36,
+   "f": 17,
+   "fi": 6,
+   "m": 10
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "去骨鱒魚",
+   "鮭魚粉",
+   "鯡魚粉",
+   "青豌豆",
+   "扁豆",
+   "鷹嘴豆",
+   "芥花油",
+   "去骨鮭魚",
+   "鮭魚油",
+   "天然素食香料",
+   "胡蘿蔔",
+   "蘋果"
+  ],
+  "sources": [
+   {
+    "url": "https://globalpetfoods.com/products/nutram-total-t24-trout-salmon-grain-free-all-life-stages-dry-cat-food",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://www.epet.hk/en/nutram-grain-free-cat-food-salmon-trout",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "partial",
+  "note": "熱量、灰分、鈣磷未取得"
+ },
+ {
+  "site_id": "p10549396",
+  "brand": "TOMA-PRO 優格",
+  "line": "零穀系列",
+  "flavor": "鮭魚（全齡敏感）",
+  "protein_source": "魚",
+  "stage": "all",
+  "ga": {
+   "p": 30,
+   "f": 14,
+   "fi": 5.5,
+   "m": 10,
+   "ash": 8.5
+  },
+  "kcal_kg": 3500,
+  "ingredients": [
+   "濃縮鮭魚",
+   "豌豆",
+   "鷹嘴豆",
+   "濃縮雞肉",
+   "馬鈴薯",
+   "甜菜根",
+   "蕃茄",
+   "菊苣根",
+   "亞麻籽",
+   "維生素",
+   "礦物質",
+   "牛磺酸"
+  ],
+  "sources": [
+   {
+    "url": "https://csc.carrefour.com.tw/en/toma-pro/G485013824601.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_id": "p10549396",
+  "brand": "TOMA-PRO 優格",
+  "line": "零穀系列",
+  "flavor": "5種魚（全齡化毛）",
+  "protein_source": "魚",
+  "stage": "all",
+  "ga": {
+   "p": 30,
+   "f": 14,
+   "fi": 9,
+   "m": 10,
+   "ash": 8.5
+  },
+  "kcal_kg": 3350,
+  "ingredients": [
+   "濃縮鮭魚",
+   "勻相化鱒魚",
+   "濃縮白肉魚",
+   "濃縮鯡魚",
+   "濃縮油鯡魚",
+   "豌豆",
+   "鷹嘴豆",
+   "濃縮雞肉",
+   "馬鈴薯",
+   "甜菜根",
+   "蕃茄",
+   "亞麻籽",
+   "鮭魚油",
+   "菊苣根",
+   "牛磺酸"
+  ],
+  "sources": [
+   {
+    "url": "https://csc.carrefour.com.tw/en/toma-pro/G485013824601.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_id": "p10549396",
+  "brand": "TOMA-PRO 優格",
+  "line": "零穀系列",
+  "flavor": "雞肉（室內貓體重管理）",
+  "protein_source": "禽肉",
+  "stage": "adult",
+  "light": 1,
+  "ga": {
+   "p": 30,
+   "f": 9,
+   "fi": 9,
+   "m": 10,
+   "ash": 8
+  },
+  "kcal_kg": 3100,
+  "ingredients": [
+   "濃縮雞肉",
+   "乾豌豆",
+   "乾鷹嘴豆",
+   "豌豆",
+   "甜菜根",
+   "濃縮鮭魚",
+   "濃縮火雞肉",
+   "蕃茄",
+   "鮭魚油",
+   "亞麻籽",
+   "菊苣根",
+   "維生素",
+   "礦物質",
+   "牛磺酸"
+  ],
+  "sources": [
+   {
+    "url": "https://csc.carrefour.com.tw/en/toma-pro/G485013824601.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_id": "p10549396",
+  "brand": "TOMA-PRO 優格",
+  "line": "零穀系列",
+  "flavor": "熟齡貓",
+  "protein_source": null,
+  "stage": "adult",
+  "ga": null,
+  "kcal_kg": null,
+  "ingredients": null,
+  "sources": [],
+  "status": "unverified",
+  "note": "官網與家樂福頁都沒有此口味"
+ },
+ {
+  "site_id": "p6993762",
+  "brand": "TOMA-PRO 優格",
+  "line": "經典系列",
+  "flavor": "成幼貓 雞肉＋米（化毛高纖）",
+  "protein_source": "禽肉",
+  "stage": "all",
+  "ga": {
+   "p": 32,
+   "f": 20,
+   "fi": 6,
+   "m": 10,
+   "ash": 7,
+   "ca": 1.0,
+   "ph": 0.8,
+   "mg": 0.11
+  },
+  "kcal_kg": 3800,
+  "ingredients": [
+   "雞肉",
+   "玉米",
+   "糙米",
+   "玉米麩粉",
+   "雞脂",
+   "甜菜根",
+   "番茄",
+   "菊苣根",
+   "藜麥"
+  ],
+  "sources": [
+   {
+    "url": "https://www.dcard.tw/@whatdoesfoxsay/post/258825622",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "partial",
+  "note": "來源是消費者開箱文抄錄的包裝標示，需再以官方資料確認"
+ },
+ {
+  "site_id": "p13746818",
+  "brand": "葛莉思",
+  "line": "貓食",
+  "flavor": "海洋",
+  "status": "unverified",
+  "sources": [],
+  "note": "網路查無文字資料，需讀 momo 商品圖"
+ },
+ {
+  "site_id": "p13746818",
+  "brand": "葛莉思",
+  "line": "貓食",
+  "flavor": "燻雞",
+  "status": "unverified",
+  "sources": [],
+  "note": "同上"
+ },
+ {
+  "site_id": "p12637324",
+  "brand": "TAPAZO 特百滋",
+  "line": "凍乾雙饗宴 低敏無穀",
+  "flavor": "成幼貓 海魚＋雞肉",
+  "status": "unverified",
+  "sources": [
+   {
+    "url": "https://www.momoshop.com.tw/product/12637324",
+    "date": "2026-11-25"
+   }
+  ],
+  "note": "momo 文字無成分；需讀商品圖"
+ },
+ {
+  "site_id": "p12637324",
+  "brand": "TAPAZO 特百滋",
+  "line": "凍乾雙饗宴 低敏無穀",
+  "flavor": "成幼貓 鮭魚",
+  "status": "unverified",
+  "sources": [
+   {
+    "url": "https://www.momoshop.com.tw/product/12637324",
+    "date": "2026-11-25"
+   }
+  ],
+  "note": "momo 文字無成分；需讀商品圖"
+ },
+ {
+  "site_id": "p12637324",
+  "brand": "TAPAZO 特百滋",
+  "line": "凍乾雙饗宴 低敏無穀",
+  "flavor": "成貓 雞肉",
+  "status": "unverified",
+  "sources": [
+   {
+    "url": "https://www.momoshop.com.tw/product/12637324",
+    "date": "2026-11-25"
+   }
+  ],
+  "note": "momo 文字無成分；需讀商品圖"
+ },
+ {
+  "site_id": "p12637324",
+  "brand": "TAPAZO 特百滋",
+  "line": "凍乾雙饗宴 低敏無穀",
+  "flavor": "熟齡貓 火雞",
+  "status": "unverified",
+  "sources": [
+   {
+    "url": "https://www.momoshop.com.tw/product/12637324",
+    "date": "2026-11-25"
+   }
+  ],
+  "note": "momo 文字無成分；需讀商品圖"
+ }
+]
