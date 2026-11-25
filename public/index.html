@@ -323,6 +323,9 @@ const PR=[
   {id:'m24',b:'Whiskas 偉嘉',n:'貓乾糧',f:'dry',pr:'綜合',kcal:3800,est:1,size:14,price:1558,st:'adult',src:'momo',sizes:[[1.1,219],[3.3,597],[7,799],[14,1558]]},
   {id:'m26',b:'Unicharm 銀湯匙',n:'貓乾糧（約 1.1 kg × 3）',f:'dry',pr:'綜合',kcal:3900,ks:'r',size:3.3,price:1367,st:'adult',src:'momo'},
   {id:'m28',b:'IQ CAT',n:'聰明貓乾糧',f:'dry',pr:'綜合',kcal:3800,est:1,size:20,price:1388,st:'adult',src:'momo',sizes:[[1.5,155],[5,399],[10,699],[20,1388]]},
+ {id:'m29',b:'Real Power 瑞威',n:'天然平衡 貓糧2號 森林燉雞（腸胃健康）',f:'dry',pr:'雞',kcal:3600,ks:'o',size:4,price:1500,st:'all',src:'momo',sizes:[[2,840],[4,1500],[10,3400]]},
+ {id:'m30',b:'TOMA-PRO 優格',n:'親親食譜 幼貓益菌成長配方',f:'dry',pr:'魚',kcal:3400,ks:'o',size:1.13,price:590,st:'kitten',src:'momo',sizes:[[1.13,590]]},
+ {id:'m31',b:'Wellness 寵物健康',n:'CORE 無穀 幼貓 火雞肉',f:'dry',pr:'雞',kcal:3977,ks:'o',size:2.27,price:1400,st:'kitten',src:'momo',sizes:[[2.27,1400]]},
  {id:'n01',b:"Granatapet 葛蕾特",n:'精緻食光 無穀主食罐／餐包',f:'wet',pr:'綜合',k100:97,ks:'c',st:'all',src:'momo',vs:[[85,24,1594],[200,24,2508],[400,12,1910],[800,12,3193]]},
  {id:'n02',b:"Granatapet 葛蕾特",n:'交響樂 低溫慢燉主食罐',f:'wet',pr:'綜合',k100:67,ks:'o',st:'all',src:'momo',vs:[[200,6,718],[200,12,1558]]},
  {id:'n03',b:"Granatapet 葛蕾特",n:'朕的情人 主食餐盒',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[85,6,398],[85,24,1700]]},
@@ -352,6 +355,12 @@ const NUT={
   ing:['脫水禽肉蛋白','米','小麥麩質','動物脂肪','玉米粉','水解動物蛋白（家禽、魚肉）','小麥麵粉','玉米麩質','酵母產品','礦物質','蔬菜纖維','甜菜漿','大豆油','魚油','洋車前子及殼','果寡糖','水解酵母','裂殖壺藻油（DHA）','金盞花']},
  m16:{t:'g',stage:'all',full:1,ga:{p:40,f:20,fi:3,ash:8,m:10,ca:1.4,ph:1.1,mg:.1,tau:.2},src:'Orijen 亞太官網',
   ing:['新鮮雞肉','冷凍火雞肉','新鮮雞肝','全無鬚鱈','全鯡魚','雞蛋','冷凍火雞肝','雞肉粉','火雞肉粉','鯖魚粉','沙丁魚粉','鯡魚粉','雞脂肪','紅扁豆','青豌豆','綠扁豆','鷹嘴豆','黃豌豆','豌豆纖維','斑豆','白腰豆','魚油','新鮮雞心','海帶','南瓜','膽鹼','鋅','維生素E','維生素B1','維生素B2','菸鹼酸','泛酸','維生素B6','葉酸','維生素B12','迷迭香萃取物']},
+ m29:{t:'g',stage:'all',full:1,ga:{p:38.5,f:16,fi:8.5,m:10,ash:9,ca:1.1,ph:.9,mg:.09,tau:.24,o3:.8,o6:2,glu:500},src:'瑞威官網／通路商品頁',
+  ing:['台灣新鮮嫩雞','北歐新鮮野生鮮魚','紅蘿蔔','南瓜','秘魯有機藜','水解雞肉胜肽','北海道新鮮干貝','魚油','鮮雞油','乳鐵蛋白','苜蓿草','冷凍乾燥蔬果','海帶粉','膠原胜肽','離胺酸','天然有機酸','初榨橄欖油','水解卵磷脂','毒素吸附劑','酵母細胞壁萃取物','蛋胺酸','消化酵素','綠茶萃取','薄荷萃取','迷迭香萃取','維生素A','維生素B1','維生素B2','泛酸','維生素B6','葉酸','維生素B12','維生素C','維生素D3','維生素E','葡萄糖胺','軟骨素','色胺酸','左旋肉鹼']},
+ m30:{t:'g',stage:null,ga:{p:30,f:14,fi:9,m:10,ca:.92,ph:.74,o3:.67,o6:2.79},src:'優格通路商品頁',
+  ing:['濃縮鮭魚','乾鷹嘴豆','乾豌豆','豌豆粉','雞脂','濃縮雞肉','勻相化鱒魚','乾燥甜菜根','豌豆蛋白質','馬鈴薯蛋白質','纖維素粉','天然調味料','乾燥蕃茄粕','濃縮白肉魚','濃縮鯡魚','濃縮油鯡魚','礦物質','牛磺酸','DL-甲硫氨酸','絲蘭萃取精華','維生素C','肌醇','嗜酸乳酸桿菌','乾酪乳酸桿菌','比菲德氏菌','腸球菌']},
+ m31:{t:'g',stage:'growth',full:1,ga:{p:45,f:18,fi:3,m:10,ca:2.1,ph:1.6,mg:.13,tau:.2,o6:4.75,o3:1.25,dha:.1,cfu:1},src:'Wellness 美國包裝標示',
+  ing:['去骨火雞肉','火雞肉粉','去骨雞肉','雞肉粉','豌豆','鯡魚粉','雞脂','乾燥馬鈴薯粉','番茄渣','亞麻籽粉','鮭魚油','天然雞肉風味','蔓越莓','菊苣根萃取','氯化膽鹼','牛磺酸','維生素E','海帶','鋅','碳酸鈣','菸鹼酸','鐵','銅','維生素B1','錳','泛酸','硒','維生素B6','維生素B2','維生素D3','生物素','碘','維生素B12','葉酸','維生素A','維生素C','植物乳桿菌','屎腸球菌','乾酪乳桿菌','嗜酸乳桿菌','迷迭香萃取','綠茶萃取','綠薄荷萃取']},
  n01:{t:'g',stage:'all',ga:{p:10.4,f:5.5,fi:.5,ash:2.2,m:79},src:'葛蕾特代理商（口味平均）'},
  n04:{t:'t',stage:'adult',ga:{p:9.2,f:3,fi:.7,ash:1.6,m:81.7},src:'皇家官網（泌尿道保健濕糧代表值）'},
  n05:{t:'t',stage:'growth',ga:{p:12,f:4,fi:.7,ash:1.7,m:78.2},src:'皇家台灣官網',
@@ -364,15 +373,15 @@ PR.forEach(p=>{if(NUT[p.id])Object.assign(p,{nut:NUT[p.id]})});
 // ===== 分析引擎（依「貓咪飼料分析邏輯規格」）=====
 const AAFCO={adult:{p:65,ca:.6,ph:.5,mg:.04},growth:{p:75,ca:1.0,ph:.8,mg:.08}};// 蛋白 g/1000kcal；礦物質 % DM
 const RX={
- animal:/雞|火雞|鴨|鵝|牛|羊|豬|鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|魚|蝦|蟹|兔|鹿|禽|肝|心|蛋|肉/,
+ animal:/雞|火雞|鴨|鵝|牛|羊|豬|鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|鱒|魚|蝦|蟹|干貝|兔|鹿|禽|肝|心|蛋|肉/,
  conc:/粉|脫水|乾燥|濃縮|meal/i,
  plantP:/麩質|分離蛋白|植物蛋白|豌豆蛋白|馬鈴薯蛋白|大豆蛋白/,
  starch:/米|玉米|小麥|麵粉|馬鈴薯|豌豆|鷹嘴豆|扁豆|藜麥|大麥|燕麥|穀物|木薯|斑豆|腰豆/,
- vitmin:/維生素|礦物質|鹽|膽鹼|鋅|鐵|銅|錳|碘|硒/,
+ vitmin:/^維生素|^礦物質|鹽|膽鹼|^鋅$|^鐵$|^銅$|^錳$|^碘$|^硒$/,
  trivial:/葡萄糖胺|軟骨素|乳鐵蛋白|膠原蛋白|萃取|蔓越莓|藍莓|金盞花|琉璃苣|絲蘭|草本/,
  synth:/BHA|BHT|乙氧喹|丁基羥基/,
  vague:/^動物|水解動物蛋白|肉及相關產品|^油脂$/,
- fish:/鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|鯷|無鬚鱈/,
+ fish:/鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|白肉魚|鱒|鯷|干貝/,
 };
 const FAM=[['豌豆',/豌豆/],['扁豆',/扁豆/],['豆類',/鷹嘴豆|斑豆|腰豆/],['玉米',/玉米/],['小麥',/小麥/],['米',/^米|碎米|糙米/],['馬鈴薯',/馬鈴薯/]];
 const pct=a=>{const s=a.slice().sort((x,y)=>x-y);return q=>s[Math.min(s.length-1,Math.floor(q*(s.length-1)))]};
@@ -404,6 +413,7 @@ function readIng(p){
  const fishN=new Set(L.map(x=>(x.match(RX.fish)||[])[0]).filter(Boolean)).size;if(fishN>=3)F.push({lv:1,t:'魚類原料多，對魚敏感的貓要避開',r:'R8',fish:1});
  if(L.some(x=>RX.vague.test(x)))F.push({lv:2,t:'部分原料未標明動物種類',r:'R8'});
  if(L.some(x=>RX.synth.test(x)))F.push({lv:2,t:'使用合成防腐劑',r:'R9'});
+ if(p.nut.full){const NEED=[['維生素A',/維生素A/],['維生素D3',/D3/],['維生素E',/維生素E/],['B1',/B1(?!2)|硫胺/],['B2',/B2|核黃/],['菸鹼酸',/菸鹼|B3/],['泛酸',/泛酸|B5/],['B6',/B6|吡哆/],['生物素',/生物素|B7/],['葉酸',/葉酸/],['B12',/B12/],['膽鹼',/膽鹼/],['鐵',/鐵/],['銅',/銅/],['鋅',/鋅/],['錳',/錳/],['碘',/碘|海帶|海藻/],['硒',/硒/]];const miss=NEED.filter(([,re])=>!L.some(x=>re.test(x))).map(([k])=>k);if(miss.length>=2)F.push({lv:1,t:`清單未列完整（未列${miss.join('、')}），可向廠商確認`,r:'R7'})}
  return F;
 }
 // 旗標：lv 3 優點、1 資訊、2 注意、4 警示；cats 給了就依貓的狀態升級
@@ -430,15 +440,19 @@ function flags(p,cats){
  if(a.mgD!=null){if(a.mgD>.12)F.push({lv:male?2:1,t:'鎂偏高，公貓泌尿道要留意'+(male?nm(cats.filter(c=>c.sex==='公')):'')})}else F.push({lv:1,t:'未標示鎂，可向廠商確認'});
  if(a.naP!=null&&a.naP>T.na)F.push({lv:1,t:'鈉較高，常見於促進喝水的配方'});
  if(a.fiD>7)F.push({lv:1,t:'纖維高，便便量可能變多，換糧要慢'});
+ if(g.cfu)F.push({lv:3,t:'益生菌有標示數量'});
+ if(g.glu){const mg=g.glu*(220/a.kcal*1000)/1000;if(mg<100)F.push({lv:1,t:`葡萄糖胺每天約 ${Math.round(mg)} mg（以 4 kg 成貓計），含量不足以當作保健品`,r:'R6'})}
+ if(a.tauD==null&&n.ing&&n.ing.some(x=>/牛磺酸/.test(x))&&!n.full)F.push({lv:1,t:'有添加牛磺酸，但未標示含量'});
  if(g.tdf&&g.fi&&g.tdf>=g.fi*2)F.push({lv:3,t:'含可溶性纖維，有助排毛球'});
  if(!a.est.ash&&a.ashD>10)F.push({lv:2,t:'礦物質總量偏高'});
  if(a.tauD!=null&&a.tauD>=.1)F.push({lv:3,t:'牛磺酸有明確標示'});
  else if(a.tauD==null&&n.full&&!n.ing.some(x=>/牛磺酸/.test(x)))F.push({lv:4,t:'找不到牛磺酸來源'});
  if(kit.length&&n.stage&&n.stage==='adult')F.push({lv:4,t:'未標示適合幼貓'+kn});
- if(kit.length&&n.stage==null)F.push({lv:2,t:'未標示適用階段，幼貓要先確認'+kn});
+ if(kit.length&&n.stage==null)F.push({lv:4,t:'未標示 AAFCO 適用階段，不確定適合幼貓'+kn});
  if(kit.length&&n.stage!=='adult'&&((a.caD!=null&&a.caD<AAFCO.growth.ca*1.1)||(a.phD!=null&&a.phD<AAFCO.growth.ph*1.1)||a.pP<AAFCO.growth.p*1.1))F.push({lv:2,t:'剛好壓在幼貓最低線'+kn});
  if(n.t==='t')F.push({lv:1,t:'此款標平均值，其他多標最低值，差距僅供參考'});
  if(a.kEst)F.push({lv:1,t:'包裝未標熱量，成本為推估區間'});else if(a.kOff)F.push({lv:1,t:'熱量待確認（標示與成分推算差超過 10%）'});
+ {const A=PR.filter(q=>q.f===p.f&&q.nut);if(A.length>=3){const good=q=>{const r=analyze(q),T2=THR[q.f];let n2=0;if(r.pP>=T2.pHi)n2++;if(r.es.c<=T2.cLo)n2++;if(r.o63!=null&&r.o63<=T2.o63Lo)n2++;if(r.tauD>=.1)n2++;return n2},cost=q=>q.f==='dry'?Math.min(...sizesOf(q).map(([kg,pr])=>pr/(kg*q.kcal)))*1000:Math.min(...vsOf(q).map(([g2,pk,pr])=>pr/(pk*g2*q.k100/100)))*1000,med=a2=>{const s2=a2.slice().sort((x,y)=>x-y);return s2[Math.floor((s2.length-1)/2)]};if(good(p)>=med(A.map(good))&&good(p)>0&&cost(p)<=med(A.map(cost)))F.push({lv:3,t:'高 CP 值（營養優點不少、每 1000 kcal 價格在中位數以下）'})}}
  readIng(p).forEach(x=>F.push(x.r==='R8'&&!x.fish&&cats.length?{...x,lv:2}:x));
  return {a,F,T};
 }
