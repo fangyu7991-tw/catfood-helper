@@ -12,6 +12,17 @@ const Cloud = window.Cloud = { user: null, queue() {} };
 
 // ---- 改善建議（不需登入；寫入 feedback 集合，只能新增、不能讀取）----
 let sendFeedback = null;
+// 同時寄一份到開發者信箱（FormSubmit；第一次送出後要到信箱點啟用連結）
+const FEEDBACK_MAIL = 'fangyu7991@gmail.com';
+async function mailFeedback(d) {
+  const res = await fetch('https://formsubmit.co/ajax/' + FEEDBACK_MAIL, {
+    method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ _subject: '貓糧預算小幫手：新的改善建議', _template: 'table', _captcha: 'false',
+      建議: d.msg, 聯絡方式: d.contact || '（未填）', 頁面: location.href, 時間: new Date().toLocaleString('zh-TW') }),
+  });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok || String(j.success) !== 'true') throw new Error(j.message || 'mail failed');
+}
 {
   const m = $('fbM'), msg = $('fbMsg'), ct = $('fbContact'), fe = $('fbErr'), send = $('fbSend');
   const close = () => { m.hidden = true; };
@@ -21,10 +32,11 @@ let sendFeedback = null;
   send.onclick = async () => {
     const text = msg.value.trim();
     if (!text) { fe.textContent = '請先寫下你的建議'; msg.focus(); return; }
-    if (!sendFeedback) { fe.textContent = '目前無法送出，請稍後再試'; return; }
     send.disabled = true; fe.textContent = '送出中…';
     try {
-      await sendFeedback({ msg: text, contact: ct.value.trim() });
+      const d = { msg: text, contact: ct.value.trim() };
+      const r = await Promise.allSettled([sendFeedback ? sendFeedback(d) : Promise.reject(new Error('no firestore')), mailFeedback(d)]);
+      if (r.every(x => x.status === 'rejected')) throw r.map(x => x.reason);
       msg.value = ''; ct.value = ''; close();
       window.toast ? window.toast('已收到，謝謝你的建議！') : alert('已收到，謝謝你的建議！');
     } catch (e) { console.error(e); fe.textContent = '送出失敗，請稍後再試'; }
