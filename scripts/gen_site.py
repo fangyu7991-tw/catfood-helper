@@ -38,6 +38,11 @@ CODE=re.compile(r'(?<![A-Za-z0-9])[A-Z]{1,3}\+?\d{1,2}[A-Z]?(?![A-Za-z0-9])|\d�
 def sim(a,b):
     a=set(re.sub(r'\W','',a)); b=set(re.sub(r'\W','',b)); return len(a&b)/max(1,len(a))
 merge=collections.defaultdict(list); used=set()
+# 自動比對不到、但確定是同一系列的賣場：i_code -> 既有品項 id
+MANUAL={'7798982':'n01','7798538':'n01','8302182':'n01','11211100':'n01','9354875':'n01'}
+for k,g in groups.items():
+    hit=[MANUAL[x['id']] for x in g['xs'] if x['id'] in MANUAL]
+    if hit: merge[hit[0]]+=g['xs']; used.add(k)
 for e in exist:
     eb=bkey(e['b']); ec=set(CODE.findall(e['n']))
     for k,g in groups.items():
