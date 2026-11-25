@@ -19,6 +19,7 @@ def key(n): return re.sub(r'[\s/／｜|\-()（）〔〕《》,，、+.~]','',cle
 def prot(n):
     f=bool(re.search(r'魚|鮭|鮪|鱈|海|蝦|蟹|鰹|磷蝦',n)); m=bool(re.search(r'雞|鴨|火雞|牛|羊|鹿|豬|肉',n))
     return '魚' if f and not m else '雞' if re.search(r'雞',n) and not f and not re.search(r'牛|羊|鹿|鴨',n) else '綜合'
+def pouch(n): return bool(re.search(r'餐包|軟包|肉包|懶人包|包',re.sub(r'【[^】]+】','',n))) and not re.search(r'罐',n)
 def stage(n):
     if re.search(r'幼貓',n) and re.search(r'成貓',n): return 'all'
     if re.search(r'幼貓|離乳|kitten|BC34|K36|BSK38|幼母貓|成長',n,re.I) and not re.search(r'成幼|全齡|全貓|幼/成|幼貓/成貓|成貓/幼貓|全期',n): return 'kitten'
@@ -61,14 +62,14 @@ for k,g in groups.items():
         for x in xs: kg=x['total_kg']; sz[kg]=min(sz.get(kg,10**9),x['price'])
         p.update(kcal=3800,sizes=sorted([[kg,pr] for kg,pr in sz.items()]))
     else:
-        vs={}
+        vs={}; po={}
         for x in xs:
-            g_=round(x['unit_kg']*1000); pk=x['packs']; vs[(g_,pk)]=min(vs.get((g_,pk),10**9),x['price'])
-        p.update(k100=100,vs=sorted([[g_,pk,pr] for (g_,pk),pr in vs.items()]))
+            g_=round(x['unit_kg']*1000); pk=x['packs']; vs[(g_,pk)]=min(vs.get((g_,pk),10**9),x['price']); po[(g_,pk)]=pouch(x['name'])
+        p.update(k100=100,vs=sorted([[g_,pk,pr]+([1] if po[(g_,pk)] else []) for (g_,pk),pr in vs.items()]))
     gen.append(p)
 upd={}
 for eid,xs in merge.items():
-    upd[eid]=[[x['total_kg'],x['price']] if x['f']=='dry' else [round(x['unit_kg']*1000),x['packs'],x['price']] for x in xs]
+    upd[eid]=[[x['total_kg'],x['price']] if x['f']=='dry' else [round(x['unit_kg']*1000),x['packs'],x['price']]+([1] if pouch(x['name']) else []) for x in xs]
 block='// GEN:BEGIN 由 scripts/gen_site.py 產生（momo '+DATE+'），請勿手改\nconst GEN='+json.dumps(gen,ensure_ascii=False,separators=(',',':'))+';\nconst UPD='+json.dumps(upd,ensure_ascii=False,separators=(',',':'))+';\nconst PRICE_DATE='+json.dumps(DATE)+';\n// GEN:END'
 if '// GEN:BEGIN' in html: html=re.sub(r'// GEN:BEGIN[\s\S]*?// GEN:END',lambda m:block,html)
 else:
