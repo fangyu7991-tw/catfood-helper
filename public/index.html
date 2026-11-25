@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>貓糧預算小幫手</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#141414">
+<meta name="description" content="輸入家裡每隻貓的狀況和每月預算，推薦台灣買得到的乾糧與濕食組合，並估算多久要補貨。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday, gentle and friendly like a pet-goods maker, but a working tool
+   IDEA a pet-shop shelf tag / shopping slip: each food is a labelled tag, cats are little stamps
+   PICTURE the live plan: big purchase figures and a row of "可吃幾天" bars that move with the budget slider
+   COLOUR black and white only: white ground, ink #141414, warm grey panels; dark theme inverts
+   TYPE Zen Maru Gothic (rounded, petz-route feel) + Noto Sans TC
+   LAYOUT laptop: budget + household left, plan right; phone: title, plan summary, controls stacked */
+:root{color-scheme:light dark;--bg:light-dark(#fff,#121212);--ink:light-dark(#141414,#f1f1f1);--mute:light-dark(#5a5a5a,#a9a9a9);--panel:light-dark(#f4f4f1,#1d1d1d);--soft:light-dark(#dadad5,#3b3b3b)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans TC","Zen Maru Gothic",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.big,.logo,.tab{font-family:"Zen Maru Gothic","Noto Sans TC",sans-serif}
+.band{padding:clamp(20px,3vw,40px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:2px solid var(--ink)}
+.hd{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding:12px max(5vw,16px);max-width:1240px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none;color:inherit}
+nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.acct{display:flex;align-items:center;gap:8px}.acct .who{display:flex;align-items:center;gap:8px;font-size:13px}.acct img,.acct .ini{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--ink);object-fit:cover;display:grid;place-items:center;font-weight:700}
+.acct .st{font-size:12px;color:var(--mute)}
+.sso{display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+.tab{white-space:nowrap;border:2px solid var(--ink);background:none;color:var(--ink);border-radius:99px;padding:8px 18px;font-size:15px;font-weight:700;cursor:pointer;min-height:44px;text-decoration:none;display:inline-flex;align-items:center}
+.tab[aria-current=page]{background:var(--ink);color:var(--bg)}
+.tab:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.rib{display:flex;align-items:center;gap:12px;margin:0 0 24px;font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-.02em;font-weight:900;text-wrap:balance}
+.rib svg{flex:none;width:34px;height:14px}
+.sub{color:var(--mute);margin:-12px 0 24px;max-width:62ch}
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px;align-items:start}
+.panel{background:var(--panel);border-radius:24px;padding:24px}
+.label{font-weight:700;font-size:15px;display:block}
+.budv{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:clamp(40px,6vw,60px);line-height:1;margin:8px 0 0;white-space:nowrap}
+.budv small{font-size:.4em;margin-right:4px}
+input[type=range]{width:100%;appearance:none;height:44px;background:none;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:9px;background:linear-gradient(var(--ink),var(--ink)) 0/var(--p,50%) 100% no-repeat,var(--soft)}
+input[type=range]::-moz-range-track{height:6px;border-radius:9px;background:var(--soft)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:9px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:28px;height:28px;border-radius:50%;background:var(--bg);border:3px solid var(--ink);margin-top:-11px}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--ink)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:99px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;min-height:38px}
+.pill[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.hh{margin-top:24px;border-top:1.5px solid var(--ink);padding-top:16px}
+.budp{margin-bottom:24px}
+.budh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.budc{display:grid;gap:8px;justify-items:end}
+.budc #budIn{font:inherit;font-size:16px;border:1.5px solid var(--ink);border-radius:12px;padding:6px 10px;background:var(--bg);color:var(--ink);width:8.5em;min-height:40px}
+.ticks{position:relative;height:30px;margin:0 14px}
+.ticks span{position:absolute;top:0;transform:translateX(-50%);font-size:12px;color:var(--mute);white-space:nowrap;display:grid;justify-items:center}
+.ticks span::before{content:"";width:1.5px;height:7px;background:var(--soft);margin-bottom:2px}
+.ticks span.mj{color:var(--ink)}.ticks span.mj::before{background:var(--ink);height:9px}
+.ticks span.mn b{visibility:hidden}
+.cal{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;color:var(--bg);border:1.5px solid var(--bg);border-radius:99px;padding:4px 12px;text-decoration:none;min-height:34px}
+.cal.ink{color:var(--ink);border-color:var(--ink);margin:0;padding:2px 10px;min-height:30px;font-weight:500}
+.sum .dt{font-size:14px;opacity:.85;white-space:nowrap}
+.dtr{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}.dtr .cal{margin:0}
+@media(max-width:600px){.budc{justify-items:start}.ticks span.md b{visibility:hidden}}
+.hrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--soft)}
+.av{width:38px;height:38px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-weight:900;font-family:"Zen Maru Gothic",sans-serif;background:var(--bg)}
+.tags{font-size:13px;color:var(--mute)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.warn{margin-top:16px;font-size:14px;border:1.5px solid var(--ink);border-radius:16px;padding:12px 16px;background:var(--bg)}
+.warn+.warn{margin-top:8px}
+.stale{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px;padding:14px 18px;border:2px solid var(--ink);border-radius:18px;background:var(--panel)}.stale b{display:block;font-size:15px}.stale span{font-size:13px;color:var(--mute,#555)}.stale .btn{flex:none}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5em,1fr));gap:12px;margin-bottom:16px}
+.pbtn{text-align:left;border:2px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:16px;padding:12px 16px;cursor:pointer;font:inherit;min-height:44px}
+.pbtn b{display:block;font-family:"Zen Maru Gothic",sans-serif;font-size:16px}
+.pbtn span{font-size:13px;color:var(--mute)}
+.pbtn[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.pbtn[aria-pressed=true] span{color:var(--bg);opacity:.75}
+.slip{border:2px solid var(--ink);border-radius:24px;overflow:hidden;background:var(--bg)}
+.sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:var(--ink);color:var(--bg)}
+.sum>.full{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--bg) 25%,transparent)}
+.sum>div{padding:16px 20px;border-right:1px solid color-mix(in srgb,var(--bg) 25%,transparent)}
+.sum .k{font-size:13px;opacity:.8}
+.sum .big{font-weight:900;font-size:clamp(24px,2.8vw,32px);line-height:1.1;white-space:nowrap}
+.mix{padding:16px 20px;border-bottom:1.5px solid var(--ink)}
+.mixbar{display:flex;height:14px;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin-top:8px}
+.mixbar i{display:block;background:var(--ink)}
+.mixbar i+i{background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 6px)}
+.it{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:8px 16px;padding:16px 20px;border-bottom:1px dashed var(--soft);align-items:start}
+.it:last-child{border-bottom:0}
+.it h3{margin:0;font-size:16px;line-height:1.35}
+.it .meta{font-size:13px;color:var(--mute)}
+.days{grid-column:2/4;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px}
+.track{height:10px;border-radius:9px;background:var(--soft);overflow:hidden}
+.track i{display:block;height:100%;background:var(--ink);border-radius:9px;transition:width .35s}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+.empty{padding:32px 20px;text-align:center}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px}
+.cat{background:var(--panel);border-radius:24px;padding:24px;display:grid;gap:16px;align-content:start}
+.cat .top{display:flex;gap:12px;align-items:center}
+.f{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.f .full{grid-column:1/-1}
+.f>.tags{margin-top:-4px}
+.f label,.fl{font-size:13px;font-weight:700;display:grid;gap:4px}
+input[type=text],input[type=date],select{font:inherit;font-size:16px;border:1.5px solid var(--ink);border-radius:12px;padding:8px 10px;background:var(--bg);color:var(--ink);min-height:44px;width:100%}
+.chk{display:flex;align-items:center;gap:8px;font-size:15px;min-height:36px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:99px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer;min-height:36px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.chip[aria-pressed=true]::before{content:"✕ "}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.row.sb{justify-content:space-between;align-items:baseline}
+.mt{margin-top:24px}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:99px;padding:8px 20px;font:inherit;font-weight:700;cursor:pointer;min-height:44px}
+.btn.ghost{background:none;color:var(--ink)}
+.btn.sm{min-height:38px;padding:6px 16px;font-size:14px}
+.btn:disabled{opacity:.4;cursor:default}
+.foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:24px}
+.food{border:2px solid var(--ink);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:12px;background:var(--bg);position:relative}
+.food.out .hd2,.food.out .spec{opacity:.5}
+.food .hd2{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px}
+.food h3{margin:0;font-size:16px;line-height:1.35}
+.spec{display:grid;grid-template-columns:auto auto;justify-content:space-between;gap:4px 12px;font-size:13px;border-top:1px dashed var(--soft);padding-top:12px;margin:0}
+.spec dt{color:var(--mute)}.spec dd{margin:0;text-align:right;white-space:nowrap}
+.nut{display:grid;gap:8px;border-top:1px dashed var(--soft);padding-top:12px}
+.nut.none{opacity:.8}
+.esbar{display:flex;height:10px;border:1.5px solid var(--ink);border-radius:99px;overflow:hidden}
+.esbar i{display:block;height:100%}.esbar i:nth-child(1){background:var(--ink)}.esbar i:nth-child(2){background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 5px)}.esbar i:nth-child(3){background:var(--bg)}
+.esl{display:flex;justify-content:space-between;font-size:12px}
+.fls{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.fl{font-size:13px;display:flex;gap:8px;align-items:baseline;line-height:1.4}
+.fl b{flex:none;font-size:11px;border:1.5px solid var(--ink);border-radius:99px;padding:0 7px;line-height:18px}
+.fl.l4 b{background:var(--ink);color:var(--bg)}.fl.l3 b{border-style:solid}.fl.l2 b{border-style:dashed}.fl.l1 b{border-color:var(--soft);color:var(--mute)}.fl.l1{color:var(--mute)}
+.nut details summary{cursor:pointer;font-size:13px;font-weight:700;min-height:28px;display:flex;align-items:center}
+.nut details[open]{display:grid;gap:8px}
+.est{border-bottom:1.5px dotted currentColor;cursor:help}
+.ing{margin:0;font-size:12px;line-height:1.6}.ing b{margin-right:6px}
+.stamps{display:flex;flex-wrap:wrap;gap:8px}
+.stamp{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);border-radius:99px;padding:3px 10px 3px 3px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px;cursor:pointer;min-height:38px}
+.stamp .av{width:30px;height:30px;font-size:14px}
+.stamp[data-s=x]{background:var(--ink);color:var(--bg)}
+.stamp[data-s=x] .av{border-color:var(--bg);background:var(--ink);color:var(--bg)}
+.badge{font-size:12px;border:1.5px solid var(--ink);border-radius:99px;padding:1px 8px;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);border-radius:99px;padding:8px 8px 8px 20px;display:flex;gap:12px;align-items:center;z-index:9}
+.toast button{background:var(--bg);color:var(--ink);border:0;border-radius:99px;padding:6px 14px;font:inherit;font-weight:700;cursor:pointer;min-height:36px}
+.view[hidden]{display:none}
+.wt{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.wt .fl{display:block}.wt .tags{font-weight:400}.wt b{white-space:nowrap}
+.srch{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px}
+.srch input{font:inherit;font-size:16px;border:1.5px solid var(--ink);border-radius:99px;padding:10px 18px;background:var(--bg);color:var(--ink);min-height:44px;flex:1 1 320px}
+.bsec{margin-top:48px;padding-top:40px;border-top:2px solid var(--ink)}
+.bgrid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.slot{border:2px dashed var(--ink);border-radius:24px;padding:20px;display:grid;gap:12px;background:var(--bg)}
+.slot.has{border-style:solid}
+.slot .ph{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--panel);display:grid;place-items:center}
+.slot .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.phb{border:0;padding:0;cursor:move;width:100%}
+.slot .ph svg{width:80%;height:80%}
+.slot b{font-family:"Zen Maru Gothic",sans-serif;font-size:17px}
+#bcsQ{display:grid;gap:16px}
+.q{display:grid;gap:8px}
+.scale{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}
+.scale i{height:28px;border:1.5px solid var(--ink);border-radius:8px;display:grid;place-items:center;font-style:normal;font-size:13px}
+.scale i.on{background:var(--ink);color:var(--bg);font-weight:700}
+.scale i.mid{border-width:3px}
+.sres{display:grid;grid-template-columns:repeat(auto-fit,minmax(7em,1fr));gap:12px}
+.sres>div{border:1.5px solid var(--ink);border-radius:16px;padding:12px 16px;background:var(--bg)}
+.sres .big{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:28px;line-height:1.1}
+.ai{font-size:14px;border-left:3px solid var(--ink);padding:4px 0 4px 12px}
+@media(max-width:860px){.bgrid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.shots{grid-template-columns:minmax(0,1fr)}}
+.av{overflow:hidden}.av img{width:100%;height:100%;object-fit:cover;display:block}
+.av.lg{width:64px;height:64px;font-size:24px}
+.avbtn{position:relative;border:0;background:none;padding:0;cursor:pointer;border-radius:50%;color:inherit;flex:none}
+.pen{position:absolute;right:-2px;bottom:-2px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;border:2px solid var(--panel)}.pen svg{width:13px;height:13px}
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;background:color-mix(in srgb,#000 55%,transparent);display:grid;place-items:center;z-index:20;padding:16px}
+.mbox{background:var(--bg);color:var(--ink);border:2px solid var(--ink);border-radius:24px;padding:24px;width:min(340px,100%);display:grid;gap:14px;justify-items:center}
+.crop{position:relative;width:260px;height:260px;border-radius:50%;overflow:hidden;border:3px solid var(--ink);touch-action:none;cursor:grab;background:var(--panel)}
+.crop img{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none;-webkit-user-drag:none;max-width:none;pointer-events:none}
+.kc{border:1.5px solid var(--ink);border-radius:16px;padding:16px;background:var(--bg);display:grid;gap:8px}
+.kc .warn{margin:0}
+.rxn{font-size:14px;border:1.5px dashed var(--ink);border-radius:16px;padding:12px 16px;background:var(--bg)}
+.slip>.rxn{border:0;border-bottom:1.5px dashed var(--ink);border-radius:0;padding:12px 20px}
+.scale.sm i{height:22px;font-size:12px;border-radius:6px}
+.thumbs{display:flex;gap:8px}.thumbs img{width:72px;height:54px;object-fit:cover;border-radius:10px;border:1.5px solid var(--ink)}
+.log{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:14px}.more summary{font-size:13px;cursor:pointer;color:var(--mute);padding:4px 0}.more .log{margin-top:4px}
+.log li{display:grid;grid-template-columns:3.5em minmax(0,1fr) auto;gap:8px;border-bottom:1px dashed var(--soft);padding-bottom:4px}
+.inl{display:flex!important;align-items:center;gap:8px;font-weight:400}.inl select{width:auto;min-height:38px;padding:4px 8px}
+.kbig{font-family:"Zen Maru Gothic",sans-serif;font-size:24px;white-space:nowrap}
+.food .act{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+footer{border-top:2px solid var(--ink);font-size:13px;color:var(--mute)}
+@media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}.res{order:-1}}
+@media(max-width:600px){nav{margin-left:0;width:100%}.tab{flex:1;justify-content:center;padding:8px 4px;font-size:14px}.f{grid-template-columns:minmax(0,1fr)}.sum>div{border-bottom:1px solid color-mix(in srgb,var(--bg) 25%,transparent)}}
+@media(prefers-reduced-motion:reduce){.track i{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+  <a class="logo" href="#plan"><svg width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><path d="M4 3l6 7a14 13 0 0 1 14 0l6-7 1 13a14 12 0 1 1-28 0z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="12" cy="17" r="1.8" fill="currentColor"/><circle cx="22" cy="17" r="1.8" fill="currentColor"/><path d="M15 21q2 2 4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>貓糧預算小幫手</a>
+  <nav aria-label="主要頁面">
+    <a class="tab" href="#plan" data-v="plan">預算推薦</a>
+    <a class="tab" href="#kit" data-v="kit">Home kit</a>
+    <a class="tab" href="#saved" data-v="saved">我的品項</a>
+    <a class="tab" href="#foods" data-v="foods">飼料資料庫</a>
+  </nav>
+  <div id="acct" class="acct" hidden></div>
+</div></header>
+
+<main>
+<section class="view band" id="v-plan"><div class="wrap">
+  <h1 class="rib" id="planTitle"></h1>
+  <div class="panel budp">
+    <div class="budh">
+      <div><label class="label" for="bud">每月預算</label><div class="budv" id="budv"></div></div>
+      <div class="budc"><label class="fl inl" for="budIn">自訂金額<input type="text" id="budIn" inputmode="numeric" autocomplete="off"></label><label class="chk"><input type="checkbox" id="only">只從「我的品項」推薦</label></div>
+    </div>
+    <input type="range" id="bud" min="1000" max="20000" step="500" aria-describedby="budv" list="budTicks">
+    <div class="ticks" id="ticks" aria-hidden="true"></div>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <div class="label">家裡的貓（每日熱量需求）</div><div id="hh"></div>
+      <div id="warns"></div>
+    </div>
+    <div class="res">
+      <div id="stale"></div>
+      <div class="plans" id="plans"></div>
+      <div class="slip" id="slip"></div>
+      <p class="note">每次購買以整袋、整箱計算，至少夠吃 30 天；各品項吃完的日子不同，可以分開補貨。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="view band" id="v-kit" hidden><div class="wrap">
+  <h2 class="rib">Home kit</h2>
+  <p class="sub">每隻貓的基本資料、熱量和體態紀錄。推薦組合會依這裡的設定自動更新。</p>
+  <div class="cats" id="cats"></div>
+  <div class="row mt"><button class="btn" id="addCat" type="button">＋ 新增一隻貓</button><button class="btn ghost" id="reset" type="button">還原範例資料</button></div>
+  <div id="bcsSec" class="bsec">
+    <h2 class="rib">體態評分 BCS</h2>
+    <p class="sub">拍一張俯視、一張側面，再回答三個摸摸看的問題，估出 1–9 分（5 分為理想）。照片判讀只能當參考，最準的還是獸醫用手觸診。</p>
+    <div class="pills" id="bcsCats" style="margin-bottom:24px"></div>
+    <div class="bgrid">
+      <div class="shots" id="shots"></div>
+      <div class="panel" id="bcsQ"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="view band" id="v-saved" hidden><div class="wrap">
+  <h2 class="rib">我的品項</h2>
+  <p class="sub">儲存過的品項放在這裡，讓每隻貓標記喜不喜歡。點貓咪頭像：第一次 ✕ 不吃，第二次 ♥ 愛吃，第三次取消。共食時只要一隻貓打叉，推薦就會排除這款。</p>
+  <div class="foods" id="savedList"></div>
+</div></section>
+
+<section class="view band" id="v-foods" hidden><div class="wrap">
+  <h2 class="rib">飼料資料庫</h2>
+  <p class="sub">所有收錄的品項。看到有興趣或家裡正在吃的，按「儲存」放進我的品項，再讓貓咪標記喜好。</p>
+  <div class="srch"><input type="search" id="q" placeholder="搜尋品牌、品名或蛋白質，例如：皇家、幼貓、鮭魚" aria-label="搜尋飼料"><div class="pills" id="flt"></div></div>
+  <p class="tags" id="cnt" style="margin:0 0 16px"></p>
+  <div class="foods" id="foodList"></div>
+</div></section>
+</main>
+
+<footer class="band"><div class="wrap">乾糧與濕食品項、價格取自 momo（2026/11/24 參考價，實際以 momo 頁面為準）；熱量為品牌公布值、第三方檢驗值，或依官網成分以 NRC 2006 公式推算，未公開者暫估。熱量：幼貓以 NRC 2006 連續成長公式估算；成貓以 RER × 係數估算（Merck 獸醫手冊、AAHA 2021）；之後依體重與 BCS 調整（WSAVA），處方飲食請依獸醫指示。</div></footer>
+<div id="toastBox"></div>
+<input type="file" id="pfile" accept="image/*" hidden>
+<input type="file" id="bfile" accept="image/*" hidden>
+<div class="modal" id="loginM" hidden><div class="mbox" role="dialog" aria-modal="true" aria-labelledby="loginT" style="max-width:420px">
+  <h2 id="loginT" style="margin:0 0 8px">登入貓糧預算小幫手</h2>
+  <p class="tags" style="margin:0 0 20px">登入後，Home kit、我的品項和口味標記會存在你的帳號，換手機或電腦也看得到。</p>
+  <div style="display:grid;gap:12px">
+   <button type="button" class="btn ghost sso" data-sso="google"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>使用 Google 帳號登入</button>
+   <button type="button" class="btn sso" data-sso="apple" hidden><svg width="16" height="18" viewBox="0 0 17 20" aria-hidden="true"><path fill="currentColor" d="M14.1 10.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9C3.6 4.8 2 5.8 1.1 7.4c-1.8 3.1-.5 7.8 1.3 10.3.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.3zM11.5 3C12.2 2.1 12.7 1 12.6 0c-1 0-2.1.6-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.7-1.4z"/></svg>使用 Apple 帳號登入</button>
+  </div>
+  <p class="tags" id="loginErr" style="margin:12px 0 0;min-height:1em"></p>
+  <div class="row sb" style="margin-top:12px"><span class="tags">不登入也能用，資料只存在這台裝置。</span><button type="button" class="btn ghost sm" data-close="loginM">先不要</button></div>
+</div></div>
+<div class="modal" id="cropM" hidden><div class="mbox" role="dialog" aria-modal="true" aria-labelledby="cropT">
+  <b id="cropT" style="font-family:'Zen Maru Gothic',sans-serif;font-size:20px">調整圓臉</b>
+  <div class="crop" id="cropV"><img id="cropI" alt=""></div>
+  <label class="fl" style="width:100%">放大<input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></label>
+  <div class="tags">拖曳照片移動位置，滑桿或滾輪放大</div>
+  <div class="row" style="justify-content:center"><button type="button" class="btn ghost" id="cropX">取消</button><button type="button" class="btn ghost" id="cropNew">換一張</button><button type="button" class="btn ghost" id="cropDel">移除</button><button type="button" class="btn" id="cropOK">使用</button></div>
+</div></div>
+
+<script>
+{
+const WR=['1.5–2','2–2.5','2.5–3','3–3.5','3.5–4','4–4.5','4.5–5','5–5.5','5.5–6','6–6.5','6.5–7','7 以上'];
+const wMid=i=>i>=11?7.3:1.75+i*.5;
+// f: dry (kcal per kg, size kg/bag) | wet (kcal per can, g per can, pack cans/case)
+// 乾糧：momo 搜尋「貓乾糧」第 1 頁，2026/11/24 參考價（折後）。
+// 熱量 ks：o = 品牌公布代謝能；m = momo 商品規格頁標示；c = 依品牌官網成分分析以 NRC 2006 公式推算；r = 同系列口味範圍取代表值；l = 第三方檢驗（香港消委會 536 期）；est:1 = 品牌未公開，乾糧暫以 3,800 kcal/kg、濕食暫以 100 kcal/100g 估。濕食 k100 = kcal/100g，vs = [每罐 g, 每箱罐數, 售價]
+// 濕食：momo 2026/11/24，只收主食罐（副食罐、湯罐不列入）
+const PR=[
+ {id:'m01',b:'ROYAL 法國皇家',n:'泌尿道保健成貓 UC33',f:'dry',pr:'雞',kcal:3765,ks:'c',size:10,price:3399,st:'adult',src:'momo',sizes:[[2,1035],[4,1620],[10,3399]]},
+ {id:'m02',b:'TOMA-PRO 優格',n:'零穀室內貓 體重管理',f:'dry',pr:'雞',kcal:3100,ks:'o',size:11.3,price:2512,st:'adult',src:'momo',sizes:[[2.5,723],[6.35,1511],[11.3,2512]],light:1},
+ {id:'m03',b:'ROYAL 法國皇家',n:'理想體態成貓 F32',f:'dry',pr:'雞',kcal:3839,ks:'c',size:15,price:3599,st:'adult',src:'momo',sizes:[[2,901],[4,1377],[10,2699],[15,3599]],light:1},
+ {id:'m04',b:'ROYAL 法國皇家',n:'有效化毛成貓 IH34',f:'dry',pr:'雞',kcal:3752,ks:'c',size:10,price:2799,st:'adult',src:'momo',sizes:[[2,1062],[4,1710],[10,2799]]},
+ {id:'m05',b:'ROYAL 法國皇家',n:'幼貓專用 K36',f:'dry',pr:'雞',kcal:4068,ks:'c',size:10,price:2699,st:'kitten',src:'momo',sizes:[[2,972],[4,1602],[10,2699]]},
+ {id:'m06',b:'ROYAL 法國皇家',n:'英國短毛成貓 BS34',f:'dry',pr:'雞',kcal:4005,ks:'c',size:10,price:2899,st:'adult',src:'momo',sizes:[[4,1530],[10,2899]]},
+ {id:'m07',b:'Farmina 法米納',n:'ND 天然頂級無穀',f:'dry',pr:'綜合',kcal:4204,ks:'o',size:10,price:5064,st:'adult',src:'momo',sizes:[[5,3140],[10,5064]]},
+ {id:'m08',b:'Monge 瑪恩吉',n:'天然全能泌尿保健',f:'dry',pr:'綜合',kcal:4200,ks:'o',size:10,price:1888,st:'adult',src:'momo'},
+ {id:'m09',b:'Stella&Chewy 星益生趣',n:'凍乾塗層無穀 鮭魚',f:'dry',pr:'魚',kcal:3687,ks:'o',size:4.5,price:2831,st:'all',src:'momo'},
+ {id:'m10',b:'NU4PET 陪心寵糧',n:'全齡無穀低碳 鮮雞野莓',f:'dry',pr:'雞',kcal:3800,est:1,size:2,price:640,st:'all',src:'momo'},
+ {id:'m11',b:'Farmina 法米納',n:'ND 熱帶水果 FTC',f:'dry',pr:'綜合',kcal:3688,ks:'o',size:10,price:3612,st:'adult',src:'momo'},
+  {id:'m13',b:'Mobby 莫比',n:'自然食 愛貓無穀',f:'dry',pr:'綜合',kcal:3970,ks:'c',size:6.5,price:1660,st:'adult',src:'momo',sizes:[[1.5,375],[6.5,1660]]},
+ {id:'m14',b:'ROYAL 法國皇家',n:'挑嘴成貓 E35',f:'dry',pr:'雞',kcal:3959,ks:'c',size:4,price:1700,st:'adult',src:'momo'},
+  {id:'m16',b:'Orijen 歐睿健',n:'無穀鮮肉貓糧',f:'dry',pr:'雞',kcal:4160,ks:'o',size:5.4,price:1709,st:'all',src:'momo'},
+ {id:'m17',b:'ROYAL 法國皇家',n:'腸胃敏感成貓 S33',f:'dry',pr:'雞',kcal:4288,ks:'c',size:10,price:2999,st:'adult',src:'momo',sizes:[[4,1615],[10,2999]]},
+ {id:'m18',b:'Farmina 法米納',n:'黎麥機能貓',f:'dry',pr:'綜合',kcal:3973,ks:'o',size:5,price:3570,st:'adult',src:'momo'},
+ {id:'m19',b:'MonPetit 貓倍麗',n:'成貓 海鮮拼盤',f:'dry',pr:'魚',kcal:3700,ks:'m',size:6.8,price:1999,st:'adult',src:'momo',sizes:[[0.6,285],[6.8,1999]]},
+ {id:'m20',b:'ParkCat 無敵貓糧',n:'大洋鮮極魚',f:'dry',pr:'魚',kcal:3800,est:1,size:6,price:1919,st:'all',src:'momo',sizes:[[1,668],[2,999],[6,1919]]},
+ {id:'m21',b:'毛孩時代',n:'85% 鮮雞肉無穀全貓糧',f:'dry',pr:'雞',kcal:3545,ks:'m',size:4.5,price:2300,st:'all',src:'momo',sizes:[[1.5,790],[4.5,2300]]},
+ {id:'m22',b:'葛莉思',n:'貓食（8 kg × 2）',f:'dry',pr:'綜合',kcal:3800,est:1,size:16,price:1050,st:'adult',src:'momo',sizes:[[16,1050]]},
+  {id:'m24',b:'Whiskas 偉嘉',n:'貓乾糧',f:'dry',pr:'綜合',kcal:3800,est:1,size:14,price:1558,st:'adult',src:'momo',sizes:[[1.1,219],[3.3,597],[7,799],[14,1558]]},
+  {id:'m26',b:'Unicharm 銀湯匙',n:'貓乾糧（約 1.1 kg × 3）',f:'dry',pr:'綜合',kcal:3900,ks:'r',size:3.3,price:1367,st:'adult',src:'momo'},
+  {id:'m28',b:'IQ CAT',n:'聰明貓乾糧',f:'dry',pr:'綜合',kcal:3800,est:1,size:20,price:1388,st:'adult',src:'momo',sizes:[[1.5,155],[5,399],[10,699],[20,1388]]},
+ {id:'n01',b:"Granatapet 葛蕾特",n:'精緻食光 無穀主食罐／餐包',f:'wet',pr:'綜合',k100:97,ks:'c',st:'all',src:'momo',vs:[[85,24,1594],[200,24,2508],[400,12,1910],[800,12,3193]]},
+ {id:'n02',b:"Granatapet 葛蕾特",n:'交響樂 低溫慢燉主食罐',f:'wet',pr:'綜合',k100:67,ks:'o',st:'all',src:'momo',vs:[[200,6,718],[200,12,1558]]},
+ {id:'n03',b:"Granatapet 葛蕾特",n:'朕的情人 主食餐盒',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[85,6,398],[85,24,1700]]},
+ {id:'n04',b:"ROYAL 法國皇家",n:'貓咪專用濕糧餐包（成貓）',f:'wet',pr:'綜合',k100:77,ks:'c',st:'adult',src:'momo',vs:[[85,48,2398]]},
+ {id:'n05',b:"ROYAL 法國皇家",n:'幼貓專用濕糧 K36W',f:'wet',pr:'綜合',k100:95,ks:'c',st:'kitten',src:'momo',vs:[[85,24,1480]]},
+ {id:'n06',b:"ROYAL 法國皇家",n:'離乳貓與母貓 BC34W 慕斯',f:'wet',pr:'綜合',k100:104,ks:'o',st:'kitten',src:'momo',vs:[[195,12,853]]},
+ {id:'n07',b:"Sheba",n:'鮮饌包主食',f:'wet',pr:'魚',k100:65,ks:'l',st:'adult',src:'momo',vs:[[70,48,1099]]},
+ {id:'n08',b:"Hill's 希爾思",n:'主食罐（幼／成／高齡）',f:'wet',pr:'雞',k100:87,ks:'l',st:'all',src:'momo',vs:[[79,6,396],[79,24,1428]]},
+ {id:'n09',b:"汪喵星球",n:'FANTASTIC 98% 鮮肉無膠主食罐',f:'wet',pr:'綜合',k100:111,ks:'r',st:'all',src:'momo',vs:[[165,12,860],[165,24,1720]]},
+ {id:'n10',b:"汪喵星球",n:'益菌PRO+ 無膠肉泥主食罐',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[80,24,1079],[165,12,900]]},
+ {id:'n11',b:"Cherie 法麗",n:'全照護主食罐',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[80,48,1811]]},
+ {id:'n12',b:"Munchee 貪貪",n:'肉泥機能主食罐',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[80,24,1330]]},
+ {id:'n13',b:"T.N.A. 悠遊",n:'厚肉肉 營養主食罐',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[80,24,1109]]},
+ {id:'n14',b:"PAW PAW LAND 肉球世界",n:'歪嘴貓主食罐',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[80,30,911]]},
+ {id:'n15',b:"catssay 貓有話說",n:'營養懶人包 乳鐵蛋白主食餐包',f:'wet',pr:'綜合',k100:100,est:1,st:'all',src:'momo',vs:[[120,20,1860]]}
+];
+PR.forEach(p=>{if(p.f==='wet'){const [g,pack,price]=p.vs[0];Object.assign(p,{g,pack,price,kcal:Math.round(p.k100*g)/100})}});
+
+// ===== 成分標示（第一批）=====
+// t: 標示值類型 g = 保證值（蛋白、脂肪 min；纖維、水分、灰分 max）、t = 典型值（皇家等）
+// ga 單位 %（原物），tau 牛磺酸 %、tdf 總膳食纖維 %；stage 為 AAFCO/FEDIAF 適用階段 all|growth|adult
+const NUT={
+ m03:{t:'t',stage:'adult',ga:{p:32,f:15,fi:4.3,ash:7.6,m:5.5},src:'皇家台灣官網',
+  ing:['脫水家禽蛋白','米','植物分離蛋白','小麥','玉米','動物脂肪','小麥麵粉','水解動物蛋白','蔬菜纖維','礦物質','酵母及酵母提取物','玉米麩質','甜菜漿','大豆油','魚油','洋車前子及殼','水解酵母','金盞花']},
+ m04:{t:'t',stage:'adult',ga:{p:34,f:15,fi:6.7,ash:6.9,m:5.5,tdf:15},src:'皇家歐洲官網（IH34 同配方）'},
+ m05:{t:'t',stage:'growth',ga:{p:36,f:18,fi:2.4,ash:8.1,m:5.5},src:'皇家台灣官網',
+  ing:['脫水禽肉蛋白','米','小麥麩質','動物脂肪','玉米粉','水解動物蛋白（家禽、魚肉）','小麥麵粉','玉米麩質','酵母產品','礦物質','蔬菜纖維','甜菜漿','大豆油','魚油','洋車前子及殼','果寡糖','水解酵母','裂殖壺藻油（DHA）','金盞花']},
+ m16:{t:'g',stage:'all',full:1,ga:{p:40,f:20,fi:3,ash:8,m:10,ca:1.4,ph:1.1,mg:.1,tau:.2},src:'Orijen 亞太官網',
+  ing:['新鮮雞肉','冷凍火雞肉','新鮮雞肝','全無鬚鱈','全鯡魚','雞蛋','冷凍火雞肝','雞肉粉','火雞肉粉','鯖魚粉','沙丁魚粉','鯡魚粉','雞脂肪','紅扁豆','青豌豆','綠扁豆','鷹嘴豆','黃豌豆','豌豆纖維','斑豆','白腰豆','魚油','新鮮雞心','海帶','南瓜','膽鹼','鋅','維生素E','維生素B1','維生素B2','菸鹼酸','泛酸','維生素B6','葉酸','維生素B12','迷迭香萃取物']},
+ n01:{t:'g',stage:'all',ga:{p:10.4,f:5.5,fi:.5,ash:2.2,m:79},src:'葛蕾特代理商（口味平均）'},
+ n04:{t:'t',stage:'adult',ga:{p:9.2,f:3,fi:.7,ash:1.6,m:81.7},src:'皇家官網（泌尿道保健濕糧代表值）'},
+ n05:{t:'t',stage:'growth',ga:{p:12,f:4,fi:.7,ash:1.7,m:78.2},src:'皇家台灣官網',
+  ing:['肉及相關產品','植物蛋白萃取物','穀物','奶類及相關產品','礦物質','油脂','酵母']},
+ n07:{t:'g',stage:null,full:1,ga:{p:7,f:1,fi:.5,m:88},src:'momo 商品規格',
+  ing:['水','雞肉','鮪魚','牛肝','雞副產品','調味劑','大豆油','小麥麩質','礦物質','胺基酸','關華豆膠','決明子膠','鰹魚粉','三聚磷酸鈉','鹿角菜膠','維生素','牛磺酸','乙烯二胺四醋酸二鈉','亞硝酸鈉','二丁基羥基甲苯','丁基羥基甲氧苯']},
+};
+PR.forEach(p=>{if(NUT[p.id])Object.assign(p,{nut:NUT[p.id]})});
+
+// ===== 分析引擎（依「貓咪飼料分析邏輯規格」）=====
+const AAFCO={adult:{p:65,ca:.6,ph:.5,mg:.04},growth:{p:75,ca:1.0,ph:.8,mg:.08}};// 蛋白 g/1000kcal；礦物質 % DM
+const RX={
+ animal:/雞|火雞|鴨|鵝|牛|羊|豬|鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|魚|蝦|蟹|兔|鹿|禽|肝|心|蛋|肉/,
+ conc:/粉|脫水|乾燥|濃縮|meal/i,
+ plantP:/麩質|分離蛋白|植物蛋白|豌豆蛋白|馬鈴薯蛋白|大豆蛋白/,
+ starch:/米|玉米|小麥|麵粉|馬鈴薯|豌豆|鷹嘴豆|扁豆|藜麥|大麥|燕麥|穀物|木薯|斑豆|腰豆/,
+ vitmin:/維生素|礦物質|鹽|膽鹼|鋅|鐵|銅|錳|碘|硒/,
+ trivial:/葡萄糖胺|軟骨素|乳鐵蛋白|膠原蛋白|萃取|蔓越莓|藍莓|金盞花|琉璃苣|絲蘭|草本/,
+ synth:/BHA|BHT|乙氧喹|丁基羥基/,
+ vague:/^動物|水解動物蛋白|肉及相關產品|^油脂$/,
+ fish:/鮭|鱈|鯡|鯖|沙丁|鮪|鰹|鯛|白身魚|鯷|無鬚鱈/,
+};
+const FAM=[['豌豆',/豌豆/],['扁豆',/扁豆/],['豆類',/鷹嘴豆|斑豆|腰豆/],['玉米',/玉米/],['小麥',/小麥/],['米',/^米|碎米|糙米/],['馬鈴薯',/馬鈴薯/]];
+const pct=a=>{const s=a.slice().sort((x,y)=>x-y);return q=>s[Math.min(s.length-1,Math.floor(q*(s.length-1)))]};
+function analyze(p){
+ const n=p.nut;if(!n)return null;const g={...n.ga},est={};
+ if(g.m==null){g.m=p.f==='dry'?10:80;est.m=1}
+ if(g.ash==null){g.ash=p.f==='dry'?8:2;est.ash=1}
+ const nfe=Math.max(0,100-g.p-g.f-(g.fi||0)-g.m-g.ash),dm=v=>v==null?null:v/(100-g.m)*100;
+ const atw=(3.5*g.p+8.5*g.f+3.5*nfe)*10;// kcal/kg
+ const kcal=p.f==='dry'?p.kcal:p.k100*10,kEst=!!p.est;
+ const per=v=>v==null?null:v*10000/kcal;// g/1000 kcal
+ const tot=3.5*g.p+8.5*g.f+3.5*nfe,es={p:3.5*g.p/tot*100,f:8.5*g.f/tot*100,c:3.5*nfe/tot*100};
+ const kOff=!kEst&&(p.ks==='o'||p.ks==='m')&&Math.abs(kcal-atw)/atw>.1;
+ return {g,est,nfe,dm,atw,kcal,kEst,kOff,es,pP:per(g.p),fP:per(g.f),phP:per(g.ph),naP:per(g.na),
+  caP:g.ca&&g.ph?g.ca/g.ph:null,o63:g.o6&&g.o3?g.o6/g.o3:null,mgD:dm(g.mg),fiD:dm(g.fi),ashD:dm(g.ash),tauD:dm(g.tau),caD:dm(g.ca),phD:dm(g.ph)};
+}
+// 成分表判讀 R1–R9
+function readIng(p){
+ const L=p.nut&&p.nut.ing;if(!L)return [];const F=[],top5=L.slice(0,5),top10=L.slice(0,10);
+ const isAnimal=x=>RX.animal.test(x)&&!RX.plantP.test(x)&&!/大豆|植物/.test(x);
+ const fresh=x=>isAnimal(x)&&!RX.conc.test(x)&&!/脂肪|油/.test(x);
+ if(p.f==='dry'&&fresh(L[0])&&!L.slice(1,5).some(x=>isAnimal(x)&&RX.conc.test(x)))F.push({lv:1,t:'鮮肉含水多，烘乾後比例會下降',r:'R1'});
+ const an=top5.filter(isAnimal).length;if(an>=3)F.push({lv:3,t:'以動物性原料為主',r:'R2'});
+ const fam=FAM.filter(([,re])=>top10.filter(x=>re.test(x)).length>=2).map(([k])=>k);
+ if(fam.length)F.push({lv:2,t:`${fam.join('、')}類原料被拆開列，合起來可能比肉多`,r:'R3'});
+ if(top10.some(x=>RX.plantP.test(x)))F.push({lv:2,t:'部分蛋白質來自植物',r:'R4'});
+ const cut=L.findIndex(x=>RX.vitmin.test(x)),tail=cut<0?[]:L.slice(cut).filter(x=>RX.trivial.test(x));
+ if(tail.length>=5)F.push({lv:1,t:'功能性成分多為微量，不必為此多付錢',r:'R6'});
+ const fishN=new Set(L.map(x=>(x.match(RX.fish)||[])[0]).filter(Boolean)).size;if(fishN>=3)F.push({lv:1,t:'魚類原料多，對魚敏感的貓要避開',r:'R8',fish:1});
+ if(L.some(x=>RX.vague.test(x)))F.push({lv:2,t:'部分原料未標明動物種類',r:'R8'});
+ if(L.some(x=>RX.synth.test(x)))F.push({lv:2,t:'使用合成防腐劑',r:'R9'});
+ return F;
+}
+// 旗標：lv 3 優點、1 資訊、2 注意、4 警示；cats 給了就依貓的狀態升級
+const FIX={pHi:100,pLo:75,cLo:20,cHi:30,o63Lo:3,o63Hi:5,ph:2.8,na:1.2};
+let THR=null;
+function thresholds(){
+ const out={};['dry','wet'].forEach(f=>{const A=PR.filter(p=>p.f===f&&p.nut).map(analyze);
+  if(A.length<20){out[f]={...FIX,n:A.length,fixed:1};return}
+  const q=k=>pct(A.map(a=>a[k]).filter(v=>v!=null));
+  out[f]={pHi:q('pP')(.75),pLo:q('pP')(.25),cLo:pct(A.map(a=>a.es.c))(.25),cHi:pct(A.map(a=>a.es.c))(.75),o63Lo:FIX.o63Lo,o63Hi:FIX.o63Hi,ph:q('phP')(.75),na:q('naP')(.75),n:A.length}});
+ return out;
+}
+function flags(p,cats){
+ const a=analyze(p);if(!a)return null;THR=THR||thresholds();const T=THR[p.f],F=[],n=p.nut,g=a.g;
+ cats=(cats||[]).filter(c=>!isRx(c));const kit=cats.filter(c=>ageM(c)<12),male=cats.some(c=>c.sex==='公'),old=cats.some(c=>ageM(c)>=84),nm=L=>L.length?`（${L.map(c=>c.name).join('、')}）`:'',kn=nm(kit);
+ const stMin=AAFCO[n.stage==='adult'?'adult':'growth'];
+ if(a.pP>=T.pHi)F.push({lv:3,t:'蛋白質充足'});
+ else if(a.pP<T.pLo||a.pP<stMin.p)F.push({lv:kit.length&&a.pP<AAFCO.growth.p?4:2,t:'蛋白質偏低'+(kit.length&&a.pP<AAFCO.growth.p?kn:'')});
+ if(a.es.c<=T.cLo)F.push({lv:3,t:'碳水低，較接近肉食性需求'});else if(a.es.c>T.cHi)F.push({lv:2,t:'碳水偏高，容易變胖的貓要控制份量'});
+ if(a.o63!=null){if(a.o63<=T.o63Lo)F.push({lv:3,t:'Omega-3 比例佳'});else if(a.o63>T.o63Hi)F.push({lv:2,t:'Omega-6 偏多'})}
+ if(g.epa||g.dha)F.push({lv:3,t:'明確標示魚油有效成分'});
+ if(a.caP!=null&&(a.caP<1||a.caP>1.6))F.push({lv:2,t:'鈣磷比例不理想'});
+ if(a.phP!=null&&a.phP>=T.ph)F.push({lv:old?2:1,t:'磷含量偏高，年長貓要留意'+(old?nm(cats.filter(c=>ageM(c)>=84)):'')});
+ if(a.mgD!=null){if(a.mgD>.12)F.push({lv:male?2:1,t:'鎂偏高，公貓泌尿道要留意'+(male?nm(cats.filter(c=>c.sex==='公')):'')})}else F.push({lv:1,t:'未標示鎂，可向廠商確認'});
+ if(a.naP!=null&&a.naP>T.na)F.push({lv:1,t:'鈉較高，常見於促進喝水的配方'});
+ if(a.fiD>7)F.push({lv:1,t:'纖維高，便便量可能變多，換糧要慢'});
+ if(g.tdf&&g.fi&&g.tdf>=g.fi*2)F.push({lv:3,t:'含可溶性纖維，有助排毛球'});
+ if(!a.est.ash&&a.ashD>10)F.push({lv:2,t:'礦物質總量偏高'});
+ if(a.tauD!=null&&a.tauD>=.1)F.push({lv:3,t:'牛磺酸有明確標示'});
+ else if(a.tauD==null&&n.full&&!n.ing.some(x=>/牛磺酸/.test(x)))F.push({lv:4,t:'找不到牛磺酸來源'});
+ if(kit.length&&n.stage&&n.stage==='adult')F.push({lv:4,t:'未標示適合幼貓'+kn});
+ if(kit.length&&n.stage==null)F.push({lv:2,t:'未標示適用階段，幼貓要先確認'+kn});
+ if(kit.length&&n.stage!=='adult'&&((a.caD!=null&&a.caD<AAFCO.growth.ca*1.1)||(a.phD!=null&&a.phD<AAFCO.growth.ph*1.1)||a.pP<AAFCO.growth.p*1.1))F.push({lv:2,t:'剛好壓在幼貓最低線'+kn});
+ if(n.t==='t')F.push({lv:1,t:'此款標平均值，其他多標最低值，差距僅供參考'});
+ if(a.kEst)F.push({lv:1,t:'包裝未標熱量，成本為推估區間'});else if(a.kOff)F.push({lv:1,t:'熱量待確認（標示與成分推算差超過 10%）'});
+ readIng(p).forEach(x=>F.push(x.r==='R8'&&!x.fish&&cats.length?{...x,lv:2}:x));
+ return {a,F,T};
+}
+const LV={4:'警示',2:'注意',3:'優點',1:'資訊'};
+const fmt=(v,d=0)=>v==null?'未標示':(+v).toFixed(d);
+function nutHTML(p){
+ const R=flags(p,S.cats);
+ if(!R)return `<div class="nut none"><span class="tags">資料不完整：尚未收錄成分標示，不參與營養排名。</span></div>`;
+ const {a,F,T}=R,ord=[4,2,3,1],sorted=F.slice().sort((x,y)=>ord.indexOf(x.lv)-ord.indexOf(y.lv));
+ const bad=sorted.filter(x=>x.lv===4||x.lv===2),good=sorted.filter(x=>x.lv===3),info=sorted.filter(x=>x.lv===1);
+ const show=[...bad.slice(0,3),...good.slice(0,3)],more=[...bad.slice(3),...good.slice(3),...info];
+ const chip=x=>`<li class="fl l${x.lv}"><b>${LV[x.lv]}</b>${esc(x.t)}</li>`;
+ const e=(v,t)=>`<span class="est" title="${t}">約 ${v}</span>`;
+ const rows=[['蛋白質',`${a.pP.toFixed(0)} g／1000 kcal`],['碳水（推算）',e(a.es.c.toFixed(0)+'% 熱量','包裝未標碳水，用 100 − 蛋白 − 脂肪 − 纖維 − 水分 − 灰分推算'+(a.est.ash?'；灰分未標，暫以 '+a.g.ash+'% 計':''))],['脂肪',`${a.fP.toFixed(0)} g／1000 kcal`],['鈣磷比',a.caP?a.caP.toFixed(2)+' : 1':'未標示'],['磷',a.phP!=null?a.phP.toFixed(1)+' g／1000 kcal':'未標示'],['鎂（乾物比）',a.mgD!=null?a.mgD.toFixed(2)+'%':'未標示'],['牛磺酸（乾物比）',a.tauD!=null?a.tauD.toFixed(2)+'%':'未標示']];
+ return `<div class="nut">
+  <div class="esbar" title="熱量來源比例（modified Atwater 推算）"><i style="width:${a.es.p}%"></i><i style="width:${a.es.f}%"></i><i style="width:${a.es.c}%"></i></div>
+  <div class="esl tags"><span>蛋白 ${a.es.p.toFixed(0)}%</span><span>脂肪 ${a.es.f.toFixed(0)}%</span><span>碳水 約 ${a.es.c.toFixed(0)}%</span></div>
+  ${show.length?`<ul class="fls">${show.map(chip).join('')}</ul>`:''}
+  <details><summary>營養分析${more.length?`・另有 ${more.length} 項`:''}</summary>
+   ${more.length?`<ul class="fls">${more.map(chip).join('')}</ul>`:''}
+   <dl class="spec">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}<dt>適用階段</dt><dd>${{all:'全年齡',growth:'幼貓（成長期）',adult:'成貓'}[p.nut.stage]||'未標示'}</dd><dt>標示來源</dt><dd>${esc(p.nut.src)}</dd></dl>
+   ${p.nut.ing?`<p class="ing tags"><b>成分（前 10 項）</b>${p.nut.ing.slice(0,10).map(esc).join('、')}${p.nut.ing.length>10?'…':''}</p>`:''}
+   <p class="tags" style="margin:8px 0 0">${T.fixed?`${p.f==='dry'?'乾糧':'濕食'}已收錄成分的只有 ${T.n} 款，旗標先用固定門檻判定。`:''}以上分析依包裝標示推算，僅供參考。貓咪有疾病、正在吃處方食或體重異常時，請先詢問獸醫。</p>
+  </details></div>`;
+}
+
+PR.forEach(p=>{if(p.sizes){p.sizes.sort((a,b)=>a[0]-b[0]);const L=p.sizes[p.sizes.length-1];p.size=L[0];p.price=L[1]}});
+const P=id=>PR.find(p=>p.id===id);
+// 乾糧開封後建議 4–6 週內吃完：取 42 天為上限
+const OPEN=42;
+const sizesOf=p=>p.sizes||[[p.size,p.price]];
+const pick=(p,kd)=>{const d=Math.max(kd,1)/p.kcal,all=sizesOf(p).map(([kg,price])=>({kg,price,days:kg/d,pk:price/kg})),ok=all.filter(x=>x.days<=OPEN);const pool=ok.length?ok:[all[0]];return pool.reduce((a,b)=>b.pk<a.pk?b:a)};
+const OPENW=2;// 濕食開罐冷藏建議 2 天內吃完
+const vsOf=p=>p.vs||[[p.g,p.pack,p.price]];
+const pickW=(p,kd)=>{const all=vsOf(p).map(([g,pack,price])=>{const kc=g*p.k100/100;return {g,pack,price,kc,ppk:price/(pack*kc),canDays:kc/Math.max(kd,1)}}),ok=all.filter(x=>x.canDays<=OPENW),pool=ok.length?ok:[all.reduce((a,b)=>b.g<a.g?b:a)];return pool.reduce((a,b)=>b.ppk<a.ppk?b:a)};
+const cpkAt=(p,kd)=>{if(p.f!=='dry')return pickW(p,kd).ppk;const z=pick(p,kd);return z.price/(z.kg*p.kcal)};
+const SAMPLE=()=>({budget:6000,pi:0,flt:'all',seq:4,only:false,saved:['m05','m16','m03','n01','n09','n07'],
+ cats:[
+  {id:'c1',name:'島灰',breed:0,sex:'公',bday:'2026-04-15',neut:true,w:3,note:'',bcs:4,bcsLog:[{d:'2026-11-20',s:5,src:'觸摸檢查'}]},
+  {id:'c2',name:'麻糬',breed:1,sex:'母',bday:'2022-06-01',neut:true,w:5,note:'不吃魚',bcs:6,bcsLog:[{d:'2026-08-02',s:8,src:'獸醫'},{d:'2026-11-18',s:7,src:'照片＋觸摸'}]},
+  {id:'c3',name:'阿福',breed:0,sex:'公',bday:'2014-03-01',neut:true,w:6,rx:true,note:'腎臟處方',bcs:4,bcsLog:[]}],
+ marks:{n07:{c1:'x'},n01:{c1:'h'}}});
+const GUEST_KEY='catfood-mvp6';
+const norm=x=>{if(!x||!Array.isArray(x.cats)||!Array.isArray(x.saved))x=SAMPLE();if(!x.snap)x.snap=null;x.marks=x.marks||{};const ids=new Set(PR.map(p=>p.id));x.saved=x.saved.filter(i=>ids.has(i));x.marks=Object.fromEntries(Object.entries(x.marks).filter(([k])=>ids.has(k)));return x};
+const loadGuest=()=>{let x;try{x=JSON.parse(localStorage.getItem(GUEST_KEY))}catch(e){}return norm(x)};
+let S=loadGuest();
+// 登入後資料存在雲端（cloud.js）；未登入時存在這台裝置
+const save=()=>{if(window.Cloud&&window.Cloud.user){window.Cloud.queue()}else{try{localStorage.setItem(GUEST_KEY,JSON.stringify(S))}catch(e){}}};
+window.App={get:()=>S,set:x=>{S=norm(x);if(typeof render==='function')render()},guest:()=>{S=loadGuest();render()},hasGuestData:()=>!!localStorage.getItem(GUEST_KEY)};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nt=n=>'NT$ '+Math.round(n).toLocaleString('en-US');
+const today=new Date();
+const ageM=c=>{const b=new Date(c.bday);if(isNaN(b))return 36;let m=(today.getFullYear()-b.getFullYear())*12+today.getMonth()-b.getMonth();if(today.getDate()<b.getDate())m--;return Math.max(0,m)};
+const ageTxt=m=>m<12?m+' 個月':Math.floor(m/12)+' 歲'+(m%12?' '+m%12+' 個月':'');
+const BCS=['1 極瘦','2','3 偏瘦','4','5 理想','6 微胖','7 過重','8','9 肥胖'];
+const isRx=c=>!!c.rx;
+const isLoss=c=>!isKit(c)&&bS(c)>=6;
+const bcsAdj=c=>{const b=bS(c);return b===4||b===5?'':`BCS ${b} 分：推估理想體重 ${idealW(c)} kg（目前約 ${wMid(c.w)} kg），熱量改以理想體重計算。`};
+const lastLog=c=>(c.bcsLog||[]).slice(-1)[0];
+const daysSince=d=>Math.floor((today-new Date(d))/864e5);
+const bcsDue=c=>{const b=bS(c);if(b===4||b===5)return null;const l=lastLog(c);if(!l)return {over:true,txt:'體態不在理想範圍，請先做一次評估，之後每個月更新。'};const n=daysSince(l.d);const nx=new Date(l.d);nx.setDate(nx.getDate()+30);return n>=30?{over:true,txt:`距離上次評估已 ${n} 天，體態不在理想範圍，建議重新評估。`}:{over:false,txt:`體態不在理想範圍，建議每個月更新一次・下次 ${nx.getMonth()+1}/${nx.getDate()}`}};
+const bcsWord=n=>n<=3?'偏瘦':n<=5?(n===5?'理想':'略瘦'):n<=7?(n===6?'微胖':'過重'):'肥胖';
+const ymd=()=>{const d=today;return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const mdS=d=>{const p=String(d).split('-');return p.length===3?(+p[1])+'/'+(+p[2]):d};
+const logLi=l=>`<li><span>${esc(mdS(l.d))}</span><span>${+l.s} 分・${bcsWord(+l.s)}</span><span class="tags">${esc(l.src)}</span></li>`;
+const logBcs=(c,sc,src)=>{c.bcs=sc-1;c.bcsLog=[...(c.bcsLog||[]),{d:ymd(),s:sc,src}].slice(-12)};
+const stage=m=>m<12?'幼貓':m<84?'年輕成貓':m<132?'成熟成貓':'熟齡貓';
+const bS=c=>(c.bcs??4)+1;
+// BCS 每高於 5 分約多 10% 體重；4–5 分視為理想；低於 4 分每分約少 10%
+const idealW=c=>{const b=bS(c),W=wMid(c.w);return Math.round((b>5?W/(1+.1*(b-5)):b<4?W/(1-.1*(4-b)):W)*100)/100};
+const rer=c=>70*idealW(c)**.75;
+// 後台：品種健康成貓體重（kg）[公 min,max, 母 min,max]；約略值，上線前需再核對
+const BREEDS=[
+ ['米克斯（混種）',4,6,3,4.5],['英國短毛',5,8,3.5,5.5],['美國短毛',5,7,3.5,5],['蘇格蘭摺耳',4,6,2.7,4],
+ ['布偶',6,9,4.5,6.5],['緬因',6.5,9,4.5,6.5],['挪威森林',5.5,8,3.5,5.5],['曼赤肯',3,4.5,2,3.5],
+ ['波斯／金吉拉',4,6,3,4.5],['異國短毛（加菲）',4,6,3,4.5],['俄羅斯藍貓',4,5.5,3,4],['暹羅',4,5.5,2.5,4],
+ ['孟加拉',4.5,7,3.5,5],['阿比西尼亞',3.5,5,2.5,3.5],['斯芬克斯（無毛）',3.5,5,2.5,3.5]];
+const bRange=c=>{const b=BREEDS[c.breed??0]||BREEDS[0];return c.sex==='公'?[b[1],b[2]]:[b[3],b[4]]};
+const WmAuto=c=>{const r=bRange(c);return Math.round((r[0]+r[1])/2*10)/10};
+const Wm=c=>WmAuto(c);
+const isKit=c=>ageM(c)<12;
+// NRC 2006 kitten growth: ME = 100·W^0.67 · 6.7 · (e^(−0.189p) − 0.66), p = W / 預估成年體重
+const nrc=c=>{const W=idealW(c),M=Math.max(W,Wm(c)),p=W/M;return {W,Wm:M,p,me:100*W**.67*6.7*(Math.exp(-.189*p)-.66)}};
+// 成貓係數：Merck 獸醫手冊／AAHA 2021（已結紮 1.2、未結紮 1.4、不太動或易胖 1.0、減重 0.8）
+const fac=c=>{const m=ageM(c);
+ if(m<12)return c.neut?[.8,'結紮後調降 20%']:[1,'未結紮'];
+ if(isLoss(c))return [.8,'BCS 6 分以上，以減重計算'];
+ return c.neut?[1,'已結紮室內成貓（易胖）']:[1.4,'未結紮成貓']};
+const kcalCalc=c=>Math.round((isKit(c)?nrc(c).me:rer(c))*fac(c)[0]);
+const avHTML=(c,cls='av')=>`<span class="${cls}">${c.photo?`<img src="${c.photo}" alt="">`:esc(c.name.slice(0,1)||'?')}</span>`;
+const bcsNote=c=>{const b=c.bcs??4,r=bRange(c);if(!isKit(c)&&!isLoss(c)&&wMid(c.w)>r[1]+.3&&b<5)return `體重高於${BREEDS[c.breed??0][0]}${c.sex}貓的健康範圍（${r[0]}–${r[1]} kg），建議重新評估體態分數。`;return b>=5&&isKit(c)?'幼貓體態偏胖：熱量已依理想體重微調，成長期不套用減重係數，請跟獸醫討論。':b>=5?'體態偏胖：熱量已改用理想體重 × 減重係數 0.8，建議跟獸醫確認目標體重與減重速度。':b<=2?'體態偏瘦：熱量已改以理想體重計算（會增加），也建議請獸醫檢查原因。':''};
+const kcal=kcalCalc;
+const mark=(p,c)=>(S.marks[p.id]||{})[c.id]||'';
+// 推薦用的資料快照：Home kit／口味標記改了不會自動重算，要在推薦頁按「重新整理」
+const snapOf=()=>JSON.parse(JSON.stringify({cats:S.cats.map(({photo,pics,...r})=>r),marks:S.marks,saved:S.saved}));
+const PS=()=>{if(!S.snap)S.snap=snapOf();return S.snap};
+const stalePlan=()=>JSON.stringify(snapOf())!==JSON.stringify(PS());
+const markP=(p,c)=>(PS().marks[p.id]||{})[c.id]||'';
+const live=c=>{const x=S.cats.find(y=>y.id===c.id);return x?{...c,photo:x.photo}:c};
+const unitK=p=>p.f==='dry'?p.size*p.kcal:p.pack*p.kcal;
+const cpk=p=>p.price/unitK(p);
+const unitTxt=p=>p.f==='dry'?`袋（${p.size} kg）`:`箱（${p.pack} 罐 × ${p.g} g）`;
+const ribbon='<svg viewBox="0 0 34 14" aria-hidden="true"><path d="M2 7c5-6 8 6 15 0s10 6 15 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>';
+const icon=p=>p.f==='dry'
+ ?'<svg width="44" height="48" viewBox="0 0 44 48" aria-hidden="true"><path d="M8 6h28l3 38H5z" fill="var(--panel)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 6l3 5h22l3-5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="22" cy="28" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 26l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+ :'<svg width="44" height="48" viewBox="0 0 44 48" aria-hidden="true"><ellipse cx="22" cy="14" rx="16" ry="5" fill="var(--panel)" stroke="currentColor" stroke-width="2"/><path d="M6 14v20c0 3 7 6 16 6s16-3 16-6V14" fill="var(--panel)" stroke="currentColor" stroke-width="2"/><path d="M6 22c0 3 7 6 16 6s16-3 16-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3"/></svg>';
+
+function compute(){
+ const cats=PS().cats.map(c=>({c,k:kcal(c)}));
+ const rxC=cats.filter(x=>isRx(x.c)),sh=cats.filter(x=>!isRx(x.c));
+ const K=sh.reduce((a,x)=>a+x.k,0);
+ const B=S.budget;
+ const kit=sh.some(x=>ageM(x.c)<12),loss=sh.some(x=>isLoss(x.c));
+ const ok=p=>(!S.only||PS().saved.includes(p.id))&&(!kit||p.st!=='adult')&&(kit||p.st!=='kitten')&&!sh.some(x=>markP(p,x.c)==='x');
+ const likes=p=>sh.filter(x=>markP(p,x.c)==='h').length;
+ const lk=o=>(o.d&&o.s<1?likes(o.d):0)+(o.w&&o.s>0?likes(o.w):0);
+ const dry=PR.filter(p=>p.f==='dry'&&ok(p)),wet=PR.filter(p=>p.f==='wet'&&ok(p));
+ const cost=(d,w,s)=>K*30*(s*(w?cpkAt(w,K*s):0)+(1-s)*(d?cpkAt(d,K*(1-s)):0));
+ const stale=o=>{if(!o.d||o.s>=1)return 0;const r=pick(o.d,K*(1-o.s)).days/OPEN;return r>1?Math.min(150,(r-1)*40):0};// 開封後放太久扣分，愈久扣愈多
+ const score=o=>-stale(o)+o.s*100+lk(o)*60+(loss&&((o.d&&o.d.light)||(o.w&&o.w.light))?8:0)-o.cost/Math.max(B,1)*4;
+ const cand=[];
+ const ds=dry.length?dry:[null],ws=wet.length?wet:[null];
+ for(const d of ds)for(const w of ws){
+  for(let i=10;i>=0;i--){const s=i/10;if(!d&&s<1)break;if(!w&&s>0)continue;const c=cost(d,w,s);if(c<=B)cand.push({d,w,s,cost:c})}
+ }
+ cand.forEach(o=>o.sc=score(o));cand.sort((a,b)=>b.sc-a.sc);
+ const plans=[];
+ if(K>0&&cand.length){
+  const A=cand[0],al=lk(A)>0;
+  const who=o=>[...new Set([o.d&&o.s<1?o.d:null,o.w&&o.s>0?o.w:null].filter(Boolean).flatMap(p=>sh.filter(x=>markP(p,x.c)==='h').map(x=>x.c.name)))].join('、');
+  plans.push({...A,t:al?'愛吃優先':'濕食最多',why:al?`有 ${esc(who(A))} 愛吃的`:'預算內濕食比例最高'});
+  if(al){const M=cand.slice().sort((a,b)=>b.s-a.s||b.sc-a.sc)[0];if(M&&M.s>A.s)plans.push({...M,t:'濕食最多',why:'預算內濕食比例最高'})}
+  const C=cand.find(o=>o.w&&A.w&&o.w.pr!==A.w.pr&&!plans.some(q=>q.w===o.w&&q.d===o.d))||cand.find(o=>(o.w!==A.w||o.d!==A.d)&&!plans.some(q=>q.w===o.w&&q.d===o.d));
+  if(C&&plans.length<2)plans.push({...C,t:'換換口味',why:'換一種主要蛋白質'});
+  if(A.s>=.2){const s=Math.round((A.s-.2)*10)/10;plans.push({d:A.d,w:A.w,s,cost:cost(A.d,A.w,s),t:'省一點',why:'同樣的食物，少一點濕食'})}
+ }
+ const minAll=dry.length?K*30*Math.min(...dry.map(p=>cpkAt(p,K))):null;
+ return {cats,sh,rxC,K,B,kit,loss,plans,minAll,dry,wet,markP};
+}
+function buildItems(R,pl){
+ const it=[];
+ const fav=p=>R.sh.filter(x=>R.markP(p,x.c)==='h').map(x=>x.c.name);
+ if(pl.d&&pl.s<1)it.push({p:pl.d,k:R.K*(1-pl.s),who:R.sh.map(x=>x.c.name),fav:fav(pl.d)});
+ if(pl.w&&pl.s>0)it.push({p:pl.w,k:R.K*pl.s,who:R.sh.map(x=>x.c.name),fav:fav(pl.w)});
+ return it.map(i=>{const z=i.p.f==='dry'?pick(i.p,i.k):null,zw=z?null:pickW(i.p,i.k),uk=z?z.kg*i.p.kcal:zw.pack*zw.kc,up=z?z.price:zw.price,u=i.k*30/uk,n=Math.max(1,Math.ceil(u-.03));return {...i,z,zw,n,price:n*up,days:n*uk/i.k,monthly:i.k*30*up/uk,daily:z?Math.round(i.k/i.p.kcal*1000)+' g':(i.k/zw.kc).toFixed(1)+' 罐'}});
+}
+const WK='日一二三四五六';
+const addD=d=>{const x=new Date(today);x.setDate(x.getDate()+Math.floor(d));return x};
+const fullD=d=>{const x=addD(d);return `${x.getFullYear()}/${x.getMonth()+1}/${x.getDate()}（${WK[x.getDay()]}）`};
+const ymdC=x=>x.getFullYear()+String(x.getMonth()+1).padStart(2,'0')+String(x.getDate()).padStart(2,'0');
+const gcal=(d,title,details)=>{const x=addD(d),y=new Date(x);y.setDate(y.getDate()+1);return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+ymdC(x)+'/'+ymdC(y)+'&details='+encodeURIComponent(details)};
+const calIco='<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 7h12M5 1.5v3M11 1.5v3" stroke="currentColor" stroke-width="1.6"/></svg>';
+const md=d=>{const x=new Date(today);x.setDate(x.getDate()+Math.floor(d));return (x.getMonth()+1)+'/'+x.getDate()};
+
+function renderPlan(){
+ const R=compute();
+ const b=document.getElementById('bud'),bv=Math.min(20000,Math.max(1000,S.budget));b.value=bv;b.style.setProperty('--p',((bv-1000)/190)+'%');
+ const bi=document.getElementById('budIn');if(document.activeElement!==bi)bi.value=S.budget.toLocaleString('en-US');
+ document.getElementById('budv').innerHTML='<small>NT$</small>'+S.budget.toLocaleString('en-US')+(S.budget>20000?'<small style="margin-left:8px">自訂</small>':'');
+ document.getElementById('only').checked=!!S.only;
+ document.getElementById('hh').innerHTML=R.cats.map(x=>`<div class="hrow">${avHTML(live(x.c))}<div><b>${esc(x.c.name||'未命名')}</b><div class="tags">${BREEDS[x.c.breed??0][0].replace(/（.*）/,'')} · ${ageTxt(ageM(x.c))} · ${x.c.sex}${x.c.neut?'（已結紮）':''} · ${WR[x.c.w]} kg · BCS ${(x.c.bcs??4)+1}</div></div><span class="num">${isRx(x.c)?'處方<div class="tags">不列入</div>':x.k+' kcal'}</span></div>`).join('')+`<div class="hrow" style="border:0"><span></span><b>推薦計算合計</b><b class="num">${R.K} kcal / 天</b></div>`;
+ const W=[];
+ if(R.kit&&R.loss)W.push('幼貓和減重中的貓一起吃：推薦已改用幼貓可吃的配方，建議分開餵，讓減重的貓吃低卡配方。');
+ PS().cats.filter(c=>bcsNote(c)).forEach(c=>W.push(`${esc(c.name)}：${bcsNote(c)}`));
+ PS().cats.filter(c=>bcsDue(c)&&bcsDue(c).over).forEach(c=>W.push(`${esc(c.name)}：${bcsDue(c).txt}`));
+ if(S.only&&R.K>0&&(!R.dry.length||!R.wet.length))W.push('「我的品項」裡'+(!R.dry.length?'沒有可用的乾糧':'沒有可用的濕食')+'，推薦結果會受限。可以到飼料資料庫多儲存幾款。');
+ if(R.K>0&&!R.dry.length&&!R.wet.length)W.push('所有品項都被排除了，請檢查「我的品項」裡的 ✕ 標記。');
+ document.getElementById('warns').innerHTML=W.map(w=>`<div class="warn">${w}</div>`).join('');
+ document.getElementById('stale').innerHTML=stalePlan()?`<div class="stale"><div><b>Home kit 或口味標記有更新</b><span>目前顯示的是更新前的推薦，可以繼續查看，或重新整理套用新資料。</span></div><button type="button" class="btn sm" id="refresh">重新整理推薦</button></div>`:'';
+ const pls=R.plans;if(S.pi>=pls.length)S.pi=0;
+ const rxLine=R.rxC.length?`<div class="rxn">不包含 ${R.rxC.map(x=>esc(x.c.name)).join('、')} 的飲食（處方飲食），請以獸醫建議為準。</div>`:'';
+ document.getElementById('planTitle').innerHTML=ribbon+(pls.length?`這個月的貓糧組合`:'預算需要再調整')+ribbon;
+ const its=pls.length?buildItems(R,pls[S.pi]):[];
+ const mon=its.reduce((a,i)=>a+i.monthly,0);
+ document.getElementById('plans').innerHTML=pls.map((p,i)=>{const m=buildItems(R,p).reduce((a,x)=>a+x.monthly,0);return `<button type="button" class="pbtn" data-pi="${i}" aria-pressed="${i===S.pi}"><b>${p.t}</b><span>${p.why}・月均 ${nt(m)}</span></button>`}).join('');
+ const slip=document.getElementById('slip');
+ if(!pls.length){slip.innerHTML=rxLine+`<div class="empty"><p style="font-size:20px;font-weight:700;margin:0 0 6px">這個預算買不到符合條件的組合</p><p class="note" style="margin:0">${R.K===0?'目前所有貓都是處方飲食，請依獸醫建議購買。':R.minAll?`全乾糧最低每月約 <b>${nt(R.minAll)}</b>。`:'請檢查 Home kit 的設定。'}</p></div>`;return}
+ const once=its.reduce((a,i)=>a+i.price,0),last=Math.min(...its.map(i=>i.days));
+ const pl=pls[S.pi],wp=Math.round(pl.s*100);
+ slip.innerHTML=`<div class="sum"><div><div class="k">這次購買</div><div class="big">${nt(once)}</div></div><div><div class="k">平均每月</div><div class="big">${nt(mon)}</div></div><div class="full"><div class="k">下次補貨・${Math.floor(last)} 天後吃完</div><div class="dtr"><span class="big">${md(last)}</span><span class="dt">${fullD(last)}</span><a class="cal" href="${gcal(last,'貓糧補貨：'+its.filter(i=>Math.floor(i.days)===Math.floor(last)).map(i=>i.p.b+i.p.n).join('、'),'這次的組合：\n'+its.map(i=>`${i.p.b}｜${i.p.n} × ${i.n}，可吃 ${Math.floor(i.days)} 天（${fullD(i.days)} 補）`).join('\n')+'\n\n由貓糧預算小幫手建立')}" target="_blank" rel="noopener">${calIco}加到 Google 日曆</a></div></div></div>`
+ +rxLine
+ +(R.K>0?`<div class="mix"><div class="row" style="justify-content:space-between;font-size:14px"><span>共食熱量來源</span><span>乾糧 ${100-wp}%・濕食 ${wp}%</span></div><div class="mixbar"><i style="width:${100-wp}%"></i><i style="width:${wp}%"></i></div></div>`:'')
+ +its.map(i=>`<div class="it">${icon(i.p)}<div><h3>${esc(i.p.b)}｜${esc(i.p.n)}</h3><div class="meta">${esc(i.who.join('、'))}・每天約 ${i.daily}${i.fav.length?`・<b>♥ ${esc(i.fav.join('、'))}愛吃</b>`:''}${i.z?`・一包約 ${Math.round(i.z.days)} 天吃完`:''}${i.p.est?'（熱量待補，份量為估算）':''}${(()=>{const r=flags(i.p,PS().cats);const w=r?r.F.filter(x=>x.lv===4):[];return w.length?`<br><b>⚠ ${w.map(x=>esc(x.t)).join('；')}</b>`:''})()}${i.zw&&i.zw.canDays>OPENW?`<br><b>一罐約 ${i.zw.canDays.toFixed(1)} 天才吃完，開罐後請冷藏、2 天內吃完</b>`:''}${i.z&&i.z.days>OPEN?`<br><b>超過開封後建議的 6 週，${sizesOf(i.p).length>1?'已是最小包裝，':''}請分裝密封保存</b>`:''}</div></div><div class="num"><b>${i.n} ${i.z?'袋':'箱'}</b><div class="meta">${i.z?i.z.kg+' kg 裝':i.zw.pack+' 罐 × '+i.zw.g+' g'}</div><div class="meta">${nt(i.price)}</div><button type="button" class="chip" style="margin-top:8px" data-save="${i.p.id}">${S.saved.includes(i.p.id)?'已儲存':'＋ 儲存'}</button></div><div class="days"><div class="track"><i style="width:${Math.min(100,i.days/60*100)}%"></i></div><span class="num">可吃 ${Math.floor(i.days)} 天・${fullD(i.days)} 補</span></div></div>`).join('');
+}
+
+function renderKit(){
+ document.getElementById('cats').innerHTML=S.cats.map(c=>{const sc=(c.bcs??4)+1,log=(c.bcsLog||[]).slice().reverse(),pics=c.pics||{},r=bRange(c);return `<article class="cat" data-c="${c.id}">
+ <div class="top"><button type="button" class="avbtn" data-photo="${c.id}" aria-label="更換${esc(c.name)}的照片">${avHTML(c,'av lg')}<span class="pen" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 13l1-3.5 6.5-6.5 2.5 2.5-6.5 6.5z M9.5 4l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span></button><label class="fl" style="flex:1">名字<input type="text" id="n-${c.id}" data-f="name" value="${esc(c.name)}" maxlength="12"></label></div>
+ <div class="f">
+  <label>性別<select id="s-${c.id}" data-f="sex">${['公','母'].map(v=>`<option ${c.sex===v?'selected':''}>${v}</option>`).join('')}</select></label>
+  <label>生日<input type="date" id="b-${c.id}" data-f="bday" value="${esc(c.bday)}"></label>
+  <label>品種<select id="p-${c.id}" data-f="breed">${BREEDS.map((b,i)=>`<option value="${i}" ${(c.breed??0)===i?'selected':''}>${b[0]}</option>`).join('')}</select></label>
+  <label>結紮<select id="e-${c.id}" data-f="neut"><option value="1" ${c.neut?'selected':''}>已結紮</option><option value="0" ${c.neut?'':'selected'}>未結紮</option></select></label>
+  <label>體重（kg）<select id="w-${c.id}" data-f="w">${WR.map((v,i)=>`<option value="${i}" ${c.w===i?'selected':''}>${v}</option>`).join('')}</select></label>
+  <label>處方飲食<select id="x-${c.id}" data-f="rx"><option value="0" ${c.rx?'':'selected'}>否</option><option value="1" ${c.rx?'selected':''}>是</option></select></label>
+ </div>
+ <div class="kc">
+  <div class="row sb"><span class="fl">每日熱量估算・${ageTxt(ageM(c))}・${stage(ageM(c))}</span><b class="kbig">${kcal(c)} kcal</b></div>
+  ${isRx(c)?'<div class="rxn">處方飲食不列入推薦組合，份量請以獸醫建議為準。</div>':''}
+  ${isKit(c)?(()=>{const n=nrc(c);return `<div class="tags">幼貓用 NRC 2006 成長公式：100 × ${n.W}<sup>0.67</sup> × 6.7 × (e<sup>−0.189 × ${n.p.toFixed(2)}</sup> − 0.66) = ${Math.round(n.me)}（p = 目前體重 ÷ 預估成年體重 ${n.Wm} kg，取健康成貓體重中間值）→ × ${fac(c)[0]} ${fac(c)[1]} = ${kcalCalc(c)} kcal</div>
+  <div class="wt"><span class="fl">健康成貓體重<span class="tags">（依據性別、品種）</span></span><b>${bRange(c)[0]}–${bRange(c)[1]} kg</b></div>`})()
+  :`<div class="tags">RER 70 × ${idealW(c)}<sup>0.75</sup> = ${Math.round(rer(c))} → × ${fac(c)[0]} ${fac(c)[1]} = ${kcalCalc(c)} kcal</div><div class="wt"><span class="fl">健康成貓體重<span class="tags">（依據性別、品種）</span></span><b>${bRange(c)[0]}–${bRange(c)[1]} kg</b></div>`}
+  ${bcsAdj(c)?`<div class="tags"><b>${bcsAdj(c)}</b></div>`:''}
+  ${c.neut&&c.sex==='公'?'<div class="tags">已結紮公貓是發胖高風險群，建議每月量一次體重。</div>':''}
+ </div>
+ <div class="kc">
+  <div class="row sb"><span class="fl">體態 BCS</span><b class="kbig">${sc} 分・${bcsWord(sc)}</b></div>
+  <div class="scale sm">${[1,2,3,4,5,6,7,8,9].map(n=>`<i class="${n===sc?'on':''}">${n}</i>`).join('')}</div>
+  ${(pics.top||pics.side)?`<div class="thumbs">${pics.top?`<img src="${pics.top}" alt="俯視照">`:''}${pics.side?`<img src="${pics.side}" alt="側面照">`:''}</div>`:''}
+  ${log.length?`<ul class="log">${logLi(log[0])}</ul>${log.length>1?`<details class="more"><summary>查看全部 ${log.length} 筆紀錄</summary><ul class="log">${log.slice(1).map(logLi).join('')}</ul></details>`:''}`:'<div class="tags">還沒有評估紀錄</div>'}
+  ${bcsNote(c)?`<div class="warn">${bcsNote(c)}</div>`:''}
+  ${bcsDue(c)?`<div class="${bcsDue(c).over?'warn':'tags'}">${bcsDue(c).txt}</div>`:''}
+  <div class="row"><button type="button" class="btn ghost sm" data-gobcs="${c.id}">用照片評估</button><label class="fl inl">手動修改<select id="c-${c.id}" data-f="bcs">${BCS.map((v,i)=>`<option value="${i}" ${(c.bcs??4)===i?'selected':''}>${v}</option>`).join('')}</select></label></div>
+ </div>
+ <label class="fl">備註<input type="text" id="o-${c.id}" data-f="note" value="${esc(c.note)}" placeholder="例如：不吃魚、吃太快會吐"></label>
+ <div class="row sb"><span class="tags">${Object.keys(S.marks).filter(k=>S.marks[k][c.id]==='x').length} 款打叉・${Object.keys(S.marks).filter(k=>S.marks[k][c.id]==='h').length} 款愛吃</span><button type="button" class="btn ghost sm" data-del="${c.id}">刪除</button></div>
+ </article>`}).join('')||'<p>還沒有貓，先新增一隻吧。</p>';
+}
+
+function card(p,mode){const out=S.cats.some(c=>mark(p,c)==='x'),sv=S.saved.includes(p.id);return `<article class="food${mode==='saved'&&out?' out':''}">
+ <div class="hd2">${icon(p)}<div><div class="tags">${esc(p.b)}</div><h3>${esc(p.n)}</h3><div class="row" style="gap:6px;margin-top:6px"><span class="badge">${p.pr}</span><span class="badge">${p.st==='all'?'全齡':p.st==='kitten'?'幼貓':'成貓'}</span>${p.light?'<span class="badge">體態控制</span>':''}${p.src==='momo'?'<span class="badge">momo</span>':''}</div></div></div>
+ <dl class="spec">${p.f==='dry'?sizesOf(p).map(([kg,pr])=>`<dt>${kg} kg 裝</dt><dd>${nt(pr)}・${nt(pr/kg)}/kg</dd>`).join(''):vsOf(p).map(([g,pk,pr])=>`<dt>${g} g × ${pk} 罐</dt><dd>${nt(pr)}・${nt(pr/pk)}/罐</dd>`).join('')}<dt>熱量</dt><dd>${p.f==='dry'?(p.est?'待補（暫估 '+p.kcal.toLocaleString('en-US')+'）':p.kcal.toLocaleString('en-US')+' kcal/kg'):(p.est?'待補（暫估 '+p.k100+' kcal/100g）':p.k100+' kcal/100g')}</dd>${p.ks?`<dt>熱量來源</dt><dd>${{o:'品牌公布',m:'momo 商品規格',c:'官網成分推算',r:'同系列代表值',l:'第三方檢驗'}[p.ks]}</dd>`:''}<dd style="display:none"></dd><dt>每 100 kcal</dt><dd>NT$ ${((p.f==='dry'?Math.min(...sizesOf(p).map(([kg,pr])=>pr/(kg*p.kcal))):Math.min(...vsOf(p).map(([g,pk,pr])=>pr/(pk*g*p.k100/100))))*100).toFixed(1)} 起</dd></dl>
+ ${nutHTML(p)}
+ ${mode==='saved'?`<div class="stamps">${S.cats.map(c=>{const s=mark(p,c);return `<button type="button" class="stamp" data-mark="${p.id}" data-c="${c.id}" data-s="${s}" aria-label="${esc(c.name)}：${s==='x'?'不吃':s==='h'?'愛吃':'未標記'}">${avHTML(c)}${s==='x'?'✕ 不吃':s==='h'?'♥ 愛吃':'—'}</button>`}).join('')}</div><div class="act"><span class="tags">${out?'有貓不吃，共食推薦會排除':''}</span><button type="button" class="btn ghost" data-save="${p.id}">移除</button></div>`
+ :`<div class="act"><span class="tags">${sv?'已在我的品項':''}</span><button type="button" class="btn${sv?' ghost':''}" data-save="${p.id}">${sv?'已儲存 ✓':'＋ 儲存'}</button></div>`}
+ </article>`}
+function renderFoods(){
+ const F=[['all','全部'],['dry','乾糧'],['wet','濕食']];
+ document.getElementById('flt').innerHTML=F.map(([k,t])=>`<button type="button" class="pill" data-flt="${k}" aria-pressed="${S.flt===k}">${t}</button>`).join('');
+ if(!['all','dry','wet'].includes(S.flt))S.flt='all';
+ const q=(S.q||'').trim().toLowerCase().split(/\s+/).filter(Boolean);
+ const list=PR.filter(p=>(S.flt==='all'||p.f===S.flt)&&q.every(w=>(p.b+' '+p.n+' '+p.pr+' '+({all:'全齡',kitten:'幼貓',adult:'成貓'}[p.st])+(p.light?' 體態控制 低卡':'')+(p.f==='dry'?' 乾糧':' 濕食')).toLowerCase().includes(w)));
+ document.getElementById('cnt').textContent=`共 ${list.length} 款`;
+ const qi=document.getElementById('q');if(document.activeElement!==qi)qi.value=S.q||'';
+ document.getElementById('foodList').innerHTML=list.length?list.map(p=>card(p,'all')).join(''):'<p class="tags">找不到符合的品項，換個關鍵字試試。</p>';
+ const sv=S.saved.map(P).filter(Boolean);
+ document.getElementById('savedList').innerHTML=sv.length?sv.map(p=>card(p,'saved')).join(''):'<div class="panel" style="grid-column:1/-1"><p style="margin:0 0 12px;font-weight:700">還沒有儲存任何品項</p><a class="btn" href="#foods" style="display:inline-flex;align-items:center;text-decoration:none">去飼料資料庫挑選</a></div>';
+}
+
+const QS=[['摸肋骨的感覺',[['骨頭很明顯、幾乎沒肉',2],['摸得到，蓋著薄薄一層脂肪',5],['要稍微用力才摸得到',7],['摸不到',8.5]]],
+ ['從上往下看腰身',[['腰很凹、看得到骨盆',2],['看得出腰，在肋骨後方收窄',5],['幾乎看不出腰',7],['腰比胸還寬、往外凸',8.5]]],
+ ['從側面看肚子',[['肚子明顯往上收、很扁',2],['微微往上收，後腹有一點點脂肪',5],['肚子平直、後腹有垂肉',7],['肚子往下垂、會晃',8.5]]]];
+const guide=k=>k==='top'
+ ?'<svg viewBox="0 0 200 150" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M100 18c-14 0-22 10-22 22 0 8 4 13 8 17-10 8-14 22-12 36 1 10-2 18 0 26 3 10 10 15 26 15s23-5 26-15c2-8-1-16 0-26 2-14-2-28-12-36 4-4 8-9 8-17 0-12-8-22-22-22z"/><path d="M84 24l-6-10 12 6M116 24l6-10-12 6"/><path d="M100 134c0 6 10 10 22 8" /><path d="M74 88c8 4 44 4 52 0" stroke-dasharray="4 4"/></g><text x="168" y="80" font-size="11" text-anchor="middle" fill="currentColor">手機在</text><text x="168" y="95" font-size="11" text-anchor="middle" fill="currentColor">正上方</text></svg>'
+ :'<svg viewBox="0 0 200 150" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 58l4-16 10 12c6-2 12-2 16 1 10-3 50-4 74 0 14 2 22 12 24 24 1 10-2 16-6 22"/><path d="M48 72c-4 8-2 14 6 16 8 10 20 14 36 14h50"/><path d="M60 86v34M76 96v24M134 102v18M150 96v24"/><path d="M90 102c10 6 30 6 44 0" stroke-dasharray="4 4"/><path d="M156 80c14 0 20-14 14-30"/></g><text x="100" y="146" font-size="11" text-anchor="middle" fill="currentColor">站好，手機和貓同高、拍正側面</text></svg>';
+let SM=null;
+const qScore=c=>{const a=(c.bq||[]).filter(v=>v!=null&&v>=0);if(a.length<3)return null;return Math.round(a.reduce((s,i,k)=>s+QS[k][1][i][1],0)/3)};
+function renderBcs(){
+ if(!S.cats.length){document.getElementById('bcsSec').hidden=true;return}
+ document.getElementById('bcsSec').hidden=false;
+ if(!cat(S.bc))S.bc=S.cats[0].id;
+ const c=cat(S.bc),pics=c.pics||{},bq=c.bq||[];
+ document.getElementById('bcsCats').innerHTML=S.cats.map(x=>`<button type="button" class="stamp" data-bc="${x.id}" data-s="${x.id===c.id?'x':''}" aria-pressed="${x.id===c.id}">${avHTML(x)}${esc(x.name)}</button>`).join('');
+ document.getElementById('shots').innerHTML=[['top','俯視照','貓站著，從正上方往下拍，整個背部到尾巴根部入鏡'],['side','側面照','貓站著，手機跟貓同高，拍正側面，看得到肚子線條']].map(([k,t,h])=>`<div class="slot${pics[k]?' has':''}"><b>${t}</b>${pics[k]?`<button type="button" class="ph phb" data-adj="${k}" aria-label="調整${t}位置"><img src="${pics[k]}" alt="${t}"></button>`:`<div class="ph">${guide(k)}</div>`}<div class="tags">${h}</div><div class="row">${pics[k]?`<button type="button" class="btn ghost sm" data-adj="${k}">拖曳調整</button><button type="button" class="chip" data-shot="${k}">換一張</button><button type="button" class="chip" data-unshot="${k}">移除</button>`:`<button type="button" class="btn" data-shot="${k}">拍照或上傳</button>`}</div></div>`).join('');
+ const qs=qScore(c),ai=c.ai&&c.ai.score?c.ai:null;
+ const rec=qs&&ai?Math.round((qs+ai.score)/2):qs||(ai&&ai.score)||null;
+ const canAI=SM&&pics.top&&pics.side;
+ document.getElementById('bcsQ').innerHTML=QS.map(([t,os],k)=>`<div class="q"><div class="fl">${k+1}. ${t}</div><div class="chips">${os.map((o,i)=>`<button type="button" class="pill" data-q="${k}" data-v="${i}" aria-pressed="${bq[k]===i}">${o[0]}</button>`).join('')}</div></div>`).join('')
+ +`<div class="sres"><div><div class="tags">觸摸檢查</div><div class="big">${qs?qs+' 分':'—'}</div></div><div><div class="tags">照片判讀</div><div class="big">${ai?ai.score+' 分':'—'}</div></div><div><div class="tags">建議分數</div><div class="big">${rec?rec+' 分':'—'}</div></div></div>`
+ +`<div><div class="scale" aria-label="BCS 1 到 9">${[1,2,3,4,5,6,7,8,9].map(n=>`<i class="${n===rec?'on':''} ${n===5?'mid':''}">${n}</i>`).join('')}</div><div class="row tags" style="justify-content:space-between"><span>偏瘦</span><span>理想 5</span><span>肥胖</span></div></div>`
+ +(c.ai?`<div class="ai" aria-live="polite">${c.ai.err?esc(c.ai.err):`<b>照片判讀（可信度：${esc(c.ai.confidence||'—')}）</b><br>俯視：${esc(c.ai.top||'')}<br>側面：${esc(c.ai.side||'')}${c.ai.tips?'<br>拍攝建議：'+esc(c.ai.tips):''}`}</div>`:'')
+ +`<div class="row">${SM?`<button type="button" class="btn ghost" id="aiBtn" ${canAI?'':'disabled'}>${c.aiBusy?'判讀中…':'用 AI 判讀照片'}</button>`:''}<button type="button" class="btn" id="applyBcs" ${rec?'':'disabled'}>套用 ${rec||''} 分到${esc(c.name)}</button></div>`
+ +(SM&&!canAI?'<div class="tags">兩張照片都上傳後才能用 AI 判讀。</div>':'')
+ +`<div class="tags">目前紀錄：${(c.bcs??4)+1} 分・${bcsWord((c.bcs??4)+1)}</div>`;
+}
+const shrink=(file,cb,m=640)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,m/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);cb(cv.toDataURL('image/jpeg',.82))};im.src=r.result};r.readAsDataURL(file)};
+const toBlob=d=>{const [h,b]=d.split(','),bin=atob(b),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:h.slice(5,h.indexOf(';'))})};
+async function runAI(c){
+ c.aiBusy=true;renderBcs();
+ const prompt=`你是貓的體態評估助手。第一張圖是貓的俯視照，第二張是側面照。請依 WSAVA 9 分制體態評分（BCS，5 分為理想，6–7 過重，8–9 肥胖，1–3 偏瘦）估計這隻貓的分數。俯視看肋骨後方的腰身，側面看腹部是否上收、有沒有腹部脂肪墊或下垂。貓的資料：${c.sex}貓，品種 ${BREEDS[c.breed??0][0]}，體重約 ${WR[c.w]} kg。照片看不清楚、不是貓、姿勢無法判斷時 score 給 null。只回 JSON，不要其他文字：{"score":1到9的整數或null,"confidence":"低"或"中"或"高","top":"俯視觀察，一句繁體中文","side":"側面觀察，一句繁體中文","tips":"若要更準確的拍攝建議，一句繁體中文，沒有就空字串"}`;
+ try{
+  const opts={images:[toBlob(c.pics.top),toBlob(c.pics.side)],modelTier:'default'};
+  let v;
+  if(typeof SM.json==='function'){v=await SM.json(prompt,opts)}else{const r=await SM(prompt,opts);v=JSON.parse((r.text.match(/\{[\s\S]*\}/)||['{}'])[0])}
+  const sc=Number.isInteger(+v.score)&&+v.score>=1&&+v.score<=9?+v.score:null;
+  c.ai={score:sc,confidence:String(v.confidence||''),top:String(v.top||''),side:String(v.side||''),tips:String(v.tips||'')};
+  if(!sc)c.ai.err='照片沒辦法判斷體態：'+(c.ai.tips||'請讓貓站好重拍。');
+ }catch(e){c.ai={err:e&&e.code==='rate_limited'?'目前使用次數太多，請稍後再試。':e&&e.code==='not_granted'?'沒有取得 AI 判讀的權限。':'AI 判讀失敗，請稍後再試，或先用觸摸檢查的分數。'}}
+ c.aiBusy=false;save();renderBcs();
+}
+const bf=document.getElementById('bfile');
+bf.addEventListener('change',()=>{const f=bf.files[0];if(!f)return;const k=bf.dataset.k;shrink(f,d=>openCrop(d,S.bc,k),1200);bf.value=''});
+document.getElementById('bcsSec').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const c=cat(S.bc);
+ if(t.dataset.bc){S.bc=t.dataset.bc;renderBcs();save()}
+ else if(t.dataset.shot){bf.dataset.k=t.dataset.shot;bf.click()}
+ else if(t.dataset.unshot){delete c.pics[t.dataset.unshot];if(c.picsSrc)delete c.picsSrc[t.dataset.unshot];delete c.ai;save();render()}
+ else if(t.dataset.adj){const k=t.dataset.adj;openCrop((c.picsSrc||{})[k]||c.pics[k],c.id,k)}
+ else if(t.dataset.q){c.bq=c.bq||[];c.bq[+t.dataset.q]=+t.dataset.v;save();renderBcs()}
+ else if(t.id==='aiBtn'&&!c.aiBusy){runAI(c)}
+ else if(t.id==='applyBcs'){const qs=qScore(c),ai=c.ai&&c.ai.score;const rec=qs&&ai?Math.round((qs+ai)/2):qs||ai;if(rec){logBcs(c,rec,qs&&ai?'照片＋觸摸':ai?'照片':'觸摸檢查');render();toast(`已把 ${esc(c.name)} 的 BCS 設為 ${rec} 分`)}}
+});
+(async()=>{try{if(window.claude&&window.claude.use){SM=await window.claude.use('sample');if(SM&&SM.limits){const l=await SM.limits();if(!l||!l.images)SM=null}renderBcs()}}catch(e){SM=null}})();
+const render=()=>{const a=document.activeElement&&document.activeElement.id;renderPlan();renderKit();renderFoods();renderBcs();if(a){const e=document.getElementById(a);if(e)e.focus()}save()};
+const route=()=>{const v=['plan','kit','saved','foods'].includes(location.hash.slice(1))?location.hash.slice(1):'plan';document.querySelectorAll('.view').forEach(s=>s.hidden=s.id!=='v-'+v);document.querySelectorAll('.tab').forEach(t=>{if(t.dataset.v===v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')})};
+const cat=id=>S.cats.find(c=>c.id===id);
+let undo=null;
+const toast=(msg,u)=>{const t=document.getElementById('toastBox');t.innerHTML=`<div class="toast" role="status" style="${u?'':'padding-right:20px'}">${msg}${u?'<button type="button" id="undo">復原</button>':''}</div>`;clearTimeout(toast.t);toast.t=setTimeout(()=>t.innerHTML='',6000)};
+
+document.getElementById('bud').addEventListener('input',e=>{S.budget=+e.target.value;renderPlan();save()});
+{const bi=document.getElementById('budIn');bi.addEventListener('input',()=>{const d=bi.value.replace(/[^0-9]/g,'');bi.value=d?(+d).toLocaleString('en-US'):''});bi.addEventListener('change',()=>{const v=+bi.value.replace(/[^0-9]/g,'');if(v>=500){S.budget=v;renderPlan();save()}else bi.value=S.budget.toLocaleString('en-US')});bi.addEventListener('keydown',e=>{if(e.key==='Enter')bi.blur()})}
+{const T=[];for(let v=1000;v<=20000;v+=1000)T.push(v);document.getElementById('ticks').innerHTML=T.map(v=>`<span class="${v%5000===0||v===1000?'mj':'mn'}" style="left:${(v-1000)/190}%"><b>${v.toLocaleString('en-US')}</b></span>`).join('')}
+document.addEventListener('input',e=>{const el=e.target,card=el.closest('[data-c]');if(!card||!el.dataset.f)return;const c=cat(card.dataset.c);if(el.dataset.f==='name'){c.name=el.value;renderPlan();renderFoods();if(!c.photo)card.querySelector('.av').textContent=c.name.slice(0,1)||'?';save()}else if(el.dataset.f==='note'){c.note=el.value;save()}});
+document.addEventListener('change',e=>{const el=e.target,card=el.closest('.cat');if(!card||!el.dataset.f)return;const c=cat(card.dataset.c),f=el.dataset.f;
+ if(f==='sex')c.sex=el.value;else if(f==='bday')c.bday=el.value;else if(f==='w')c.w=+el.value;else if(f==='neut')c.neut=el.value==='1';else if(f==='rx')c.rx=el.value==='1';else if(f==='mw')c.mw=el.value===''?null:+el.value;else if(f==='breed'){c.breed=+el.value;c.mw=null}else if(f==='bcs')logBcs(c,+el.value+1,'手動');else return;render()});
+document.getElementById('only').addEventListener('change',e=>{S.only=e.target.checked;render()});
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
+ if(t.dataset.bud){S.budget=+t.dataset.bud;render()}
+ else if(t.dataset.pi){S.pi=+t.dataset.pi;render()}
+ else if(t.dataset.save){const id=t.dataset.save;S.saved=S.saved.includes(id)?S.saved.filter(x=>x!==id):[...S.saved,id];render()}
+ else if(t.dataset.gobcs){S.bc=t.dataset.gobcs;render();document.getElementById('bcsSec').scrollIntoView({behavior:'smooth'})}
+ else if(t.dataset.photo){const c=cat(t.dataset.photo);if(c&&c.photo){openCrop(c.photoSrc||c.photo,c.id,'avatar')}else{pf.dataset.c=t.dataset.photo;pf.click()}}
+ else if(t.dataset.flt){S.flt=t.dataset.flt;render()}
+ else if(t.dataset.mark){const m=S.marks[t.dataset.mark]??={},cur=m[t.dataset.c]||'';const nx=cur===''?'x':cur==='x'?'h':'';if(nx)m[t.dataset.c]=nx;else delete m[t.dataset.c];render()}
+ else if(t.dataset.del){const i=S.cats.findIndex(c=>c.id===t.dataset.del);undo={c:S.cats[i],i};S.cats.splice(i,1);render();toast(`已刪除 ${esc(undo.c.name)}`,1)}
+ else if(t.id==='undo'&&undo){S.cats.splice(undo.i,0,undo.c);undo=null;document.getElementById('toastBox').innerHTML='';render()}
+ else if(t.id==='addCat'){const id='c'+(S.seq++);S.cats.push({id,name:'新的貓',breed:0,sex:'母',bday:'2024-01-01',neut:true,w:4,rx:false,note:'',bcs:4,bcsLog:[]});render();document.getElementById('n-'+id)?.focus()}
+ else if(t.id==='reset'){S=SAMPLE();S.snap=snapOf();render()}
+ else if(t.id==='refresh'){S.snap=snapOf();render()}
+});
+// photo crop (avatar = circle, top/side = 4:3)
+const pf=document.getElementById('pfile'),cm=document.getElementById('cropM'),cv=document.getElementById('cropV'),ci=document.getElementById('cropI'),zr=document.getElementById('zoom');
+const CR={id:null,kind:'avatar',VW:260,VH:260,w:0,h:0,s0:1,z:1,x:0,y:0,src:''};
+const place=()=>{const sc=CR.s0*CR.z,W=CR.w*sc,H=CR.h*sc;CR.x=Math.min(0,Math.max(CR.VW-W,CR.x));CR.y=Math.min(0,Math.max(CR.VH-H,CR.y));ci.style.width=CR.w+'px';ci.style.height=CR.h+'px';ci.style.transform=`translate(${CR.x}px,${CR.y}px) scale(${sc})`};
+const setZ=z=>{const o=CR.s0*CR.z,cx=(CR.VW/2-CR.x)/o,cy=(CR.VH/2-CR.y)/o;CR.z=Math.min(4,Math.max(1,z));const n=CR.s0*CR.z;CR.x=CR.VW/2-cx*n;CR.y=CR.VH/2-cy*n;zr.value=CR.z;place()};
+const openCrop=(src,id,kind='avatar')=>{CR.id=id;CR.kind=kind;CR.src=src;const av=kind==='avatar',mw=Math.min(300,window.innerWidth-80);CR.VW=av?Math.min(260,mw):mw;CR.VH=av?CR.VW:Math.round(CR.VW*3/4);
+ cv.style.width=CR.VW+'px';cv.style.height=CR.VH+'px';cv.style.borderRadius=av?'50%':'16px';
+ document.getElementById('cropT').textContent=av?'調整圓臉':kind==='top'?'調整俯視照':'調整側面照';
+ ci.onload=()=>{CR.w=ci.naturalWidth;CR.h=ci.naturalHeight;CR.s0=Math.max(CR.VW/CR.w,CR.VH/CR.h);CR.z=1;zr.value=1;CR.x=(CR.VW-CR.w*CR.s0)/2;CR.y=(CR.VH-CR.h*CR.s0)/2;place();cm.hidden=false;document.getElementById('cropOK').focus()};ci.src=src};
+pf.addEventListener('change',()=>{const f=pf.files[0];if(!f)return;const id=pf.dataset.c;shrink(f,d=>openCrop(d,id,'avatar'),1200);pf.value=''});
+let drag=null;
+cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,ox:CR.x,oy:CR.y};cv.setPointerCapture(e.pointerId)});
+cv.addEventListener('pointermove',e=>{if(!drag)return;CR.x=drag.ox+e.clientX-drag.x;CR.y=drag.oy+e.clientY-drag.y;place()});
+cv.addEventListener('pointerup',()=>drag=null);cv.addEventListener('pointercancel',()=>drag=null);
+cv.addEventListener('wheel',e=>{e.preventDefault();setZ(CR.z*(e.deltaY<0?1.08:1/1.08))},{passive:false});
+zr.addEventListener('input',()=>setZ(+zr.value));
+const closeCrop=()=>{cm.hidden=true;ci.removeAttribute('src')};
+document.getElementById('cropX').addEventListener('click',closeCrop);
+document.getElementById('cropNew').addEventListener('click',()=>{if(CR.kind==='avatar'){pf.dataset.c=CR.id;pf.click()}else{bf.dataset.k=CR.kind;bf.click()}});
+cm.addEventListener('keydown',e=>{if(e.key==='Escape')closeCrop()});
+document.getElementById('cropDel').addEventListener('click',()=>{const c=cat(CR.id);if(c){if(CR.kind==='avatar'){delete c.photo;delete c.photoSrc}else{if(c.pics)delete c.pics[CR.kind];if(c.picsSrc)delete c.picsSrc[CR.kind];delete c.ai}}closeCrop();render()});
+document.getElementById('cropOK').addEventListener('click',()=>{const c=cat(CR.id);if(c){const av=CR.kind==='avatar',OW=av?240:640,OH=av?240:480,k=document.createElement('canvas');k.width=OW;k.height=OH;const x=k.getContext('2d'),r=OW/CR.VW,sc=CR.s0*CR.z;x.drawImage(ci,CR.x*r,CR.y*r,CR.w*sc*r,CR.h*sc*r);const out=k.toDataURL('image/jpeg',.85);
+ if(av){c.photo=out;c.photoSrc=CR.src}else{c.pics={...(c.pics||{}),[CR.kind]:out};c.picsSrc={...(c.picsSrc||{}),[CR.kind]:CR.src};delete c.ai}}closeCrop();render()});
+document.getElementById('q').addEventListener('input',e=>{S.q=e.target.value;renderFoods();save()});
+window.addEventListener('hashchange',route);
+route();render();
+}
+</script>
+<script type="module" src="cloud.js"></script>
+</body>
+</html>
