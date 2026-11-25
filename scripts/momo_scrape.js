@@ -11,7 +11,7 @@
     let rank = 0;
     for (let p = 1; p <= pages; p++) {
       try {
-        const u = '/search/searchShop.jsp?keyword=' + encodeURIComponent(kw) + '&searchType=6&curPage=' + p;
+        const u = '/search/' + encodeURIComponent(kw) + '?searchType=6&curPage=' + p + '&viewport=desktop&cateLevel=0&_isFuzzy=0';
         const h = await (await fetch(u, { credentials: 'include' })).text();
         const d = new DOMParser().parseFromString(h, 'text/html');
         for (const s of d.querySelectorAll('script[type="application/ld+json"]')) {

@@ -35,8 +35,11 @@ async function mailFeedback(d) {
     send.disabled = true; fe.textContent = '送出中…';
     try {
       const d = { msg: text, contact: ct.value.trim() };
-      const r = await Promise.allSettled([sendFeedback ? sendFeedback(d) : Promise.reject(new Error('no firestore')), mailFeedback(d)]);
-      if (r.every(x => x.status === 'rejected')) throw r.map(x => x.reason);
+      // 存進 Firestore 就算成功；寄信在背景進行，不讓畫面等它（寄信服務有時很慢）
+      const mail = mailFeedback(d).catch(e => { console.warn('[feedback] 寄信失敗', e); throw e; });
+      const limit = (pr, ms) => Promise.race([pr, new Promise((_, no) => setTimeout(() => no(new Error('timeout')), ms))]);
+      if (sendFeedback) await limit(sendFeedback(d), 12000);
+      else await limit(mail, 20000);
       msg.value = ''; ct.value = ''; close();
       window.toast ? window.toast('已收到，謝謝你的建議！') : alert('已收到，謝謝你的建議！');
     } catch (e) { console.error(e); fe.textContent = '送出失敗，請稍後再試'; }
