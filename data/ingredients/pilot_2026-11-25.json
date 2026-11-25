@@ -1172,7 +1172,6 @@
   "note": "香港官網資料"
  },
  {
-  "match": "泌尿道毛球控制",
   "brand": "Hill's 希爾思",
   "line": "成貓 泌尿道毛球控制",
   "flavor": "雞肉",
@@ -1196,10 +1195,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "泌尿道毛球控制"
  },
  {
-  "match": "完美體重",
   "brand": "Hill's 希爾思",
   "line": "成貓 完美體重",
   "flavor": "雞肉",
@@ -1225,10 +1224,10 @@
   ],
   "status": "partial",
   "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
-  "light": 1
+  "light": 1,
+  "regex": "完美體重"
  },
  {
-  "match": "敏感胃腸與皮膚 成貓 雞肉",
   "brand": "Hill's 希爾思",
   "line": "成貓 敏感胃腸與皮膚",
   "flavor": "雞肉",
@@ -1253,10 +1252,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "敏感胃腸與皮膚 成貓 雞肉$"
  },
  {
-  "match": "高齡貓 雞肉",
   "brand": "Hill's 希爾思",
   "line": "7 歲以上 雞肉",
   "flavor": "雞肉",
@@ -1280,10 +1279,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "^高齡貓 雞肉$"
  },
  {
-  "match": "成貓 雞肉",
   "brand": "Hill's 希爾思",
   "line": "成貓 雞肉",
   "flavor": "雞肉",
@@ -1307,10 +1306,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "^成貓 雞肉$"
  },
  {
-  "match": "幼貓 雞肉",
   "brand": "Hill's 希爾思",
   "line": "幼貓 雞肉",
   "flavor": "雞肉",
@@ -1334,10 +1333,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "^幼貓 雞肉$"
  },
  {
-  "match": "毛球控制 成貓",
   "brand": "Hill's 希爾思",
   "line": "成貓 毛球控制",
   "flavor": "雞肉",
@@ -1362,10 +1361,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "^毛球控制 成貓 雞肉$"
  },
  {
-  "match": "完美消化 高齡貓",
   "brand": "Hill's 希爾思",
   "line": "7 歲以上 完美消化",
   "flavor": "雞肉",
@@ -1390,10 +1389,10 @@
    }
   ],
   "status": "partial",
-  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得"
+  "note": "來源為平均營養值（乾物比），以水分 8% 換算為原狀；成分表未取得",
+  "regex": "完美消化 高齡貓"
  },
  {
-  "match": "ND 天然頂級無穀",
   "brand": "Farmina 法米納",
   "line": "N&D Prime 頂級無穀",
   "flavor": "雞肉石榴（成貓）",
@@ -1418,10 +1417,10 @@
    }
   ],
   "status": "partial",
-  "note": "台灣 GC 代碼與口味對應待確認；成分表未取"
+  "note": "台灣 GC 代碼與口味對應待確認；成分表未取",
+  "regex": "^ND 天然頂級無穀"
  },
  {
-  "match": "ND天然低穀",
   "brand": "Farmina 法米納",
   "line": "N&D Ancestral Grain 低穀",
   "flavor": "雞肉石榴（成貓）",
@@ -1446,10 +1445,10 @@
    }
   ],
   "status": "partial",
-  "note": "台灣 LC 代碼與口味對應待確認"
+  "note": "台灣 LC 代碼與口味對應待確認",
+  "regex": "ND天然低穀貓糧系列"
  },
  {
-  "match": "ND天然低穀",
   "brand": "Farmina 法米納",
   "line": "N&D Ancestral Grain 低穀",
   "flavor": "雞肉石榴（結紮）",
@@ -1474,10 +1473,10 @@
     "date": "2026-11-25"
    }
   ],
-  "status": "partial"
+  "status": "partial",
+  "regex": "ND天然低穀貓糧系列"
  },
  {
-  "match": "皇極鮮雞",
   "brand": "Instinct 原點",
   "line": "皇極鮮雞（Ultimate Protein）",
   "flavor": "雞肉",
@@ -1507,7 +1506,8 @@
    }
   ],
   "status": "partial",
-  "note": "美國版本；熱量、灰分未標"
+  "note": "美國版本；熱量、灰分未標",
+  "regex": "皇極鮮雞"
  },
  {
   "site_id": null,
@@ -1548,5 +1548,291 @@
   ],
   "status": "unverified",
   "note": "momo 品名未寫口味，無法確定對應哪款，先不併入網站"
+ },
+ {
+  "site_ids": [
+   "p14407622",
+   "p14705236"
+  ],
+  "brand": "Orijen 歐睿健",
+  "line": "守護8",
+  "flavor": "守護8（成貓）",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 40,
+   "f": 18,
+   "fi": 4,
+   "m": 10,
+   "ash": 9,
+   "ca": 1.4,
+   "ph": 1.1,
+   "mg": 0.1,
+   "tau": 0.1
+  },
+  "kcal_kg": 3980,
+  "ingredients": null,
+  "sources": [
+   {
+    "url": "https://apac.orijenpetfoods.com/en/cats/cat-food/ap-ori-ns-guardian-8.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified",
+  "note": "亞太官網"
+ },
+ {
+  "site_ids": [
+   "p13849101",
+   "p14641835"
+  ],
+  "brand": "ACANA",
+  "line": "低GI 系列",
+  "flavor": "田園收穫",
+  "protein_source": "禽肉",
+  "stage": "adult",
+  "ga": {
+   "p": 34,
+   "f": 16,
+   "fi": 4,
+   "m": 10,
+   "ash": 8,
+   "ca": 1.5,
+   "ph": 1.2,
+   "mg": 0.1,
+   "tau": 0.1
+  },
+  "kcal_kg": 3760,
+  "ingredients": [
+   "新鮮雞肉",
+   "雞肉粉",
+   "火雞肉粉",
+   "燕麥",
+   "豌豆",
+   "雞脂",
+   "綠扁豆",
+   "鷹嘴豆",
+   "紅扁豆",
+   "新鮮雞蛋",
+   "生火雞肉",
+   "扁豆纖維",
+   "魚油",
+   "生鴨肉",
+   "雞內臟",
+   "火雞肝",
+   "海帶",
+   "南瓜",
+   "蔓越莓",
+   "藍莓"
+  ],
+  "sources": [
+   {
+    "url": "https://www.acana.com/en-US/cats/cat-food/homestead-harvest/ns-aca-homestead-cat.html",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://apac.acana.com/en-CN/ap-ns-aca-homestead-cat.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_ids": [
+   "p13849101",
+   "p14641835"
+  ],
+  "brand": "ACANA",
+  "line": "低GI 系列",
+  "flavor": "豐盛漁獲",
+  "protein_source": "魚",
+  "stage": "adult",
+  "ga": {
+   "p": 34,
+   "f": 16,
+   "fi": 4,
+   "m": 10,
+   "ash": 9,
+   "ca": 1.6,
+   "ph": 1.2,
+   "mg": 0.1,
+   "tau": 0.1
+  },
+  "kcal_kg": 3800,
+  "ingredients": [
+   "生鮭魚",
+   "鮭魚粉",
+   "鯡魚粉",
+   "燕麥",
+   "豌豆",
+   "魚油",
+   "綠扁豆",
+   "生鱈魚",
+   "生全鯡魚",
+   "鷹嘴豆",
+   "紅扁豆",
+   "葵花油",
+   "生鱒魚",
+   "扁豆纖維",
+   "碳酸鈣",
+   "海帶",
+   "南瓜",
+   "蔓越莓",
+   "藍莓"
+  ],
+  "sources": [
+   {
+    "url": "https://www.acana.com/en-US/cats/cat-food/bountiful-catch/ns-aca-bountiful-catch-cat.html",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://apac.acana.com/en-HK/ap-ns-aca-bountiful-catch-cat.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_ids": [
+   "p13849101"
+  ],
+  "brand": "ACANA",
+  "line": "低GI 系列",
+  "flavor": "室內開胃",
+  "protein_source": "禽肉",
+  "stage": "adult",
+  "light": 1,
+  "ga": {
+   "p": 37,
+   "f": 14,
+   "fi": 6,
+   "m": 10,
+   "ash": 9,
+   "ca": 1.3,
+   "ph": 1.0,
+   "mg": 0.1,
+   "tau": 0.1
+  },
+  "kcal_kg": 3630,
+  "ingredients": null,
+  "sources": [
+   {
+    "url": "https://apac.acana.com/en-AU/ap-ns-aca-indoor-entree-cat.html",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://www.acana.com/en-US/cats/cat-food/indoor-entr%C3%A9e/ns-aca-indoor-entree-cat.html",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_ids": [
+   "p13849101"
+  ],
+  "brand": "ACANA",
+  "line": "低GI 系列",
+  "flavor": "第一盛宴／農場盛宴",
+  "status": "unverified",
+  "sources": [],
+  "note": "未查"
+ },
+ {
+  "site_ids": [
+   "p11189219"
+  ],
+  "brand": "Go!",
+  "line": "高肉量系列 四種肉",
+  "flavor": "雞＋火雞＋鴨＋鮭",
+  "protein_source": "綜合",
+  "stage": "all",
+  "ga": {
+   "p": 46,
+   "f": 18,
+   "fi": 4.5,
+   "m": 10,
+   "ash": 9,
+   "ph": 1.1
+  },
+  "kcal_kg": 3736,
+  "ingredients": null,
+  "sources": [
+   {
+    "url": "https://petcurean.com/product/go-solutions-carnivore-grain-free-chicken-turkey-duck-recipe-for-cats",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "verified",
+  "note": "熱量由 411 kcal/110g 換算"
+ },
+ {
+  "site_ids": [
+   "p6657971"
+  ],
+  "brand": "Go!",
+  "line": "皮毛保健系列 雞肉",
+  "flavor": "雞肉（含穀）",
+  "protein_source": "禽肉",
+  "stage": "all",
+  "ga": {
+   "p": 32,
+   "f": 20,
+   "fi": 2.5,
+   "m": 10,
+   "ash": 8,
+   "ph": 0.8,
+   "mg": 0.09,
+   "tau": 0.21
+  },
+  "kcal_kg": 4604,
+  "ingredients": null,
+  "sources": [
+   {
+    "url": "https://petcurean.com/product/go-solutions-skin-coat-care-chicken-recipe-for-cats",
+    "date": "2026-11-25"
+   }
+  ],
+  "status": "partial",
+  "note": "官網標示熱量 4604 kcal/kg 偏高，待複核"
+ },
+ {
+  "site_ids": [
+   "p13042752",
+   "p14543070"
+  ],
+  "brand": "ZIWI 巔峰",
+  "line": "微蒸鮮肉（Steam & Dried）",
+  "flavor": "各口味",
+  "status": "kcal_only",
+  "kcal_kg": 4500,
+  "sources": [
+   {
+    "url": "https://ziwipets.com/products/steam-dried-beef-with-southern-blue-whiting-recipe-for-cats",
+    "date": "2026-11-25"
+   },
+   {
+    "url": "https://ziwipets.com/products/steam-dried-cage-free-chicken-with-whole-mackerel-recipe-for-cats",
+    "date": "2026-11-25"
+   }
+  ],
+  "note": "兩個口味官網熱量皆 4500 kcal/kg；保證分析未完整取得"
+ },
+ {
+  "site_ids": [
+   "p4780775",
+   "p4819316"
+  ],
+  "brand": "Orijen 歐睿健",
+  "line": "鮮雞愛貓（Original Cat）",
+  "flavor": "鮮雞愛貓",
+  "status": "kcal_only",
+  "kcal_kg": 4160,
+  "sources": [
+   {
+    "url": "https://www.orijenpetfoods.com/en-US/cats/cat-food/original-cat/ns-ori-catkitten.html",
+    "date": "2026-11-25"
+   }
+  ]
  }
 ]

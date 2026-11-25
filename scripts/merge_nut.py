@@ -4,6 +4,13 @@ site=json.load(open(sys.argv[1]))   # node 匯出的 PR/NUT 清單
 HTML='public/index.html'
 recs=[r for f in sorted(glob.glob('data/ingredients/*.json')) for r in json.load(open(f,encoding='utf-8'))]
 PR=site['PR']; have=set(site['NUT'])
+def finds(r):
+    if r.get('site_ids'): return [i for i in r['site_ids'] if any(p['id']==i for p in PR)]
+    if r.get('site_id'): return [r['site_id']]
+    if r.get('regex'):
+        b=r['brand'].split()[0].lower()
+        return [p['id'] for p in PR if p['f']=='dry' and p['b'].split()[0].lower().startswith(b[:4]) and re.search(r['regex'],p['n'])]
+    x=find(r); return [x] if x else []
 def find(r):
     if r.get('site_id'): return r['site_id']
     b=r['brand'].split()[0].lower()
@@ -21,14 +28,16 @@ def me(ga):
 by={}
 miss=[]
 for r in recs:
-    if r.get('status')=='unverified' or not r.get('ga'): continue
-    sid=find(r)
-    if not sid or sid in have: miss.append((r['brand'],r['line'],sid)); continue
-    by.setdefault(sid,[]).append(r)
+    if r.get('status')=='unverified': continue
+    if not r.get('ga') and not r.get('kcal_kg'): continue
+    ids=[i for i in finds(r) if i not in have]
+    if not ids: miss.append((r['brand'],r['line'])); continue
+    for sid in ids: by.setdefault(sid,[]).append(r)
 out=[]
 for sid,rs in by.items():
     def one(r):
         st={'kitten':'growth'}.get(r.get('stage'),r.get('stage') or 'all')
+        if not r.get('ga'): return {'nut':None,'set':{'kcal':r['kcal_kg'],'ks':'o'},'flavor':r.get('flavor')}
         nut={'t':'t' if ('皇家' in r['brand'] or 'Hill' in r['brand']) else 'g','stage':st,'ga':r['ga'],'src':r['sources'][0]['url'] if r['sources'] else ''}
         if r.get('ingredients'): nut['ing']=r['ingredients']
         if r.get('ingredients') and '皇家' in r['brand']: nut['full']=1
@@ -38,7 +47,7 @@ for sid,rs in by.items():
         if r.get('light'): s['light']=1
         return {'nut':nut,'set':s,'flavor':r.get('flavor')}
     fl=[one(r) for r in rs]
-    keep=any(r.get('status')=='unverified' and find(r)==sid for r in recs)
+    keep=any(r.get('status')=='unverified' and sid in finds(r) for r in recs)
     out.append({'id':sid,'fl':fl,'keep':keep})
 blk='// NUTGEN:BEGIN 由 scripts/merge_nut.py 產生，請勿手改\nconst NUTGEN='+json.dumps(out,ensure_ascii=False,separators=(',',':'))+';\n// NUTGEN:END'
 h=open(HTML,encoding='utf-8').read()
