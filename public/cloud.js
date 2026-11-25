@@ -17,7 +17,7 @@ const FEEDBACK_MAIL = 'fangyu7991@gmail.com';
 async function mailFeedback(d) {
   const res = await fetch('https://formsubmit.co/ajax/' + FEEDBACK_MAIL, {
     method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ _subject: '貓糧預算小幫手：新的改善建議', _template: 'table', _captcha: 'false',
+    body: JSON.stringify({ _subject: '貓糧精算師：新的改善建議', _template: 'table', _captcha: 'false',
       建議: d.msg, 聯絡方式: d.contact || '（未填）', 頁面: location.href, 時間: new Date().toLocaleString('zh-TW') }),
   });
   const j = await res.json().catch(() => ({}));
