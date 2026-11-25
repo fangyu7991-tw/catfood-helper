@@ -519,7 +519,7 @@ const P=id=>PR.find(p=>p.id===id);
 const OPEN=42;
 const sizesOf=p=>p.sizes||[[p.size,p.price]];
 const pick=(p,kd)=>{const d=Math.max(kd,1)/p.kcal,all=sizesOf(p).map(([kg,price])=>({kg,price,days:kg/d,pk:price/kg})),ok=all.filter(x=>x.days<=OPEN);const pool=ok.length?ok:[all[0]];return pool.reduce((a,b)=>b.pk<a.pk?b:a)};
-const OPENW=2;// 濕食開罐冷藏建議 2 天內吃完
+const OPENW=4;// 一罐開罐後（全家貓咪一起吃）最多 4 天要吃完；超過就不列入推薦
 const vsOf=p=>p.vs||[[p.g,p.pack,p.price]];
 const canVs=p=>{const v=vsOf(p),c=v.filter(x=>!x[3]);return c.length?c:v};// 有罐裝規格就只算罐裝
 const pickW=(p,kd)=>{const all=canVs(p).map(([g,pack,price])=>{const kc=g*p.k100/100;return {g,pack,price,kc,ppk:price/(pack*kc),canDays:kc/Math.max(kd,1)}}),ok=all.filter(x=>x.canDays<=OPENW),pool=ok.length?ok:[all.reduce((a,b)=>b.g<a.g?b:a)];return pool.reduce((a,b)=>b.ppk<a.ppk?b:a)};
@@ -615,7 +615,10 @@ function compute(){
  const cand=[];
  const ds=dry.length?dry:[null],ws=wet.length?wet:[null];
  for(const d of ds)for(const w of ws){
-  for(let i=10;i>=0;i--){const s=i/10;if(!d&&s<1)break;if(!w&&s>0)continue;const c=cost(d,w,s);if(c<=B)cand.push({d,w,s,cost:c})}
+  // 濕食比例 5% 一格，另外加上「最小一罐剛好 4 天吃完」的比例；一罐超過 4 天吃不完的組合不列入
+  const ss=[];for(let i=20;i>=0;i--)ss.push(i/20);
+  if(w&&K>0){const mk=Math.min(...canVs(w).map(([g])=>g*w.k100/100)),sm=Math.ceil(mk/OPENW/K*100)/100;if(sm>0&&sm<1)ss.push(sm)}
+  for(const s of ss){if(!d&&s<1)continue;if(!w&&s>0)continue;if(w&&s>0&&pickW(w,K*s).canDays>OPENW+1e-9)continue;const c=cost(d,w,s);if(c<=B)cand.push({d,w,s,cost:c})}
  }
  cand.forEach(o=>o.sc=score(o));cand.sort((a,b)=>b.sc-a.sc);
  const plans=[];
@@ -626,7 +629,7 @@ function compute(){
   if(al){const M=cand.slice().sort((a,b)=>b.s-a.s||b.sc-a.sc)[0];if(M&&M.s>A.s)plans.push({...M,t:'濕食最多',why:'預算內濕食比例最高'})}
   const C=cand.find(o=>o.w&&A.w&&o.w.pr!==A.w.pr&&!plans.some(q=>q.w===o.w&&q.d===o.d))||cand.find(o=>(o.w!==A.w||o.d!==A.d)&&!plans.some(q=>q.w===o.w&&q.d===o.d));
   if(C&&plans.length<2)plans.push({...C,t:'換換口味',why:'換一種主要蛋白質'});
-  if(A.s>=.2){const s=Math.round((A.s-.2)*10)/10;plans.push({d:A.d,w:A.w,s,cost:cost(A.d,A.w,s),t:'省一點',why:'同樣的食物，少一點濕食'})}
+  if(A.s>=.2){const s=Math.round((A.s-.2)*100)/100;if(!(A.w&&s>0&&pickW(A.w,K*s).canDays>OPENW+1e-9))plans.push({d:A.d,w:A.w,s,cost:cost(A.d,A.w,s),t:'省一點',why:'同樣的食物，少一點濕食'})}
  }
  const minAll=dry.length?K*30*Math.min(...dry.map(p=>cpkAt(p,K))):null;
  return {cats,sh,rxC,K,B,kit,loss,plans,minAll,dry,wet,markP};
@@ -636,7 +639,7 @@ function buildItems(R,pl){
  const fav=p=>R.sh.filter(x=>R.markP(p,x.c)==='h').map(x=>x.c.name);
  if(pl.d&&pl.s<1)it.push({p:pl.d,k:R.K*(1-pl.s),who:R.sh.map(x=>x.c.name),fav:fav(pl.d)});
  if(pl.w&&pl.s>0)it.push({p:pl.w,k:R.K*pl.s,who:R.sh.map(x=>x.c.name),fav:fav(pl.w)});
- return it.map(i=>{const z=i.p.f==='dry'?pick(i.p,i.k):null,zw=z?null:pickW(i.p,i.k),uk=z?z.kg*i.p.kcal:zw.pack*zw.kc,up=z?z.price:zw.price,u=i.k*30/uk,n=Math.max(1,Math.ceil(u-.03));return {...i,z,zw,n,price:n*up,days:n*uk/i.k,monthly:i.k*30*up/uk,daily:z?Math.round(i.k/i.p.kcal*1000)+' g':(i.k/zw.kc).toFixed(1)+' '+cu(i.p)}});
+ return it.map(i=>{const z=i.p.f==='dry'?pick(i.p,i.k):null,zw=z?null:pickW(i.p,i.k),uk=z?z.kg*i.p.kcal:zw.pack*zw.kc,up=z?z.price:zw.price,u=i.k*30/uk,n=Math.max(1,Math.ceil(u-.03));return {...i,z,zw,n,price:n*up,days:n*uk/i.k,monthly:i.k*30*up/uk,daily:z?Math.round(i.k/i.p.kcal*1000)+' g':Math.round(i.k/i.p.k100*100)+' g（約 '+(i.k/zw.kc).toFixed(2).replace(/0$/,'')+' '+cu(i.p)+'）'}});
 }
 const WK='日一二三四五六';
 const addD=d=>{const x=new Date(today);x.setDate(x.getDate()+Math.floor(d));return x};
@@ -674,7 +677,7 @@ function renderPlan(){
  slip.innerHTML=`<div class="sum"><div><div class="k">這次購買</div><div class="big">${nt(once)}</div></div><div><div class="k">平均每月</div><div class="big">${nt(mon)}</div></div><div class="full"><div class="k">下次補貨・${Math.floor(last)} 天後吃完</div><div class="dtr"><span class="big">${md(last)}</span><span class="dt">${fullD(last)}</span><a class="cal" href="${gcal(last,'貓糧補貨：'+its.filter(i=>Math.floor(i.days)===Math.floor(last)).map(i=>i.p.b+i.p.n).join('、'),'這次的組合：\n'+its.map(i=>`${i.p.b}｜${i.p.n} × ${i.z?i.n+' 袋':i.n*i.zw.pack+' '+cu(i.p)}，可吃 ${Math.floor(i.days)} 天（${fullD(i.days)} 補）`).join('\n')+'\n\n由貓糧精算師建立')}" target="_blank" rel="noopener">${calIco}加到 Google 日曆</a></div></div></div>`
  +rxLine
  +(R.K>0?`<div class="mix"><div class="row" style="justify-content:space-between;font-size:14px"><span>共食熱量來源</span><span>乾糧 ${100-wp}%・濕食 ${wp}%</span></div><div class="mixbar"><i style="width:${100-wp}%"></i><i style="width:${wp}%"></i></div></div>`:'')
- +its.map(i=>`<div class="it">${icon(i.p)}<div><h3>${esc(i.p.b)}｜${esc(i.p.n)}</h3><div class="meta">${esc(i.who.join('、'))}・每天約 ${i.daily}${i.fav.length?`・<b>♥ ${esc(i.fav.join('、'))}愛吃</b>`:''}${i.z?`・一包約 ${Math.round(i.z.days)} 天吃完`:''}${i.p.est?'（熱量待補，份量為估算）':''}${(()=>{const r=flags(i.p,PS().cats);const w=r?r.F.filter(x=>x.lv===4):[];return w.length?`<br><b>⚠ ${w.map(x=>esc(x.t)).join('；')}</b>`:''})()}${i.zw&&i.zw.canDays>OPENW?`<br><b>一${cu(i.p)}約 ${i.zw.canDays.toFixed(1)} 天才吃完，開${isPouch(i.p)?'封':'罐'}後請冷藏、2 天內吃完</b>`:''}${i.z&&i.z.days>OPEN?`<br><b>超過開封後建議的 6 週，${sizesOf(i.p).length>1?'已是最小包裝，':''}請分裝密封保存</b>`:''}</div></div><div class="num"><b>${i.z?i.n+' 袋':i.n*i.zw.pack+' '+cu(i.p)}</b><div class="meta">${i.z?i.z.kg+' kg 裝':(i.n>1?i.n+' 箱・':'')+'每箱 '+i.zw.pack+' '+cu(i.p)+' × '+i.zw.g+' g'}</div><div class="meta">${nt(i.price)}</div><button type="button" class="chip" style="margin-top:8px" data-save="${i.p.id}">${S.saved.includes(i.p.id)?'已儲存':'＋ 儲存'}</button></div><div class="days"><div class="track"><i style="width:${Math.min(100,i.days/60*100)}%"></i></div><span class="num">可吃 ${Math.floor(i.days)} 天・${fullD(i.days)} 補</span></div></div>`).join('');
+ +its.map(i=>`<div class="it">${icon(i.p)}<div><h3>${esc(i.p.b)}｜${esc(i.p.n)}</h3><div class="meta">${esc(i.who.join('、'))}・每天約 ${i.daily}${i.fav.length?`・<b>♥ ${esc(i.fav.join('、'))}愛吃</b>`:''}${i.z?`・一包約 ${Math.round(i.z.days)} 天吃完`:''}${i.p.est?'（熱量待補，份量為估算）':''}${(()=>{const r=flags(i.p,PS().cats);const w=r?r.F.filter(x=>x.lv===4):[];return w.length?`<br><b>⚠ ${w.map(x=>esc(x.t)).join('；')}</b>`:''})()}${i.zw?`・一${cu(i.p)}約 ${i.zw.canDays.toFixed(1)} 天吃完（開${isPouch(i.p)?'封':'罐'}後冷藏）`:''}${i.zw&&i.zw.canDays>OPENW?`<br><b>一${cu(i.p)}要 ${i.zw.canDays.toFixed(1)} 天才吃完，超過 ${OPENW} 天，建議分裝冷凍</b>`:''}${i.z&&i.z.days>OPEN?`<br><b>超過開封後建議的 6 週，${sizesOf(i.p).length>1?'已是最小包裝，':''}請分裝密封保存</b>`:''}</div></div><div class="num"><b>${i.z?i.n+' 袋':i.n*i.zw.pack+' '+cu(i.p)}</b><div class="meta">${i.z?i.z.kg+' kg 裝':(i.n>1?i.n+' 箱・':'')+'每箱 '+i.zw.pack+' '+cu(i.p)+' × '+i.zw.g+' g'}</div><div class="meta">${nt(i.price)}</div><button type="button" class="chip" style="margin-top:8px" data-save="${i.p.id}">${S.saved.includes(i.p.id)?'已儲存':'＋ 儲存'}</button></div><div class="days"><div class="track"><i style="width:${Math.min(100,i.days/60*100)}%"></i></div><span class="num">可吃 ${Math.floor(i.days)} 天・${fullD(i.days)} 補</span></div></div>`).join('');
 }
 
 function renderKit(){
