@@ -1834,5 +1834,233 @@
     "date": "2026-11-25"
    }
   ]
+ },
+ {
+  "site_code": "S33W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "腸胃保健主食濕糧 S33W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 9.5,
+   "f": 3.5,
+   "fi": 0.7,
+   "ash": 1.7,
+   "m": 80
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "穀物",
+   "礦物質",
+   "蔬菜纖維",
+   "植物蛋白萃取",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/digest-sensitive-gravy-4076",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_code": "UC33W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "泌尿道保健主食濕糧 UC33W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 9.2,
+   "f": 3,
+   "fi": 0.7,
+   "ash": 1.6,
+   "m": 81.7
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "穀物",
+   "礦物質",
+   "蔬菜纖維",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://royalcanin.com/tw/cats/products/retail-products/urinary-care-gravy",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_code": "BC34W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "離乳貓與母貓主食濕糧 BC34W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "kitten",
+  "ga": {
+   "p": 10.5,
+   "f": 5.5,
+   "fi": 0.8,
+   "ash": 1.7,
+   "m": 78.7
+  },
+  "kcal_kg": 990,
+  "ingredients": [
+   "肉及相關產品",
+   "油脂",
+   "穀物",
+   "奶類及相關產品",
+   "蔬菜纖維",
+   "礦物質",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/mother-&-babycat-ultra-soft-mousse-4098",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_code": "K36W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "幼貓主食濕糧 K36W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "kitten",
+  "ga": {
+   "p": 12,
+   "f": 4,
+   "fi": 0.7,
+   "ash": 1.7,
+   "m": 78.2
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "植物蛋白萃取物",
+   "穀物",
+   "奶類及相關產品",
+   "礦物質",
+   "油脂",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/kitten--chunks-in-gravy-4058",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_code": "IH34W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "有效化毛主食濕糧 IH34W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 11,
+   "f": 2.7,
+   "fi": 0.7,
+   "ash": 1.8,
+   "m": 81.1
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "魚及魚肉相關產品",
+   "植物蛋白萃取",
+   "穀物",
+   "礦物質",
+   "蔬菜纖維",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/hairball-care-gravy-4158",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
+ },
+ {
+  "site_code": "L40W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "體重控制主食濕糧 L40W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 10,
+   "f": 2.1,
+   "fi": 1.2,
+   "ash": 1.7,
+   "m": 82
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "穀物",
+   "蔬菜纖維",
+   "礦物質",
+   "植物蛋白萃取",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/light-weight-care-gravy-4070",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified",
+  "light": 1
+ },
+ {
+  "site_code": "F32W",
+  "f": "wet",
+  "brand": "ROYAL 法國皇家",
+  "line": "理想體態主食濕糧 F32W",
+  "flavor": "單一配方",
+  "protein_source": "綜合",
+  "stage": "adult",
+  "ga": {
+   "p": 11.8,
+   "f": 2.5,
+   "fi": 0.8,
+   "ash": 1.6,
+   "m": 79.5
+  },
+  "kcal_kg": null,
+  "ingredients": [
+   "肉及相關產品",
+   "魚及魚肉相關產品",
+   "植物蛋白萃取",
+   "穀物",
+   "礦物質",
+   "蔬菜纖維",
+   "酵母"
+  ],
+  "sources": [
+   {
+    "url": "https://www.royalcanin.com/tw/cats/products/retail-products/instinctive-gravy-4059",
+    "date": "2026-11-26"
+   }
+  ],
+  "status": "verified"
  }
 ]

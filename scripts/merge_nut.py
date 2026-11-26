@@ -9,16 +9,16 @@ def finds(r):
     if r.get('site_id'): return [r['site_id']]
     if r.get('regex'):
         b=r['brand'].split()[0].lower()
-        return [p['id'] for p in PR if p['f']=='dry' and p['b'].split()[0].lower().startswith(b[:4]) and re.search(r['regex'],p['n'])]
-    x=find(r); return [x] if x else []
+        return [p['id'] for p in PR if p['f']==r.get('f','dry') and p['b'].split()[0].lower().startswith(b[:4]) and re.search(r['regex'],p['n'])]
+    x=find(r); return (x if isinstance(x,list) else [x]) if x else []
 def find(r):
     if r.get('site_id'): return r['site_id']
     b=r['brand'].split()[0].lower()
-    cands=[p for p in PR if p['f']=='dry' and p['b'].split()[0].lower().startswith(b[:4])]
+    cands=[p for p in PR if p['f']==r.get('f','dry') and p['b'].split()[0].lower().startswith(b[:4])]
     if r.get('site_code'):
         c=re.escape(r['site_code'])
         hit=[p for p in cands if re.search(r'(?<![A-Za-z0-9+])'+c+r'(?![A-Za-z0-9+])',p['n'])]
-        return hit[0]['id'] if hit else None
+        return [h['id'] for h in hit] if hit else None
     if r.get('match'):
         hit=[p for p in cands if all(w in p['n'] for w in r['match'].split())]
         return hit[0]['id'] if hit else None
@@ -37,11 +37,12 @@ out=[]
 for sid,rs in by.items():
     def one(r):
         st={'kitten':'growth'}.get(r.get('stage'),r.get('stage') or 'all')
-        if not r.get('ga'): return {'nut':None,'set':{'kcal':r['kcal_kg'],'ks':'o'},'flavor':r.get('flavor')}
+        if not r.get('ga'): return {'nut':None,'set':({'k100':round(r['kcal_kg']/10,1)} if r.get('f')=='wet' else {'kcal':r['kcal_kg']})|{'ks':'o'},'flavor':r.get('flavor')}
         nut={'t':'t' if ('皇家' in r['brand'] or 'Hill' in r['brand']) else 'g','stage':st,'ga':r['ga'],'src':r['sources'][0]['url'] if r['sources'] else ''}
         if r.get('ingredients'): nut['ing']=r['ingredients']
         if r.get('ingredients') and '皇家' in r['brand']: nut['full']=1
-        k=r.get('kcal_kg'); s={'kcal':k,'ks':'o'} if k else {'kcal':me(r['ga']),'ks':'c'}
+        k=r.get('kcal_kg'); kk=k if k else me(r['ga']); ks='o' if k else 'c'
+        s={'k100':round(kk/10,1),'ks':ks} if r.get('f')=='wet' else {'kcal':kk,'ks':ks}
         pr={'禽肉':'雞','魚':'魚'}.get(r.get('protein_source'),'綜合')
         s.update(pr=pr)
         if r.get('light'): s['light']=1
